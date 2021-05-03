@@ -1,0 +1,13 @@
+{
+  "name": "python-solutions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+        "push": "git add . && git commit -m \" Updates\" && git push"
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
