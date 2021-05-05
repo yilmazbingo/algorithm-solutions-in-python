@@ -1,3 +1,12 @@
+"""
+On a given nxn chessboard, a knight piece will start at the r-th row and c-th column. The knight will attempst to make k moves.
+A knight can be move in 8 possible ways. Each move will choose one of these 8 at random. The knight continues
+moving until it finishes k moves or it moves off the chessboard.
+Return the porbability that the knight is on the chessboard after it finishes its moving.
+
+A knight can move in shape of L.
+"""
+
 DIRECTIONS = [
   [-2, -1],
   [-2, 1],
