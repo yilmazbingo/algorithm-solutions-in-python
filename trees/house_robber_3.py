@@ -8,7 +8,9 @@ Given the root of the binary tree, return the maximum amount of money the thief 
 # We have two cases. ! case with_root another case is without_root
 # if we include the root, we have to skip the next level
 # if we skip level, we can choose next level or we can even skip it if its child is greater. No restriction
-# T: O(n) because we visit each node only one time. 
+# T: O(n) because we visit each node only one time.
+#Time complexity: O(N) since we run the helper function for all nodes once, and saved the results to prevent the second calculation.
+# Space complexity: O(N) since we need two maps with the size of O(N) to store the results, and O(N) space for stacks to start recursion.
 class Solution:
     def rob(self,root:TreeNoe)->int:
         # returns pair [with_root,without_root]
