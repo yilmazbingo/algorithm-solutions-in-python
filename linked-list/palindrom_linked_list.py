@@ -16,12 +16,16 @@ class Solution:
     def optimum(self,head:ListNode)->bool:
         fast_pointer=head
         slow_pointer=head
+        # I wanna reach the end of the linked list. I stop when fast_pointer.next=None
         while fast_pointer and fast_pointer.next:
             # we are forwarding fast_pointer twice
             fast_pointer=fast_pointer.next.next
             # while slow reach middle, fast will reach to the end
             slow_pointer=slow_pointer.next
-        # reverse the second half of the list
+            # at the end of this while loop, slow_pointer will be in middle, fast_pointer will be at the end
+
+        # reverse the second half of the list, from slow_pointer till the fast_pointer
+        # at the end of the reverse, prev will point to the last node
         prev=None
         while slow_pointer:
             temp=slow_pointer.next
@@ -30,6 +34,7 @@ class Solution:
             prev=slow_pointer
             slow_pointer=temp
         # check if it is a palindrome
+        # remember, after reversing, prev=tail
         left,right=head,prev
         while right:
             if left.val!=right.val:
