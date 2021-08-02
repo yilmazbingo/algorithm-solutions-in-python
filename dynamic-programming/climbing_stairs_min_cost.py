@@ -4,7 +4,8 @@ Once you pay the cost for a step , you can either climb one or two steps.
 Find the minimum cost to reach the top of the staircase. Your first step can either be the first or second step.
 """
 from typing import List
-# T:O(N), S:O(N) for both but runnnig tabulation mthod is faster with python %timeit on jupyter
+# T:O(N), S:O(N) for min_cost and tabulation but runnnig tabulation mthod is faster with python %timeit on jupyter
+# tabulation_optimized: T:O(N) S:O(1)
 class Solution:
     def min_cost(self,nums:List[int])->int:
         def climbing(i,memo={}):
@@ -26,10 +27,19 @@ class Solution:
         for i in range(2,len(nums)):
             dp[i]=nums[i]+min(dp[i-1],dp[i-2])
         return min(dp[-1],dp[-2])
+    def tabulation_optimized(self,nums:List[int]):
+        first=nums[0]
+        second=nums[1]
+        for i in range(2,len(nums)):
+            temp=second
+            second=nums[i]+min(first,second)
+            first=temp
+        return min(first,second)
 
 
 s=Solution()
 print(s.min_cost([1, 4, 22, 11, 22]))
 print(s.tabulation([1, 4, 22, 11, 22]))
+print(s.tabulation_optimized([1, 4, 22, 11, 22]))
 
 
