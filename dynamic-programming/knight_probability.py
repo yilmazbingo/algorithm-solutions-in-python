@@ -7,7 +7,11 @@ Return the porbability that the knight is on the chessboard after it finishes it
 A knight can move in shape of L.
 """
 
-DIRECTIONS = [
+# knight has a cetain probability based on where on the chessboard
+class Solution:
+    def __init__(self):
+        self.res=0
+        self.directions=[
   [-2, -1],
   [-2, 1],
   [-1, 2],
@@ -16,37 +20,60 @@ DIRECTIONS = [
   [2, -1],
   [1, -2],
   [-1, -2],
-];
-def knight_probability(size,moves,col,row):
-    if row<0 or row>=size or col<0 or col>=size:
-        return 0
-    if moves==0:
-        return 1
-    res=0
-    for dir in DIRECTIONS:
-        res+=knight_probability(size,moves-1,row+dir[0],col+dir[1])/8
-    return res
-print(knight_probability(8, 2, 4, 4))
-# T:O(8^moves) S: O(8^moves)
-
-def memoized(size, moves, row, col):
-    dp = [[[None] * size for i in [0] * size] for i in [0] * (moves + 1)]
-    print(len(dp))
-    return recurse(size, moves, row, col, dp)
-
-
-def recurse(size, moves, row, col, dp):
-    if row < 0 or row >= size or col < 0 or col >= size:
-        return 0
-    if moves == 0:
-        return 1
-    if dp[moves][row][col] != None:
-        return dp[moves][row][col]
-    res = 0
-    for dir in DIRECTIONS:
-        res += recurse(size, moves - 1, row + dir[0], col + dir[1], dp) / 8
-    dp[moves][row][col] = res
-    return dp[moves][row][col]
+]
+    def unoptimized(self,size,moves,col,row):
+        def dfs(size,moves,col,row):
+            res=0
+            if row < 0 or row >= size or col < 0 or col >= size:
+                return 0
+            if moves==0:
+                return 1
+            for dir in self.directions:
+                res +=dfs(size,moves-1,row+dir[0],col+dir[1])/8
+            return res
+        return  dfs(size,moves,col,row)
+    def memoized(self,size,moves,col,row):
+        def dfs(size,moves,col,row,memo={}):
+            key=str(moves) + "," + str(row) + "," + str(col)
+            res=0
+            if key in memo:
+                return memo[key]
+            if row<0 or row>=size or col<0 or col>=size:
+                return 0
+            if moves==0:
+                return 1
+            for dir in self.directions:
+                res += dfs(size, moves - 1, row + dir[0], col + dir[1]) / 8
+            memo[key]=res
+            return memo[key]
+        return dfs(size,moves,col,row)
 
 
-print(memoized(8, 2, 3, 3))
+    ## I HAVE TO WORK ON THIS
+    def tabulation(self,size,moves,col,row):
+        dp=[ [[0 for i in range(moves)]  for x in range(size+1)] for y in range(size+1)]
+        print(dp)
+        # this is starting point.
+        dp[0][row][col]=1
+        for move in range(1,moves+1):
+            for r in range(row):
+                for c in range(col):
+                    for dir in self.directions:
+                        prev_row=r+dir[0]
+                        prev_col=c+dir[1]
+                        if c<=size and c>0 and r>0 and r<=size:
+                            dp[move][r][c]+=dp[move-1][prev_row][prev_col]/8
+        res=0
+        for i in range(size):
+            for j in range(size):
+                res+=dp[moves][i][j]
+        return res
+
+
+
+s=Solution()
+print(s.unoptimized(3,2,0,0))
+print(s.memoized(3,2,0,0))
+print(s.tabulation(3,2,0,0))
+
+

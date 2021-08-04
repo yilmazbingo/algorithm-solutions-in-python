@@ -21,13 +21,17 @@ class Solution:
             #return nums[i] + min(climbing(i - 1), climbing(i - 2))
         return min(climbing(len(nums)-1),climbing(len(nums)-2))
     def tabulation(self,nums:List[int]):
+        if len(nums) == 1:
+            return nums[0]
         dp=[0] * len(nums)
         dp[0]=nums[0]
         dp[1]=nums[1]
         for i in range(2,len(nums)):
             dp[i]=nums[i]+min(dp[i-1],dp[i-2])
         return min(dp[-1],dp[-2])
-    def tabulation_optimized(self,nums:List[int]):
+    def tabulation_optimized(self,nums:List[int])->int:
+        if len(nums) == 1:
+            return nums[0]
         first=nums[0]
         second=nums[1]
         for i in range(2,len(nums)):
@@ -35,6 +39,9 @@ class Solution:
             second=nums[i]+min(first,second)
             first=temp
         return min(first,second)
+
+
+
 
 
 s=Solution()
