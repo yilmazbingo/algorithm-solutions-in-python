@@ -1,11 +1,11 @@
 from typing import List
 class Solution:
-    def permute(self,nums:List[int])->List[List[int]]:
+    def best(self,nums:List[int])->List[List[int]]:
         result=[]
-        if(len(nums)==1):
-            # return [nums.copy()]
+        if len(nums)==1:
+            # this is way faster than [nums.copy()]
             return [nums[:]]
-        for i  in range(len(nums)):
+        for i in range(len(nums)):
             n=nums.pop(0)
             perms=self.permute(nums)
             for perm in perms:
@@ -14,7 +14,7 @@ class Solution:
             nums.append(n)
         return result
 
-    def permutation(self,nums):
+    def permute(self,nums):
         if len(nums) == 0:
             return []
         if len(nums) == 1:
@@ -26,7 +26,10 @@ class Solution:
             m = nums[i]
             remaining_list = nums[:i] + nums[i + 1:]
             # Generating all permutations where m is first element
-            for p in self.permutation(remaining_list):
-                print(p)
+            for p in self.permute(remaining_list):
                 result.append([m] + p)
         return result
+
+s=Solution()
+print("best",s.best([1,2,3]))
+print(s.permute([1,2,3]))
