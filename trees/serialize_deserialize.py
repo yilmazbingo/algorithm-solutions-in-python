@@ -1,11 +1,24 @@
-# serialize with preorder
+'''
+Design an algorithm to serialize and deserialize a binary tree. There is no restriction on how your
+serialization/deserialization algorithm should work. You just need to ensure that a binary tree can be serialized to a string and this string can be deserialized to the original tree structure.
 
-from treetoy import TreeNode
+Clarification: The input/output format is the same as how LeetCode serializes a binary tree. You do not necessarily need to follow this format, so please be creative and come up with different approaches yourself.
+
+'''
+class TreeNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+
 class Codec:
+    def __init__(self):
+        self.i=0
     def serialize(self,root:TreeNode):
         res=[]
         def dfs(node):
             if not node:
+                # N is for null means node has no child
                 res.append("N")
                 return
             res.append(str(root.val))
@@ -16,9 +29,8 @@ class Codec:
 
     def deserialize(self,data):
         values=data.split(",")
-        self.i=0
         def dfs():
-            if values[i]=="N":
+            if values[self.i]=="N":
                 self.i+=1
                 return None
             node=TreeNode(int(values[self.i]))
