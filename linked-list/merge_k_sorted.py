@@ -15,6 +15,8 @@ class Solution:
                 # if we had odd number of list we migh go out of bounds
                 l2=lists[i+1] if (i+1)<len(lists) else None
                 merged_lists.append(self.merge_two(l1,l2))
+            # after first round we merged each pair and passed and append to merged_lists
+            # now we keep merging the merged_lists until there is only one list in lists
             lists=merged_lists
         return lists[0]
 

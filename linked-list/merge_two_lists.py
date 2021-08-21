@@ -1,6 +1,8 @@
 # Merge two sorted linked lists and return in as a new sorted list.
 # each list might be different size
 
+from List_Node import ListNode
+
 class Solution:
     def merge(self,l1:ListNode,l2:ListNode)->ListNode:
         # this is the node that points to the beginning of the merged list.

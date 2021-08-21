@@ -1,4 +1,4 @@
-# Given a reference of a node in connected undirected graph, return a deep copy of graph
+# Given a reference of a node in CONNECTED UNDIRECTED graph, return a deep copy of graph
 
 class Node(object):
     def __init__(self, val = 0, neighbors = None):
@@ -7,7 +7,7 @@ class Node(object):
 class Solution:
     def clone(self,node):
         old_to_new={}
-
+        # from start, we do till last item one way, when we react the last, we pop out and do the reverse
         def dfs(node):
             if node in old_to_new:
                 return old_to_new[node]
@@ -16,6 +16,7 @@ class Solution:
             old_to_new[node]=copy
             # we are copyigh the neighbors array
             for nei in node.neighbors:
+                # dfs(nei) will create the copy of the neighbor and we append it to the node's neighbors
                 copy.neighbors.append(dfs(nei))
             return copy
         return dfs(node) if node else None
