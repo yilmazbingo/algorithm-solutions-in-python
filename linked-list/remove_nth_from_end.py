@@ -1,5 +1,6 @@
 # remove the nth node from the end
 
+from List_Node import ListNode
 class Solution:
     def remove(self,head:ListNode,n:int)->ListNode:
         dummy=ListNode(0,head)

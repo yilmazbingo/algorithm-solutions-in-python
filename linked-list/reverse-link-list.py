@@ -5,6 +5,8 @@
 # ----------- RECURSIVE SOLUTION ----------
 # T:O(N) but S:O(N) as well
 # Subproblem is reversing the rest of the linked list
+
+from List_Node import ListNode
 class Solution:
     def recursive(self,head:ListNode)->ListNode:
         if not head:
@@ -19,9 +21,15 @@ class Solution:
     def iterative(head):
         current = head
         prev = None
+        # shift prev to current, shift current to current.next. since this breaks the link, we need to save current.next
         while current:
             next = current.next
             current.next = prev
             prev = current
             current = next
+        # at the end of the while loop, prev will the new head
+        # if i did not set the temp, current.next would no longer points to the next node in linked list
+            current.next=prev
+            prev= current
+            current.next
         return prev
