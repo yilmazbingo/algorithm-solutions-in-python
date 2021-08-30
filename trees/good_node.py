@@ -1,7 +1,7 @@
 # if value of each node from path till the node is smaller than node.value, that node is good value
 # Return the number of good nodes
 
-from treetoy import TreeNode
+from TreeNode import TreeNode
 
 class Solution:
     def goodNodes(self,root:TreeNode)->int:

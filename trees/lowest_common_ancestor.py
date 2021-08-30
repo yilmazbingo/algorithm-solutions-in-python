@@ -1,6 +1,7 @@
 # find the lowest common ancestor of two given nodes
 # root is the common ancestor of every single node in the tree
 # time complexity is the O(Log(n)) height of the tree. Because we are visiting only one node for each level
+from TreeNode import TreeNode
 
 class Solution:
     def lowest(self,root:TreeNode,p:TreeNode,q:TreeNode):

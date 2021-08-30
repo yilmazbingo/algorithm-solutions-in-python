@@ -1,7 +1,8 @@
 # invert the binary tree.
 # root stays same
 
-from treetoy import TreeNode
+from TreeNode import TreeNode
+
 
 class Solution:
     def invert(self,root:TreeNode)->TreeNode:

@@ -3,6 +3,9 @@
 #Otherwise NOT null node will be used as the node of new tree.
 
 # O(n+m) time because we are traversing
+
+from TreeNode import TreeNode
+
 class Solution:
     def merge(self,root1:TreeNode,root2:TreeNode)->TreeNode:
         # we are going to create a brand new tree

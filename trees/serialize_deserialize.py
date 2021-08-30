@@ -5,11 +5,6 @@ serialization/deserialization algorithm should work. You just need to ensure tha
 Clarification: The input/output format is the same as how LeetCode serializes a binary tree. You do not necessarily need to follow this format, so please be creative and come up with different approaches yourself.
 
 '''
-class TreeNode(object):
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
 
 class Codec:
     def __init__(self):

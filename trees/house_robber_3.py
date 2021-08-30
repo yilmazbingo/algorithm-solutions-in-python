@@ -12,6 +12,8 @@ Given the root of the binary tree, return the maximum amount of money the thief 
 # T: O(n) because we visit each node only one time.
 #Time complexity: O(N) since we run the helper function for all nodes once, and saved the results to prevent the second calculation.
 # Space complexity: O(N) since we need two maps with the size of O(N) to store the results, and O(N) space for stacks to start recursion.
+from TreeNode import TreeNode
+
 class Solution:
     def rob(self,root:TreeNoe)->int:
         # returns pair [with_root,without_root]
