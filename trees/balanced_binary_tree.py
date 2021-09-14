@@ -6,7 +6,7 @@ a binary tree in which the left and right subtrees of every node differ in heigh
 from TreeNode import TreeNode
 from typing import Optional
 
-
+# if I started from root and check each subtree's balanced or not, T would be O(n^2)
 class Solution:
     def isBalanced(self, root: Optional[TreeNode]) -> bool:
         def dfs(root):
@@ -14,6 +14,7 @@ class Solution:
                 return [True,0]
             # with recursion, we start from bottom, so we do not have repetitive work
             left,right=dfs(root.left),dfs(root.right)
+            # if any of the subtree return false, then we know entire tree is not balanced
             balanced=left[0] and right[0] and abs(left[1]-right[1])<=1
             # 1+max(left[1],right[1]) is the height of the each subtree
             return [balanced,1+max(left[1],right[1])]

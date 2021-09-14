@@ -3,7 +3,8 @@
 
 from TreeNode import TreeNode
 
-
+# take the root and swap the children
+# preorder DFS
 class Solution:
     def invert(self,root:TreeNode)->TreeNode:
         if not root:

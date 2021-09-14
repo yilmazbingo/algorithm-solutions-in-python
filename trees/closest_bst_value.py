@@ -4,8 +4,6 @@ Given a non-empty binary search tree and a target value, find the value in the B
 
 # I think it must mention that bst eleements are positive
 
-
-
 class Solution:
     def closestValue(self, root, target):
         # write your code here
