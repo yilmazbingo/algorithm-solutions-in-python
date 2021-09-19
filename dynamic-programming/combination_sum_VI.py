@@ -17,44 +17,30 @@ class Solution:
             remainder = target - num
             count += self.unoptimized(nums, remainder)
         return count
-    def optimized(self, nums: List[int], target: int, memo={}) -> int:
-
-        if target in memo:
-            return memo[target]
-
-        if target == 0:
-            return 1
-        if target < 0:
-            return 0
-        count = 0
-        for num in nums:
-            remainder = target - num
-            count += self.optimized(nums, remainder)
-
-        memo[target] = count
-        return count
-
-
-class Solution:
-    def solve(self, nums, target, memo):
-        if target in memo:
-            return memo[target]
-
-        if target == 0:
-            return 1
-        if target < 0:
-            return 0
-        count = 0
-        for num in nums:
-            remainder = target - num
-            count += self.solve(nums, remainder, memo)
-
-        memo[target] = count
-        return count
 
     def combinationSum4(self, nums: List[int], target: int) -> int:
         # Calling the function
-        return self.solve(nums, target, {})
+
+        def solve(target, memo):
+            if target in memo:
+                return memo[target]
+            if target == 0:
+                return 1
+            if target < 0:
+                return 0
+            count = 0
+            for num in nums:
+                remainder = target - num
+                count += solve(remainder, memo)
+
+            memo[target] = count
+            return count
+
+        return solve(target, {})
+
+
+
+
 
 
 s=Solution()
