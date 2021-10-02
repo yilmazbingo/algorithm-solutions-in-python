@@ -7,7 +7,7 @@ class Solution:
             return [nums[:]]
         for i in range(len(nums)):
             n=nums.pop(0)
-            perms=self.permute(nums)
+            perms=self.best(nums)
             for perm in perms:
                 perm.append(n)
             result.extend(perms)

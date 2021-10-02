@@ -1,5 +1,5 @@
 # Given a set of distinct integers, nums, return all possible subsets
-# Set must not contain duplicate subsets
+# Set must not contain duplicate subsets. it is not permutaion
 
 # T:O(N*2^N)
 from typing import List
@@ -18,8 +18,9 @@ class Solution:
             # recursively run dfs on next eleement
             # eachd dfs has a different subset given
             dfs(i+1)
-            # not to include nums[i]
+            # decision not to include nums[i]
             subset.pop()
+            # above dfs(i+1) is different because it will have a different subset
             dfs(i+1)
         dfs(0)
         return res

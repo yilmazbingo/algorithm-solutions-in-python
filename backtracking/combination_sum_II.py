@@ -9,6 +9,8 @@ Each number in candidates may only be used once in the combination.
 Note: The solution set must not contain duplicate combinations.
 '''
 
+# In first combinationSum array has distinct values but here not. That is why its decision tree is different
+
 # T:O(2^N)
 from typing import List
 class Solution:
@@ -20,7 +22,9 @@ class Solution:
                 res.append(cur.copy())
             if target<=0:
                 return
+            # we sorted first then we check if next value is the same as current.
             prev=-1
+            # since each value can be used only once we use for loop
             for i in range(pos,len(candidates)):
                 if candidates[i]==prev:
                     continue
