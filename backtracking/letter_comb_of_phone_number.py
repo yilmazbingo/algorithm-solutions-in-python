@@ -1,4 +1,7 @@
 from typing import List
+
+# ALWAYS CREATE THE DECISION TREE
+# T:O(4 ^ N) BECASUE 9->{XWYZ} wors secenoria
 class Solution:
     def backtracking(self, ans, m, digits, combination, index):
         if(index > len(digits)):

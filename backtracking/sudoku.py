@@ -1,61 +1,44 @@
-import math
 from typing import List
 
-
 def get_box_id(row, col):
-    # math.floor returns float but list indices have to be int
-    row_val = int(math.floor(row // 3) * 3)
-    col_val = int(math.floor(col // 3))
+    row_val = (row // 3) * 3
+    col_val = (col // 3)
     return col_val + row_val
 
-
 def is_valid(box, row, col, num):
-    if (num in box) or (num in row) or (num in col):
-
+    if num in box or num in row or num in col:
         return False
     else:
-
-        #         print("col",col)
         return True
 
-
 def backtrack(board, boxes, rows, cols, r, c):
-    if r == len(board) or c == len(board[0]):
+    if r >= len(board) or c >= len(board[0]):
         return True
     else:
         if board[r][c] == ".":
             for num in range(1, 10):
-
-                board[r][c] = str(num)
-                #                 print(board[r][c])
                 box_id = get_box_id(r, c)
                 box = boxes[box_id]
-                #                 print(box)
                 row = rows[r]
                 col = cols[c]
-
-                if is_valid(box, row, col, num):
-
-                    box[num] = True
-                    row[num] = True
-                    col[num] = True
+                str_num = str(num)
+                board[r][c] = str_num
+                if is_valid(box, row, col, str_num):
+                    boxes[box_id][str_num] = True
+                    rows[r][str_num] = True
+                    cols[c][str_num] = True
                     if c == len(board[0]) - 1:
                         if backtrack(board, boxes, rows, cols, r + 1, 0):
                             return True
                     else:
-
                         if backtrack(board, boxes, rows, cols, r, c + 1):
                             return True
-
-                    del box[num]
-                    del row[num]
-                    del col[num]
-
+                    del box[str_num]
+                    del row[str_num]
+                    del col[str_num]
                 board[r][c] = "."
-        #                 print(board)
         else:
             if c == len(board[0]) - 1:
-
                 if backtrack(board, boxes, rows, cols, r + 1, 0):
                     return True
             else:
@@ -63,6 +46,26 @@ def backtrack(board, boxes, rows, cols, r, c):
                     return True
 
     return False
+
+
+class Solution:
+    def solveSudoku(self, board: List[List[str]]) -> None:
+        """
+        Do not return anything, modify board in-place instead.
+        """
+        n = len(board)
+        rows = [{} for i in range(n)]
+        cols = [{} for i in range(n)]
+        boxes = [{} for i in range(n)]
+        for r in range(n):
+            for c in range(n):
+                if board[r][c] != ".":
+                    val = board[r][c]
+                    box_id = get_box_id(r, c)
+                    boxes[box_id][val] = True
+                    rows[r][val] = True
+                    cols[c][val] = True
+        backtrack(board, boxes, rows, cols, 0, 0)
 
 
 board = [
@@ -84,13 +87,10 @@ class Solution:
         boxes = [{}] * n
         rows = [{}] * n
         cols = [{}] * n
-
         for r in range(n):
-
             for c in range(n):
                 if board[r][c] != ".":
                     val = board[r][c]
-
                     box_id = get_box_id(r, c)
                     boxes[box_id][val] = True
                     rows[r][val] = True

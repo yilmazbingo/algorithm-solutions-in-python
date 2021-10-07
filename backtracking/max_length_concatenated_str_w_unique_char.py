@@ -21,11 +21,9 @@ class Solution:
         def backtrack(i):
             nonlocal count
             count += 1
-            #             print(count)
             if i == len(arr):
                 return len(charset)
             res = 0
-            #             print(charset)
             if not overlap(charset, arr[i]):
                 for c in arr[i]:
                     charset.add(c)

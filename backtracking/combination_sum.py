@@ -9,9 +9,9 @@ of at least one of the chosen numbers is different. we do not want permutation
 
 It is guaranteed that the number of unique combinations that sum up to target is less than 150 combinations for the given input.
 '''
+# since they want unique combinations, normal decision wont work.
 
-
-# T:O(2^Target)
+# T:O(2^Target) one side we choose 2, other side we skip 2
 from typing import List
 class Solution:
     def combinationSum(self, nums: List[int], target: int) -> List[List[int]]:

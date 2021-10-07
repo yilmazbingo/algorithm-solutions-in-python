@@ -1,12 +1,15 @@
 '''
 22. Generate Parentheses
-
 Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+
+Input: n = 3
+Output: ["((()))","(()())","(())()","()(())","()()()"]
 
 '''
 
 from typing import List
 
+# S:O(call stack)=O(n*2)
 # Our choice do i open or do i close the bracket
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:

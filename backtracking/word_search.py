@@ -8,6 +8,7 @@ class Solution:
         path=set()
         # i is the current char in the word that we are looking for
         def dfs(r,c,i):
+            # if this condition was after second, it would return
             if i==len(word):
                 return True
             if r<0 or c<0 or r>=ROWS or c>=COLS or word[i]!=board[r][c] or (r,c) in path:

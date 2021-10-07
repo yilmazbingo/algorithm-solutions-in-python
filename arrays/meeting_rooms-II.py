@@ -5,17 +5,12 @@ https://www.lintcode.com/problem/919/
 import heapq
 
 class Solution:
-    """
-    @param intervals: an array of meeting time intervals
-    @return: the minimum number of conference rooms required
-    """
     def minMeetingRooms(self, intervals):
         # Write your code here
         if not intervals:
             return 0
         # sort by the beginning time because this is the first starting group will wait for next first finishing
         intervals.sort(key=lambda interval:interval[0])
-
         # create heap structure
         # start with a value
         used_rooms=[intervals[0][1]]

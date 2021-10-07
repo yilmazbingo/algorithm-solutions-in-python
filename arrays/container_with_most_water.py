@@ -8,8 +8,10 @@ from typing import List
 class Solution:
     def maxArea(self, height: List[int]) -> int:
         res = 0
+        # move smller height. we want to find max container.
         l, r = 0, len(height) - 1
         while l < r:
+            # min height is limiting factor. we dont want small height
             area = (r - l) * min(height[l], height[r])
             res = max(res, area)
             if height[l] < height[r]:
