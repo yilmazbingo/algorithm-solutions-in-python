@@ -1,5 +1,29 @@
 from typing import List
 class Solution:
+    def coinChange(self, nums: List[int], target: int) -> int:
+        def dfs(target, memo={}):
+            if target in memo:
+                return memo[target]
+            if target == 0:
+                return []
+            if target < 0:
+                return None
+            shortest_combination = None
+            for num in nums:
+                remainder = target - num
+                result = dfs(remainder)
+                if result != None:
+                    combination = [*result, num]
+                    if shortest_combination == None or len(combination) < len(shortest_combination):
+                        shortest_combination = combination
+            memo[target] = shortest_combination
+            return shortest_combination
+
+        return -1 if dfs(target) == None else len(dfs(target))
+
+
+
+
     # this is slow and has a bad memory usage
     # --- BOTTOM UP -----
     def change(self,target,nums):
