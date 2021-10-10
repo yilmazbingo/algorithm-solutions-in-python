@@ -9,6 +9,7 @@ without disturbing the remaining characters' relative positions.("ACE" is a subs
 class Solution:
     def distinct(self,s,t):
         cache={}
+        # i is the ith pos of s, j is the jth pos of t
         def dfs(i,j):
             if j==len(t):
                 return 1
@@ -17,7 +18,9 @@ class Solution:
             if (i,j) in cache:
                 return cache[i,j]
             if s[i]==t[j]:
+                # s=rabbbbit t=rabbit, when first "b" matches, also check for next carracter in s.
                 cache[(i,j)]=dfs(i+1,j+1)+dfs(i+1,j)
+            # if chars dont match each other
             else:
                 cache[(i,j)]=dfs(i+1,j)
             return cache[(i,j)]
