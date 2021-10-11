@@ -11,24 +11,28 @@ Replace a character. Change one char into another
 '''
 # we need to create patter for each operation
 class Solution:
-    def edit(self,word1:str,word2:str)->int:
-        store = [[float('inf')] * (len(word2) + 1) for j in range(len(word1) + 1)]
+    def minDistance(self, word1: str, word2: str) -> int:
+        # store = [[float('inf')] * (len(word2) + 1) for _ in range(len(word1) + 1)]
+        store = [[float("inf")] * (len(word2) + 1) for _ in range(len(word1) + 1)]
+        # storing the base case. store[m+1][m+1] will be 0 when both are ""
         for i in range(len(word2) + 1):
             store[len(word1)][i] = len(word2) - i
         for j in range(len(word1) + 1):
             store[j][len(word2)] = len(word1) - j
-        print(store)
-        # bottom up approach, because starting from base case.
-        for i in range(len(word2)-1, -1, -1):
-            for j in range(len(word1)-1, -1, -1):
-                # if chars are equal we dont do any operation.
+        # bottom up approach, because starting from base case
+        # if chars are equal we dont do any operation.
+        for i in range(len(word1) - 1, -1, -1):
+            for j in range(len(word2) - 1, -1, -1):
                 if word1[i] == word2[j]:
-                    store[i][j] == store[i + 1][j + 1]
+                    store[i][j] = store[i + 1][j + 1]
                 else:
-                    #                       replace             inserting         deleting
+                    # min operation is replace
+                    # word1=abd, word2=acd     replace             inserting         deleting
+                    # if we insert "c" to "abd" when i is at "b". pointer will still at b. but we handled "C, so we move j by 1
+                    # if I delete "b" from word1, i will shift the "i", but j will remain because we are looking for its mathc
+                    # if we replace, means we handle the chars in both words so we move forward
                     store[i][j] = 1 + min(store[i + 1][j + 1], store[i][j + 1], store[i + 1][j])
         return store[0][0]
-
 
 s=Solution()
 print(s.edit("abc","abd"))

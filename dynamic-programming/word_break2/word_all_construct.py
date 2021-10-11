@@ -7,18 +7,6 @@ You may reuse elements of words as many as u need
 
 from typing import List
 class Solution:
-    def construct(self,target:str,words:list[str]):
-        result=[]
-        if target=='':
-            return [[]]
-        for word in words:
-            if target.startswith(word):
-                suffix=target[len(word):]
-                bubble_up_ways=self.construct(suffix,words)
-                combinations=[[*way,word] for way in bubble_up_ways]
-                if combinations:
-                    result.extend(combinations)
-        return result
     # Memoization does not work here. time complexisty is exponential
     def memoized(self,target:str,words:List[str],memo={}):
         if target in memo:
