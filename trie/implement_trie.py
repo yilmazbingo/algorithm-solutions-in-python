@@ -6,23 +6,24 @@ class TrieNode:
 class Trie:
     def __init__(self):
         self.root = TrieNode()
+    # node=this.root gives error "this" is not defined
     def insert(self, word: str, node=None) -> None:
         if node == None:
             node = self.root
+        # insertion is a recursive operation
         if len(word) == 0:
             node.end = True
             return
         elif word[0] not in node.keys:
             node.keys[word[0]] = TrieNode()
             self.insert(word[1:], node.keys[word[0]])
+        # that means key exists
         else:
             self.insert(word[1:], node.keys[word[0]])
-   # returning bool so we have to return the recursive function
     def search(self, word: str, node=None) -> bool:
         if node == None:
             node = self.root
         if len(word) == 0 and node.end == True:
-            print("yilma")
             return True
         elif len(word) == 0:
             return False
@@ -30,8 +31,6 @@ class Trie:
             return False
         else:
             return self.search(word[1:], node.keys[word[0]])
-
-    # returning bool so we have to return the recursive function
     def startsWith(self, prefix: str, node=None) -> bool:
         if node == None:
             node = self.root
