@@ -14,14 +14,14 @@ Each index in the array points to array[value]. For example first index is 0 and
      0 -> 3 -> 2 ->4      
                \
                 4
-Notice none of the elements after first index ever points to value at index 0. becayse our range is 1-n, it is guaranteed that 0 will not be the part of the cycle
+Notice none of the elements after first index ever points to value at index 0. because our range is 1-n, it is guaranteed that 0 will not be the part of the cycle
 '''
 # We have to apply Floyd's algorithm to find the cycle
 
 from typing import List
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
-        # they always start from zero becasuse 0 is guaranteed that is not part of the cycle
+        # they always start from zero because 0 is guaranteed that is not part of the cycle
         slow,fast=0,0
         while True:
             slow=nums[slow]

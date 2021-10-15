@@ -16,3 +16,6 @@ class Solution:
         for i in range(n-1):
             one,two=two,one+two
         return two
+
+# T :O( 2 ^) n without caching
+# T :O(n) with caching

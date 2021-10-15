@@ -11,16 +11,16 @@ Return the sum of lengths of all good strings in words.
 from typing import List
 class Solution:
     def countCharacters(self, words: List[str], chars: str) -> int:
-        arr = [list(x) for x in words]  # making the string into an array to remove elements
-
+        words_list = [list(x) for x in words]  # making the string into an array to remove elements
         sum_array = []  # to store the final length of all the substrings formed
-        for i in arr:
+        for word in words_list:
             count = 0
-            f = [char for char in chars]
-            for j in i:
-                if j in f:
-                    f.remove(j)
+            # for each word, after deletion we should hava reinitiaated the chars_list
+            chars_list = [char for char in chars]
+            for char in word:
+                if char in chars_list:
+                    chars_list.remove(char)
                     count += 1
-            if count == len(i):
-                sum_array.append(len(i))
+            if count == len(word):
+                sum_array.append(len(word))
         return sum(sum_array)

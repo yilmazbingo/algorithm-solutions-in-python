@@ -4,18 +4,6 @@
 
 from typing import List
 class Solution:
-    def unoptimized(self,nums:List[int])->int:
-        # start from end
-        def rob(i:int):
-            if i<0:
-                return 0
-            if i==0:
-                return nums[i]
-            if i==1:
-                return max(nums[0],nums[1])
-            # this is recurrence relationship
-            return max(rob(i-1),rob(i-2)+nums[i])
-        return max(rob(len(nums)-1),rob(len(nums)-2))
     def memoized(self,nums:List[int]):
         def rob(i,memo={}):
             if i in memo:

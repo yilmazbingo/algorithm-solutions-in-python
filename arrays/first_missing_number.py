@@ -1,15 +1,10 @@
 '''
 41.Hard First Missing Positive
-
 Given an unsorted integer array nums, return the smallest missing positive integer.
-
 You must implement an algorithm that runs in O(n) time and uses constant extra space.
-
 '''
-
 import sys
 from typing import List
-
 class Solution:
     # def firstMissingPositive(self, nums: List[int]) -> int:
     #     print(sys.maxsize)
@@ -26,7 +21,6 @@ class Solution:
         #             if num==1:
         #                 contains_one=1
         #             elif num<=0 or num>n:
-
         #                 num=1
         for i in range(n):
             if nums[i] == 1:

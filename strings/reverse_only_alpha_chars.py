@@ -4,21 +4,18 @@ reverse the string in a way that special characters are not affected.
 """
 
 
-def reverse_only_alpha(S: str)->str:
-    list_of_S = list(S)
-    i = 0
-    j = len(S) - 1
-    while i < j:
-        if not list_of_S[i].isalpha():
-            i += 1
-        elif not list_of_S[j].isalpha():
-            j -= 1
-        else:
-            list_of_S[i], list_of_S[j] = list_of_S[j], list_of_S[i]
-            i += 1
-            j -= 1
-    new_S = "".join(list_of_S)
-    return new_S
-
-
-reverse_only_alpha("ad,W!@,ddsdnsad")
+class Solution:
+    def reverseOnlyLetters(self, s: str) -> str:
+        chars = list(s)
+        l = 0
+        r = len(s) - 1
+        while l < r:
+            if not chars[l].isalpha():
+                l += 1
+            elif not chars[r].isalpha():
+                r -= 1
+            else:
+                chars[l], chars[r] = chars[r], chars[l]
+                l += 1
+                r -= 1
+        return "".join(chars)

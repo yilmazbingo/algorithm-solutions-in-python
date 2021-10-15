@@ -7,18 +7,20 @@ You must solve the problem without using any built-in library for handling large
 You must also not convert the inputs to integers directly.
 '''
 
-
+from collections import deque
 class Solution:
     def addStrings(self, num1: str, num2: str) -> str:
-        p1, p2 = len(num1) - 1, len(num2) - 1
-        res = []
-        carry = 0
-        while p1 >= 0 or p2 >= 0 or carry:
-            d1 = int(num1[p1]) if p1 >= 0 else 0
-            d2 = int(num2[p2]) if p2 >= 0 else 0
-            total = d1 + d2 + carry
-            digit, carry = total % 10, total // 10
-            res.append(str(digit))
-            p1 -= 1
-            p2 -= 1
-        return "".join(res[::-1])
+        res=deque()
+        i,j=len(num1)-1,len(num2)-1
+        carry=0
+        while i>=0 or j>=0 or carry:
+            total=carry
+            if i>=0:
+                total+=int(num1[i])
+                i-=1
+            if j>=0:
+                total+=int(num2[j])
+                j-=1
+            res.appendleft(str(total%10))
+            carry=total//10
+        return "".join(res)

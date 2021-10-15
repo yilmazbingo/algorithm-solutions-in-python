@@ -6,6 +6,7 @@ Meanwhile, adjacent houses have a security system connected, and it will automat
 Given an integer array nums representing the amount of money of each house, return the maximum amount of money you can rob tonight without alerting the police.
 '''
 
+# if we rob house1, we cannot rob last house, or if we rob last house we cannot rob the first hous
 class Solution:
     def with_recursive_helper(self,nums):
         if len(nums)==1:
