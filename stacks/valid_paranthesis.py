@@ -1,7 +1,7 @@
 # given a string containing only paranthesis determine if it is valid. the string is valid if all parentheses close.
 
 class Solution:
-    def valid(input: str) -> bool:
+    def isValid(self, input: str) -> bool:
         # those are only parantheses that string will include
         parentheses = {"(": ")", "[": "]", "{": "}"}
         seen_left_brackets = []

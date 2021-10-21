@@ -6,7 +6,7 @@ houses were broken into on the same night.
 Given the root of the binary tree, return the maximum amount of money the thief can rob without alerting the police.
 '''
 
-# We have two cases. ! case with_root another case is without_root
+# We have two cases. 1 case with_root another case is without_root
 # if we include the root, we have to skip the next level
 # if we skip level, we can choose next level or we can even skip it if its child is greater. No restriction
 # T: O(n) because we visit each node only one time.
@@ -15,7 +15,7 @@ Given the root of the binary tree, return the maximum amount of money the thief 
 from TreeNode import TreeNode
 
 class Solution:
-    def rob(self,root:TreeNoe)->int:
+    def rob(self,root:TreeNode)->int:
         # returns pair [with_root,without_root]
         def dfs(root:TreeNode):
             if not root:

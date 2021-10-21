@@ -1,8 +1,9 @@
 # Given a binary tree containing digits 0-9, each root-to-leaf path could represnet a number.
 # find the total sum of the all root-to-leaf numbers
+from TreeNode import TreeNode
 
 class Solution:
-    def sum_numbers(self,root:Treenode):
+    def sum_numbers(self,root:TreeNode):
         def dfs(cur_node,sum):
             if not cur_node:
                 return 0

@@ -1,14 +1,19 @@
-# Convert the given sorted array into a height balanced BST
 '''
- high balanced binary tree is defined as a binary tree in which the depth of two subtrees
- of every node never differs more than 1
+108. Easy Convert Sorted Array to Binary Search Tree
+Given an integer array nums where the elements are sorted in ascending order, convert it to a height-balanced binary search tree.
+A height-balanced binary tree is a binary tree in which the depth of the two subtrees of every node never differs by more than one.
 '''
+# they want hight balanced because they did not want a skewed tree. it would be easier
+# [2,3,4,   5,    7, 10,12   5 is the root, left values are left subtree, right numbers are right subtree
+# then take [2,3,4] and create  a tree out of this
+
 #the middle value of the array is the root.
-from treetoy import TreeNode
+from TreeNode import TreeNode
 class Solution:
     def toBST(self,values):
         def helper(l,r):
-            if l<r:
+            # this happends when l=r=m and we still want to find root.left
+            if r<l:
                 return None
             m=(l+r)//2
             root=TreeNode(values[m])

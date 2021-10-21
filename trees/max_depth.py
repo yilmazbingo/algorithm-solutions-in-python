@@ -1,6 +1,10 @@
-# A binary tree's max depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+'''
+104.Easy Maximum Depth of Binary Tree
+A binary tree's max depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
 # Since we are traversing entire tree, time complexity is O(N).
 # Memory complexity will be the height of the tree, which can be O(N) if it is not balanced binary tree
+'''
+
 
 #bfs assumes that node that we are looking for is closer to the root.
 #------------------- RECURSION ---------------

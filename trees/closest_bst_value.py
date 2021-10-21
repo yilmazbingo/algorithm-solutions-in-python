@@ -6,7 +6,6 @@ Given a non-empty binary search tree and a target value, find the value in the B
 
 class Solution:
     def closestValue(self, root, target):
-        # write your code here
         diff = float("inf")
         ans = target
         # we have to traverse entire tree. I used preorder traversal but any can work
