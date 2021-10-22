@@ -24,8 +24,10 @@ class Solution:
             if current_node.left:
                 stack.append(current_node.left)
     def recursive(self,root:TreeNode)->List[int]:
+        # this is preorder depth first
         if not root:
             return []
         left_values=self.recursive(root.left) # b,d,e
         right_values=self.recursive(root.right) # c,f
         return [root.val, *left_values,*right_values]
+# pre-in-post orders are different flavors of depth first search

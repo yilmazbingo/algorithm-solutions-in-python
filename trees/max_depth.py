@@ -16,13 +16,13 @@ class Solution:
         return 1+max(self.max_depth(root.left),self.max_depth(root.right))
 
 #------------------ BREADTH FIRST SEARCH -------------
-import collections
+from collections import deque
 class Solution:
     def max_depth(self,root):
         if not root:
             return 0
         level=0
-        q=collections.deque([root])
+        q=deque([root])
         while q:
             for i in range(len(q)):
                 node=q.popleft()
