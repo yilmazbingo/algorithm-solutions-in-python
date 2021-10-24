@@ -16,6 +16,7 @@ class Codec:
                 # N is for null means node has no child
                 res.append("N")
                 return
+            #PREORDER  T:O(N) S:O(N)
             res.append(str(root.val))
             dfs(node.left)
             dfs(node.right)
