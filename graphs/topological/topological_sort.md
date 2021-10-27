@@ -7,11 +7,11 @@ no vertex with the indegee of 0.
 **Indegree Value:** It is essentially represented as how many connections are coming into this vertex. 
 
 **Topological Sort:**
-It is a liner ordering of vertices such that for every directed edge UV(U->V), vertex U comes before vertex V in the ordering
-In the topological sort, you have to write first whichever comes first. Topological sort starts with the vertices 
+- It is a liner ordering of vertices such that for every directed edge UV(U->V), vertex U comes before vertex V in the ordering
+- In the topological sort, you have to write first whichever comes first. Topological sort starts with the vertices 
 whose indegree is 0. Vertices has outdefree value 0 comes last. 
-when you get a directed graph, you want to figure out what every vertex's indegree value. The
-way that the topological sort works is that you can only take a vertex and its value as long as its indegree value is zero.
+- when you get a directed graph, you want to figure out what every vertex's indegree value. 
+- the way that the topological sort works is that you can only take a vertex and its value as long as its indegree value is zero.
 But once you take it, then you want to remove it from the graph. 
    This will reduce the indegree value of any nodes that it is directing into and then those nodes become open for us
 to take as a next value. Because there may be multiple values where the indegree value is zer0, you can take them in whichever
@@ -20,6 +20,7 @@ multiple variations of the order for the same graph.
 
 - Aside building the adajcent list, we also have to build the indegree array. 
 
+- It is always applicable in DAG, THERES SHOULD BE NO CYCLE. because, eventually we wont have any node whose indegree is 0.
 **Example**
 
 prerequisites=[[1,0],[2,1],[2,5],[0,3],[4,3],[3,5],[4,5]]

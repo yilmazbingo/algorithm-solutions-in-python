@@ -36,10 +36,10 @@ class LRUCache:
             if self.c==len(self.deq):
                 oldest=self.deq.popleft()
                 del self.m[oldest]
-            else:
-                self.deq.remove(key)
-            self.m[key]=value
-            self.deq.append(key)
+        else:
+            self.deq.remove(key)
+        self.m[key]=value
+        self.deq.append(key)
 
 # . Python’s collections module provides a class called deque that’s specially designed to provide fast and memory-efficient ways to append and pop item
 # from both ends of the underlying data structure.

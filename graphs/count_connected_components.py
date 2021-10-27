@@ -1,4 +1,4 @@
-# // takes an adjacency list of an undirected graph and return the number of connected components within the graph
+# takes an adjacency list of an undirected graph and return the number of connected components within the graph
 
 adj_list = {
   0: [8, 1, 5],

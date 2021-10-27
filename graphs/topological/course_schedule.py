@@ -1,6 +1,14 @@
-# course numbers and prerequisites array will be given
+'''
+207. Medium Course Schedule
+There are a total of numCourses courses you have to take, labeled from 0 to numCourses - 1. You are given an array prerequisites where
+ prerequisites[i] = [ai, bi] indicates that you must take course bi first if you want to take course ai.
+For example, the pair [0, 1], indicates that to take course 0 you have to first take course 1.
+Return true if you can finish all courses. Otherwise, return false.
+'''
 #prereq:[[1,0],[2,3],[3,4]]
 # We cannot finish courses if we have some kind of cycle. if 3->4 and 4->3
+#if oyu hear there is some type of relationship between pairs of somehing inside of a question, it is most likely they are defining the relationship between two vertices because that relationship is dictated as an edge.
+# When we are looking for a cycle, start from a some node and perform a traversal, while performing traversal if we ever make it back to a node that we have seen before, then we know we hav a cycle
 
 from typing import List
 from collections import deque
@@ -29,6 +37,7 @@ class Solution:
                 indegree[adj] -= 1
                 if (indegree[adj] == 0):
                     stack.append(adj)
+        # if by the end we did not touch every vortex, processed its value and removed from graph, then we know that there must be a cycle
         return count == n
     def can_finish(self,num_courses:int,prerequisites:List[List[int]]):
         # map each course to prereq list
@@ -67,33 +76,24 @@ class Solution:
         if len(prerequisites) == 0:
             return True
         adj_list = [[] * len(prerequisites) for _ in range(len(prerequisites))]
-
         for pair in prerequisites:
             adj_list[pair[1]].append(pair[0])
         print(adj_list)
-
         for i in range(numCourses):
             queue = deque()
             seen = {}
             for j in range(len(adj_list[i])):
                 queue.append(adj_list[i][j])
-            #                 print("queue",queue)
             while queue:
-
                 current = queue.popleft()
-
                 seen[current] = True
-                #                 print("ssen",seen)
                 if current == i:
                     return False
-
                 adjacent = adj_list[current]
                 print(len(adjacent))
                 for a in range(len(adjacent)):
                     next = adjacent[a]
-                    print("next", next)
                     if next not in seen:
-                        print("queue")
                         queue.append(next)
         return True
 s=Solution()
