@@ -3,12 +3,13 @@
  Return a boolean indicating whether or not there exists a path between nodes
 '''
 
+# n=nodes, e=edges , O:T(e), O:S(n)
 from collections import defaultdict
 class Solution:
     def hasPath(self,edges,source,target):
         graph=self.buildgraph(edges)
-
         def dfs(source,visited):
+            # this prevents infinite loop
             if source in visited:
                 return False
             visited.add(source)
@@ -20,12 +21,12 @@ class Solution:
             return False
         return dfs(source,set())
 
-
+    # edges represents connection between 2 nodes.  edges = [[0,1],[1,2],[2,0]],
     def buildgraph(self,edges):
         graph=defaultdict(list)
-
         for edge in edges:
             a,b=edge
+            # this is undirected graph
             graph[a].append(b)
             graph[b].append(a)
         return graph

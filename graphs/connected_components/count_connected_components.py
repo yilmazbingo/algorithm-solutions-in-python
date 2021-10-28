@@ -14,7 +14,6 @@ class Solution:
     def count_connected(self,graph):
         visited=set()
         count=0
-        # 
         def dfs(node):
             if node in visited:
                 return False
