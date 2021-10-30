@@ -3,7 +3,8 @@
 Given a reference of a node in a connected undirected graph which is there is a path from any point to any other point in the graph.
 Return a deep copy (clone) of the graph.
 '''
-
+# T:O(n)=E+V
+# In graph problems makse sure do not visit the same node
 class Node(object):
     def __init__(self, val = 0, neighbors = None):
         self.val = val
@@ -15,7 +16,7 @@ class Solution:
         # from start, we do till last item one way, when we react the last, we pop out and do the reverse
         def dfs(node):
             if node in old_to_new:
-                # we return this and add it to the neighbors of the node
+                # we return this and add it to the neighbors of the node. this is where we create it arrow into the node.  <--
                 return old_to_new[node]
             copy=Node(node.val)
             old_to_new[node]=copy

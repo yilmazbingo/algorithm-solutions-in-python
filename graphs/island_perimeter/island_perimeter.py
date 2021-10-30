@@ -15,6 +15,7 @@ class Solution:
         visited=set()
         def dfs(r,c):
             if r<0 or r==ROWS or c==COLS or c<0 or grid[r][c]==0:
+                # that means we are on the border. so we return 1
                 return 1
             if (r,c) in visited:
                 return 0

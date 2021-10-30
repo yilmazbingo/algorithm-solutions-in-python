@@ -30,10 +30,8 @@ class Solution:
         while stack:
             current = stack.pop()
             count += 1
-            # I need to find the adj of vertices and reduce their indegree value by 1
-            adjacent = adj_list[current]
-            for i in range(len(adjacent)):
-                adj = adjacent[i]
+            # I need to find the adj of vertices and reduce their indegree value by 1 because I removed the node, so one less node is coming into them
+            for adj in adj_list[current]:
                 indegree[adj] -= 1
                 if (indegree[adj] == 0):
                     stack.append(adj)

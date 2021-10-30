@@ -1,4 +1,6 @@
 - It is a sort, returns a specific order of the vertexes of given graph, as long as graph satisfies certain conditions
+- The only graphs that have valid topological ordering is called directed acyclic graphs
+- every tree has a topological ordering. since by definition, trees do not have any cycles. 
 
 First thing we need to look at is a vertex in isolation. Every vertex in isolation has **Indegree** factor. THis only
 applies as long as the vertex is within a Directed Acyclic Graph. Because if a graph is cyclic, there would be 
@@ -20,7 +22,7 @@ multiple variations of the order for the same graph.
 
 - Aside building the adajcent list, we also have to build the indegree array. 
 
-- It is always applicable in DAG, THERES SHOULD BE NO CYCLE. because, eventually we wont have any node whose indegree is 0.
+- It is always applicable in DAG, THERES SHOULD BE NO CYCLE. because, eventually we wont have any node whose indegree is 0 if it cyclic.
 **Example**
 
 prerequisites=[[1,0],[2,1],[2,5],[0,3],[4,3],[3,5],[4,5]]

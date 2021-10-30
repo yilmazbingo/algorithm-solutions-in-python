@@ -10,6 +10,7 @@ adj_list = {
   4: [3, 2],
 };
 
+
 class Solution:
     def count_connected(self,graph):
         visited=set()
@@ -22,7 +23,7 @@ class Solution:
                 dfs(neighbor)
             # If I get here that means i explored all
             return True
-        # explore all the neightbors of nodes
+        # explore all the neightbors of nodes. we use for loop if graph might have disconnected parts
         for node in graph:
             if dfs(node):
                 count+=1

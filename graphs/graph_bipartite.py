@@ -7,6 +7,7 @@ from collections import deque
 class Solution:
     def isBipartite(self, graph: List[List[int]]) -> bool:
         N = len(graph)
+        # i need to group each noe
         colors = [-1] * N
         # in case it is unconnected, make sure i touch each vertex
         for i in range(N):
@@ -14,11 +15,11 @@ class Solution:
             if colors[i] != -1:
                 continue
             queue = deque()
-            # we group 0 and 1
+            #  each node is numbered between 0 and n - 1. that is why we are adding "i"
             queue.append((i, 0))
             while queue:
                 node, color = queue.popleft()
-                # this means untouched
+                # this means untouched. always check in graph problems
                 if colors[node] == -1:
                     colors[node] = color
                     for neighbor in graph[node]:
