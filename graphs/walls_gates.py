@@ -24,13 +24,11 @@ class Solution:
             rooms[r][c] = count
             for dir in directions:
                 backtrack(r + dir[0], c + dir[1], count + 1);
-
         for r in range(ROWS):
             for c in range(COLS):
                 # find all the gates
                 if rooms[r][c] == 0:
                     backtrack(r, c, 0)
-        print(rooms)
 
     def breadthFirst(self,rooms:List[List[int]])->None:
         ROWS,COLS=len(rooms),len(rooms[0])

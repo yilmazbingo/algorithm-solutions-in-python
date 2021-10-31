@@ -9,8 +9,7 @@ class Solution(object):
     def numRescueBoats(self, people, limit):
         # list.sort() modifies the list.
         people.sort()
-        i=0
-        j=len(people)-1
+        i,j=0, len(people)-1
         count=0
         while i<=j:
             if people[j]+people[i]<=limit:

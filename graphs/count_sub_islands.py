@@ -23,6 +23,7 @@ class Solution:
                 if grid[row][col] == 1:
                     queue = deque()
                     queue.append([row, col])
+                    # this will make sure i do not revisit again
                     grid[row][col] = 0
                     while len(queue):
                         current = queue.popleft()

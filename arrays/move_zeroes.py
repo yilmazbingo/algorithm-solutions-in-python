@@ -7,6 +7,7 @@ Note that you must do this in-place without making a copy of the array.
 from typing import List
 class Solution:
     def move(self,nums:List[int]):
+        # this keeps tracks of non-zero elements
         j=0
         for num in nums:
             if num!=0:

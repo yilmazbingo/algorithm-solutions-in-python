@@ -13,7 +13,8 @@ class Solution:
         edges = defaultdict(list)
         for u, v, cost in times:
             edges[u].append((v, cost))
-        # this is starting point. we pop this out sees its neigbours
+        # this is starting point k. O is the cost of starting point. we pop this out sees its neigbours
+        # min_heap sorts by time. we alwyats pop the lowest time
         min_heap = [(0, k)]
         # we dont wanna go in cycle. in loop
         visit = set()
