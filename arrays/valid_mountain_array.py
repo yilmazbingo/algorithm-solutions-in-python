@@ -20,7 +20,7 @@ class Solution:
         i=1
         while i<len(arr ) and arr[i]>arr[i-1] :
             i+=1
-
+        # i ==1 means it is just a decreasing array
         if i==1 or i == len(arr):
             return False
         while i<len(arr ) and arr[i]<arr[i-1 ] :

@@ -1,3 +1,4 @@
+# 67. Add Binary - Easy
 from collections import deque
 class Solution:
     def addBinary(self, a: str, b: str) -> str:
@@ -12,6 +13,7 @@ class Solution:
             if j>=0:
                 total+=int(b[j])
                 j-=1
+            # pay attention to here. appending left
             res.appendleft(str(total%2))
             carry=total//2
         return "".join(res)

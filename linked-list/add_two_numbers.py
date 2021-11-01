@@ -1,4 +1,5 @@
 '''
+2. Add Two Numbers Medium
  You are given two NON-EMPTY linked lists representing two NON-NEGATIVE integers.
  The digits are stored in reverse order, and each of their nodes contains a single digit.
  342= 2 --> 4 -->3
@@ -7,6 +8,7 @@
 from List_Node import ListNode
 class Solution:
     def add(self,l1:ListNode,l2:ListNode)->ListNode:
+        # it is a starter node
         dummy = ListNode()
         cur = dummy
         carry = 0

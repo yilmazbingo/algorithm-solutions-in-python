@@ -1,8 +1,6 @@
 '''
-415. Add Strings
-
+415. Add Strings Easy
 Given two non-negative integers, num1 and num2 represented as string, return the sum of num1 and num2 as a string.
-
 You must solve the problem without using any built-in library for handling large integers (such as BigInteger).
 You must also not convert the inputs to integers directly.
 '''
@@ -21,6 +19,7 @@ class Solution:
             if j>=0:
                 total+=int(num2[j])
                 j-=1
+            # pay attention to here. appending left
             res.appendleft(str(total%10))
             carry=total//10
         return "".join(res)

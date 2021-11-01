@@ -13,13 +13,10 @@ class Solution:
         while left < len(nums):
             res[left] = res[left - 1] * nums[left - 1]
             left += 1
-        print(res)
-
         right = len(nums) - 2
         while right >= 0:
             postfix[right] = postfix[right + 1] * nums[right + 1]
             right -= 1
-        print(postfix)
         result = [1] * len(nums)
         for i in range(len(nums)):
             result[i] = res[i] * postfix[i]

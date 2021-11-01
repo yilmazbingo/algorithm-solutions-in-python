@@ -1,6 +1,6 @@
 '''
+109. Convert Sorted List to Binary Search Tree
 Given the head of a singly linked list where elements are sorted in ascending order, convert it to a height balanced BST.
-
 For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees
  of every node never differ by more than 1.
 '''
@@ -16,25 +16,23 @@ class TreeNode:
         self.right = right
 class Solution:
     def sortedListToBST(self, head: Optional[ListNode]) -> Optional[TreeNode]:
-        size=0
-        current=head
-        root=head
-        while current:
-            current=current.next
-            size+=1
-        # this has to be global
-        self.head=head
-        def dfs(start,end):
-            if start>end:
-                return None
-            # build left subtree
-            mid=(start+end)//2
-            # this dfs will keep calculating left head
-            left=dfs(start,mid-1)
-            # define root
-            root=TreeNode(self.head.val)
-            self.head=self.head.next
-            root.left=left
-            root.right=dfs(mid+1,end)
-            return root
-        return dfs(0,size-1)
+        if not head:
+            return None
+        if not head.next:
+            return TreeNode(head.val)
+        slow=fast=head
+        pre=ListNode()
+        # we use slow and fast pointer to find the middle node to create the head of tree
+        while fast and fast.next:
+            pre=slow
+            slow=slow.next
+            fast=fast.next.next
+        # slow will be middle, and pre will be pre -> slow
+        # we need to cut this pointer, because we are recursively calling on the left
+        # if I dont cut it, when I recursively do while loop in left side, it would loop through entire linked list
+        pre.next=None
+        root=TreeNode(slow.val)
+        # we pass the beginner of left and right side
+        root.left=self.sortedListToBST(head)
+        root.right=self.sortedListToBST(slow.next)
+        return root
