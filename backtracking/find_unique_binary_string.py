@@ -4,7 +4,7 @@ Given an array of strings nums containing n unique binary strings each of length
 that does not appear in nums. If there are multiple answers, you may return any of them.
 '''
 
-# since strings are immutable, keep them in an array and then join the array
+
 from typing import List
 class Solution:
     def findDifferentBinaryString(self, nums: List[str]) -> str:
@@ -18,8 +18,11 @@ class Solution:
             if res: return res
             cur[i]="1"
             res=backtrack(cur,i+1)
+            # we are returning either None or string
             if res: return res
-        return backtrack(["0" for _ in nums],0) #backtrack(["0","0","0"],0]
+
+        # since strings are immutable, keep them in an array and then join the array-backtrack(["0","0","0"],0]
+        return backtrack(["0" for _ in nums],0)
 
 
 

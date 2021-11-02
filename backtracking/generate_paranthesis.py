@@ -25,9 +25,9 @@ class Solution:
             if openN<n:
                 stack.append("(")
                 backtrack(openN+1 ,closedN)
-                # everytime we are done with backtracking we have the pop the element we added to the stack
+                # everytime we are done with backtracking we have the pop the element we added to the stack, SO WE WILL HAVE A CLEAN STACK
                 stack.pop()
-            # only add a closing parantheses if closed<n
+ # IMPORTANT only add a closing parantheses if   closedN <openN
             if closedN <openN:
                 stack.append(")")
                 backtrack(openN ,closedN +1)
