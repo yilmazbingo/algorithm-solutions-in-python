@@ -27,9 +27,5 @@ class Solution:
             current.next = prev
             prev = current
             current = next
-        # at the end of the while loop, prev will the new head
-        # if i did not set the temp, current.next would no longer points to the next node in linked list
-            current.next=prev
-            prev= current
-            current.next
+        # at the end of the loop, prev will be the tail
         return prev

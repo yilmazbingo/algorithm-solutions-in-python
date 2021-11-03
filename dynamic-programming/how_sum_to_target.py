@@ -2,7 +2,6 @@
 
 
 class Solution:
-
     def pairs(self,target,nums):
         if target==0:
             return []

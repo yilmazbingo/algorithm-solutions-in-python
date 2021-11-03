@@ -11,7 +11,6 @@ class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> List[str]:
         def dfs(s, memo={}):
             result = []
-
             if s in memo:
                 return memo[s]
             if s == "":
@@ -24,10 +23,8 @@ class Solution:
                     if combinations:
                         # result.extend([" ".join(combination) for combination in combinations])
                         result.extend(combinations)
-
                         memo[s] = result
             return result
-
         res = dfs(s)
         for a in res:
             a.reverse()

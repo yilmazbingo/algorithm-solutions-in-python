@@ -21,6 +21,8 @@ class Solution:
         while tortoise:
             hare = hare.next
             tortoise = tortoise.next
+            # if not hare, states that i have a single node.
+            # hare.next means that we have a tail value. So we do not have a cycle
             if (not hare) or (not hare.next):
                 return False
             else:

@@ -1,11 +1,8 @@
 '''
-101. Symmetric Tree
+101. Symmetric Tree Easy
 
 Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).
-
 '''
-
-
 
 from typing import Optional
 from TreeNode import TreeNode

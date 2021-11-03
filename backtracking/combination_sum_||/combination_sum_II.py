@@ -12,14 +12,15 @@ Note: The solution set must not contain duplicate combinations.
 
 # T:O(2^N)
 from typing import List
+
 class Solution:
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
         candidates.sort()
         res=[]
-        def backtrack(cur,pos,target):
-            if target==0:
+        def backtrack(cur,pos,total):
+            if total==target:
                 res.append(cur.copy())
-            if target<=0:
+            if total>=target:
                 return
             # we sorted first then we check if next value is the same as current. we can add it but if for the postion of skipping that value we cannot add it
             prev=-1
@@ -28,9 +29,8 @@ class Solution:
                 if candidates[i]==prev:
                     continue
                 cur.append(candidates[i])
-                # i could also start total=0 and total+candidates[i
-                backtrack(cur,i+1,target-candidates[i])
+                backtrack(cur,i+1,total+candidates[i])
                 cur.pop()
                 prev=candidates[i]
-        backtrack([],0,target)
+        backtrack([],0,0)
         return res

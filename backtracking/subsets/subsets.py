@@ -1,7 +1,7 @@
 # Given a set of distinct integers, nums, return all possible subsets
 # Set must not contain duplicate subsets. it is not permutaion
 
-# T:O(N*2^N)
+# T:O(N*2^N) we have 2^n subsets and each subset can have length n to copy
 from typing import List
 class Solution:
     def subsets(self,nums:List[int])->List[int]:
@@ -10,13 +10,11 @@ class Solution:
         subset=[]
         # i is the index of the value that we are making decision on
         def dfs(i):
-            if i >=len(nums):
+            if i ==len(nums):
                 res.append(subset.copy())
                 return
             # shall I include nums[i]
             subset.append(nums[i])
-            # recursively run dfs on next eleement
-            # eachd dfs has a different subset given
             dfs(i+1)
             # decision not to include nums[i]
             subset.pop()

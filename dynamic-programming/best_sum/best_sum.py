@@ -13,8 +13,8 @@ class Solution:
             remainder=target-num
             result=self.best_sum(remainder,nums)
             if result!=None:
-                # T:O(n^m * len(combination=m) combination might include 1's
-                # Space:O(m * m ) stack * len(shortest_cobination)
+                # T:O(n^m * len(combination)=m) we are spreading the array.
+                # Space:O(m * m ) call_stack_size * len(shortest_cobination)
                 combination=[*result,num]
                 # when first it runs shortest_combiation=None
                 if shortest_combination==None or len(combination)<len(shortest_combination):
