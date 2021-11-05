@@ -17,7 +17,6 @@ class Solution:
         posDiag=set()
         negDiag=set()
         board=[["."]*n for _ in range(n)]
-
         def dfs(r:int):
             if r==n:
                 copied_board=["".join(row) for row in board ]
@@ -30,13 +29,11 @@ class Solution:
                 col.add(c)
                 posDiag.add(r+c)
                 negDiag.add(r-c)
-
+                # so far we are at c=0.
                 dfs(r+1)
-
                 board[r][c]="."
                 col.remove(c)
                 posDiag.remove(r+c)
                 negDiag.remove(r-c)
         dfs(0)
-
         return res

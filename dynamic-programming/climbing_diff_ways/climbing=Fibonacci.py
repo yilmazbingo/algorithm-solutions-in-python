@@ -1,14 +1,17 @@
-# eacht time you can climb 1 or twice
-#similar to fibonacci
+'''
+70.Easy Climbing Stairs
+You are climbing a staircase. It takes n steps to reach the top.
+
+Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+'''
+
+# at every decision we take one step or two steps
+#similar to fibonacci. Draw the decision tree
 
 # Butoom up solution because we start from base case.
 # create dp and start from the last step. from end and previous, there is only one way to reach top
 # in every given point we have 2 decisions to make. we can climb one step or 2 steps. draw the decision tree
-'''
-if n=5= dp=[, , , , , 4 ,5]
-from 4 and 5, there is only 1 way to reach 5.
 
-'''
 class Solution:
     def climbStairs(self, n: int) -> int:
         one,two=1,1

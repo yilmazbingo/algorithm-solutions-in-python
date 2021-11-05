@@ -8,18 +8,20 @@ class Solution:
         path=set()
         # i is the current char in the word that we are looking for
         def dfs(r,c,i):
-            # if this condition was after second, it would return
+            # Base cases are passed to each dfs calls
             if i==len(word):
                 return True
             if r<0 or c<0 or r>=ROWS or c>=COLS or word[i]!=board[r][c] or (r,c) in path:
                 return False
             path.add((r,c))
+            # res is boolean
             res=(dfs(r+1,c,i+1) or
                  dfs(r-1,c,i+1) or
                  dfs(r,c+1,i+1) or
                  dfs(r,c-1,i+1))
-            # after finishing each 
+            # As we hand the result to the previos call, we also clean after ourself
             path.remove((r,c))
+            # this is the final return
             return res
 
         for r in range(ROWS):

@@ -32,7 +32,8 @@ class Solution:
                 return nums[0]
             if i==1:
                 return max(nums[0],nums[1])
-            return max(rob(i-2)+nums[i],rob(i-1))
+            memo[i] = max(rob(i - 1), rob(i - 2) + nums[i])
+            return memo[i]
         return max(rob(len(nums)-1),rob(len(nums)-2))
 
     def tabulated_helper(self,nums):

@@ -1,4 +1,5 @@
 from typing import List
+# its graph is similar to best_sum. So it recursively calls itself
 class Solution:
     def best(self,nums:List[int])->List[List[int]]:
         result=[]
@@ -8,11 +9,24 @@ class Solution:
         for i in range(len(nums)):
             # pop the each item and get the permutaion of rest
             n=nums.pop(0)
+            # chop the first element and then calculate the permutaion of rest
             perms=self.best(nums)
+            '''
+            [[3]]
+            [[2]]
+            [[3, 2], [2, 3]]
+            [[1]]
+            [[3]]
+            [[1, 3], [3, 1]]
+            [[2]]
+            [[1]]
+            [[2, 1], [1, 2]]
+            '''
             for perm in perms:
                 perm.append(n)
             result.extend(perms)
             nums.append(n)
+        # result= [[3, 2, 1], [2, 3, 1], [1, 3, 2], [3, 1, 2], [2, 1, 3], [1, 2, 3]]
         return result
 
     def permute(self, nums: List[int]) -> List[List[int]]:
