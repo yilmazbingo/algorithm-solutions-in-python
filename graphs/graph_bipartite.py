@@ -25,6 +25,7 @@ class Solution:
                     for neighbor in graph[node]:
                         # neighbors should be different color
                         queue.append((neighbor, color ^ 1))
+                # incase somethingelse changed it
                 if colors[node] != color:
                     return False
         return True

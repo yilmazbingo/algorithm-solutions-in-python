@@ -9,7 +9,8 @@ with itself. For example, 1, 4, 9, and 16 are perfect squares while 3 and 11 are
 class Solution:
     # botom up aproach, big problem n depends on the smaller subproblems. base case is n=0
     # T =O(n * log(N))
-    def better(self,n:int)->int:
+    def numSquares(self,n:int)->int:
+        # as we go, we calculate what is the minimum number of perfect squares does it take for us to get target
         dp=[n]*(n+1)
         dp[0]=0
         for target in range(1,n+1):

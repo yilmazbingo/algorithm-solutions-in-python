@@ -8,7 +8,7 @@ Return the number of good nodes in the binary tree.
 
 from TreeNode import TreeNode
 # T:O(N) S:(h)
-# Using preorder traversal. root node count as good node
+# Using preorder traversal. touching the root node first. root node count as good node.
 class Solution:
     def goodNodes(self,root:TreeNode)->int:
         def dfs(node,max_val):
