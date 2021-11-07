@@ -7,7 +7,6 @@ from typing import List
 ## leet code did not accep it because of default value
 class Solution:
     def unoptimized(self, nums: List[int], target: int,) -> int:
-
         if target == 0:
             return 1
         if target < 0:

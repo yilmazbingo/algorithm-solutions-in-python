@@ -29,7 +29,7 @@ class Solution:
             fast=fast.next.next
         # slow will be middle, and pre will be pre -> slow
         # we need to cut this pointer, because we are recursively calling on the left
-        # if I dont cut it, when I recursively do while loop in left side, it would loop through entire linked list
+        # if I dont cut it, when I recursively do while loop in left side, it would loop through entire linked list. to stop the while loop, fast.next->None
         pre.next=None
         root=TreeNode(slow.val)
         # we pass the beginner of left and right side

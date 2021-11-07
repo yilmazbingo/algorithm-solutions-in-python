@@ -13,12 +13,12 @@ class Solution:
     #             return x
 
     def firstMissingPositive(self, nums: List[int]) -> int:
-        n = len(nums)
+        n = len(nums) # inclusive
         if nums == None or n == 0:
             return 1
         contains_one = 0
         # result range is [1....len(nums)+1]. So we care about only numbers in this range because it will be in this range
-        # we are going to find negaitves and numbers than greater n, we convert them to any number in the range. so i choose 1
+        # we are going to find negaitves and numbers than greater n, we convert them to any number in the range. so i choose 1. all numbers will be in [1,len(nums)]
         for i in range(n):
             if nums[i] == 1:
                 contains_one = 1

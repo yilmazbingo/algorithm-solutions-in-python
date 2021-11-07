@@ -13,6 +13,7 @@ class Solution:
             if root:
                 nonlocal diff
                 diff = min(diff, abs(target - root.val))
+                # this means diff has changed, so I update the ans
                 if diff == abs(target - root.val):
                     nonlocal ans
                     ans = root.val

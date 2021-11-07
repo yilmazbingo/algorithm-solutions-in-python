@@ -8,7 +8,7 @@ For each step, you may move to an adjacent number of the row below. More formall
 # Time complexity is O(n)
 
 from typing import List
-# redraw this as tree.
+# redraw this as tree.   triangle = [[2],[3,4],[6,5,7],[4,1,8,3]]
 class Solution:
     def min_total(self,triangle:List[List[int]])->int:
         # dp[] is the bottom row, always starts with base case
@@ -17,4 +17,16 @@ class Solution:
             for i,n in enumerate(row):
                 # for each step you may move to an adjacent number on the row below
                 dp[i]=n+min(dp[i],dp[i+1])
+                '''
+                    [4, 0, 0, 0, 0]
+                    [4, 1, 0, 0, 0]
+                    [4, 1, 8, 0, 0]
+                    [4, 1, 8, 3, 0]
+                    [7, 1, 8, 3, 0]
+                    [7, 6, 8, 3, 0]
+                    [7, 6, 10, 3, 0]
+                    [9, 6, 10, 3, 0]
+                    [9, 10, 10, 3, 0]
+                    [11, 10, 10, 3, 0]
+                '''
         return dp[0]

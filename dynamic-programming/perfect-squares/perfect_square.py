@@ -10,6 +10,11 @@ class Solution:
     # botom up aproach, big problem n depends on the smaller subproblems. base case is n=0
     # T =O(n * log(N)) not o(n^2) becase we stop when n^2 is greater than n
     def numSquares(self,n:int)->int:
+        # first check if sqrt of n is equal to n
+        if n==0:
+            return 0
+        if n<=3:
+            return n
         # as we go, we calculate what is the minimum number of perfect squares does it take for us to get target
         # for n=12, dp=[0, 1, 2, 3, 1, 2, 3, 4, 2, 1, 2, 3, 3]
         dp=[n]*(n+1)

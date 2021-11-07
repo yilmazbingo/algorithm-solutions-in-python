@@ -21,12 +21,12 @@ class Solution:
     def maxPathSum(self, root: Optional[TreeNode]) -> int:
         # instead of nonlocal i could use res=[root.val]
         res = root.val
-        def dfs(root):
+        def post_order(root):
             if not root:
                 return 0
-            # we recureively go down to the leaf nodes. post order traversal
-            left = dfs(root.left)
-            right = dfs(root.right)
+            # we recureively go down to the leaf nodes. POST-ORDER traversal
+            left = post_order(root.left)
+            right = post_order(root.right)
             # if left or right is negative we do not want to add, we ignore it, so we hand 0 to root
             left_max = max(left, 0)
             right_max = max(right, 0)
@@ -37,5 +37,5 @@ class Solution:
             # compute max without splitting. that is what we return to parent. we choose the max
             # we are starting from bottom, calculating max we can get from a node and pass it to parent
             return root.val + max(left_max, right_max)
-        dfs(root)
+        post_order(root)
         return res
