@@ -6,16 +6,15 @@ times[i] = (ui, vi, wi), where ui is the source node, vi is the target node, and
 
 We will send a signal from a given node k. Return the time it takes for all the n nodes to receive the signal. If it is impossible for all the n nodes to receive the signal, return -1.
 '''
-
 from collections import defaultdict
 import heapq
 from typing import List
-
 # Dijkstra algorithm is BFS, it uses minimum heap, aka priority-Queue
 # in each layer, neighbor nodes will be added to minHeap. minHeap gets us the min value in Log(N)
 # In meanHeap we keep (Path,Node). initially (0,1). it costs 0 to reach node 1
-# E=V^2. edges can be bidirectinal. so for each edge we could push V^2 nodes to minHeap. finding min is Log(V^2)
-# we do this operation E times. so T: 2 * E(Log(V))
+# E=V^2. edges can be bidirectinal. max_size of heap could be V^2
+# Every heap operation is Log(V^2). how many times are we going to do this operation. it is E=V^2 times
+#  so T: 2 * E * Log(V)
 class Solution:
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
         # Create adjacency list
