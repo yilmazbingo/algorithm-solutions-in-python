@@ -1,3 +1,12 @@
+'''
+743. Network Delay Time- Medium
+
+You are given a network of n nodes, labeled from 1 to n. You are also given times, a list of travel times as directed edges
+times[i] = (ui, vi, wi), where ui is the source node, vi is the target node, and wi is the time it takes for a signal to travel from source to target.
+
+We will send a signal from a given node k. Return the time it takes for all the n nodes to receive the signal. If it is impossible for all the n nodes to receive the signal, return -1.
+'''
+
 from collections import defaultdict
 import heapq
 from typing import List
@@ -13,7 +22,6 @@ class Solution:
         edges = defaultdict(list)
         for u, v, cost in times:
             edges[u].append((v, cost))
-        # this is starting point k. O is the cost of starting point. we pop this out sees its neigbours
         # min_heap sorts by time. we alwyats pop the lowest time
         min_heap = [(0, k)]
         # we dont wanna go in cycle. in loop
@@ -26,12 +34,9 @@ class Solution:
                 continue
             visit.add(node1)
             t = max(t, cost1)
-            # we are pushing the neighbors of current node to the heap
             for neighbor, cost2 in edges[node1]:
                 if neighbor not in visit:
                     heapq.heappush(min_heap, (cost1 + cost2, neighbor))
-            print(t)
-
         return t if len(visit) == n else -1
 
 
