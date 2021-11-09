@@ -8,11 +8,8 @@ edges = [
   ["z", "v"],
   ["w", "v"],
 ]
-
-
 from collections import defaultdict, deque
 class Solution:
-
     def bfs(self,edges,source,target):
         graph=self.buildGraph(edges)
         visited=set()
@@ -24,7 +21,6 @@ class Solution:
             if node == target:
                 return distance
             for neighbor in graph[node]:
-
                 if neighbor not in visited:
                     visited.add(neighbor)
                     queue.append([neighbor,distance+1])

@@ -1,9 +1,9 @@
 '''
 You are given a m x n 2D grid initialized with these three possible values.
 
--1 - A wall or an obstacle.
-0 - A gate.
-float('inf - Infinity means an empty room.
+    -1 - A wall or an obstacle.
+    0 -  A gate.
+    float('inf - Infinity means an empty room.
 Fill each empty room with the distance to its nearest gate. If it is impossible to reach a Gate, that room should remain filled with float('inf
 '''
 '''
@@ -15,20 +15,20 @@ from typing import List
 from collections import deque
 directions = [[-1, 0], [0, 1], [1, 0], [0, -1] ]
 class Solution:
-    def depthFirst(self, rooms):
+    def wallsAndGates(self, rooms):
         ROWS, COLS = len(rooms), len(rooms[0])
-
-        def backtrack(r, c, count):
+        # we start from each gate value and update the distance
+        def dfs(r, c, count):
             if r < 0 or r == ROWS or c < 0 or c == COLS or rooms[r][c] == -1 or count > rooms[r][c]:
                 return
             rooms[r][c] = count
             for dir in directions:
-                backtrack(r + dir[0], c + dir[1], count + 1);
+                dfs(r + dir[0], c + dir[1], count + 1);
         for r in range(ROWS):
             for c in range(COLS):
                 # find all the gates
                 if rooms[r][c] == 0:
-                    backtrack(r, c, 0)
+                    dfs(r, c, 0)
 
     def breadthFirst(self,rooms:List[List[int]])->None:
         ROWS,COLS=len(rooms),len(rooms[0])

@@ -31,7 +31,7 @@ class Solution:
             left_max = max(left, 0)
             right_max = max(right, 0)
             # if we split from root we cannot split again
-            # compute max with splitting to update the res
+            # compute max with splitting to update the res. basically i am saying, what would be happend if I disconnect with root.
             nonlocal res
             res = max(root.val + left_max + right_max, res)
             # compute max without splitting. that is what we return to parent. we choose the max
