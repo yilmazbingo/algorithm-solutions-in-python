@@ -9,10 +9,8 @@ class Solution:
         if(len(combination) == len(digits)):
             ans.append(combination[:])
             return
-
         currentDigit = digits[index]
         curString = m[currentDigit]
-
         for i in range(len(curString)):
             self.backtracking(ans, m, digits, combination +
                               curString[i], index+1)
@@ -21,9 +19,7 @@ class Solution:
         ans = []
         if(len(digits) == 0):
             return ans
-
         m = {}
-
         m['2'] = "abc"
         m['3'] = "def"
         m['4'] = "ghi"
@@ -32,7 +28,5 @@ class Solution:
         m['7'] = "pqrs"
         m['8'] = "tuv"
         m['9'] = "wxyz"
-
         self.backtracking(ans, m, digits, "", 0)
-
         return ans

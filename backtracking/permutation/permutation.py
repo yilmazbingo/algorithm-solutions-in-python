@@ -6,6 +6,7 @@ class Solution:
         if len(nums)==1:
             # this is way faster than [nums.copy()]. attention, i am returning in array
             return [nums[:]]
+        # there is no base case before for loop ends it
         for i in range(len(nums)):
             # pop the each item and get the permutaion of rest
             n=nums.pop(0)

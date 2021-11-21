@@ -19,6 +19,7 @@ class Solution:
         while len(stack)>0:
             current_node=stack.pop()
             res.append(current_node.val)
+            # we want to process the left first, so we push the right first then left
             if current_node.right:
                 stack.append(current_node.right)
             if current_node.left:

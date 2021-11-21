@@ -14,7 +14,7 @@ class Node:
         self.child = child
 
 class Solution:
-    def flatten(self, head: 'Node') -> 'Node':
+    def flatten(self, head: Node) -> Node:
         if not head:
             return None
         current_node=head
@@ -26,6 +26,7 @@ class Solution:
                 while tail.next:
                     tail=tail.next
                 tail.next=current_node.next
+                # tail.next could be None
                 if tail.next:
                     tail.next.prev=tail
                 current_node.next=current_node.child

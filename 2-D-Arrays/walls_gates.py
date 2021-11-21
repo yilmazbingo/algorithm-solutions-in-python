@@ -51,7 +51,6 @@ class Solution:
         dist=0
         while q:
             for i in range(len(q)):
-                # popping out the gates
                 r,c=q.popleft()
                 # change the gate for being the current distance
                 # after first layer I will be adding the distances of 1 because i increase dist++

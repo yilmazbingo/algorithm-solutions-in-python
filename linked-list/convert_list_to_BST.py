@@ -21,6 +21,7 @@ class Solution:
         if not head.next:
             return TreeNode(head.val)
         slow=fast=head
+        # pre is previos node of slow
         pre=ListNode()
         # we use slow and fast pointer to find the middle node to create the head of tree
         while fast and fast.next:

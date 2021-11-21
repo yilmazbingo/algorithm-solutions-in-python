@@ -1,20 +1,16 @@
-'''
-1- show f(1) works base case. if we have one disk put it to the end
-2- Assume f(n-1) works
-3- SHow f(n) works using f(n-1)
-'''
 
 class Solution:
     def towerOfHanoi(self, n):
         res=[]
-        #
-        def hanoi(n,start,med,end):
+        # from,helper,to. there are 3 rods
+        def hanoi(n,start,helper,dest):
             if n==0:
-                pass
+                return
             else:
-                # Assume f(n-1) works move n-1 to the end
-                hanoi(n-1,start,end,med)
-                res.append("from {} to {}".format(start, end))
-                hanoi(n-1,med,start,end)
+                # first move it to h
+                hanoi(n-1,start,dest,helper)
+                res.append("from {} to {}".format(start, dest))
+                hanoi(n-1,helper,start,dest)
         hanoi(n,"A","B","C")
         return res
+

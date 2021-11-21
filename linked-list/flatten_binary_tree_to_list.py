@@ -5,12 +5,7 @@ in the list and the left child pointer is always null.
 The "linked list" should be in the same order as a pre-order traversal of the binary tree.
 '''
 from typing import Optional
-
-class TreeNode:
-   def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+from trees.TreeNode import TreeNode
 
 def flatten(self, root: Optional[TreeNode]) -> None:
     if not root:

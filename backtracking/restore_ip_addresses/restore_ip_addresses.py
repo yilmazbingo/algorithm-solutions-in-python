@@ -13,6 +13,7 @@ class Solution:
         res=[]
         if len(s)>12:
             return res
+        # this is backtrack not dfs,
         def backtrack(i,dots,curIP):
             if dots==4 and i==len(s):
                 # chop the last point.
