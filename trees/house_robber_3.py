@@ -24,6 +24,7 @@ class Solution:
             right_pair=dfs(root.right)
             # if we include root, we get the without_root of the returned pair which is the first index
             with_root=root.val+left_pair[1]+right_pair[1]
+            # without_root has no restriction
             without_root=max(left_pair)+max(right_pair)
             return [with_root,without_root]
         return max(dfs(root))
