@@ -2,16 +2,32 @@
 543. Easy Diameter of Binary Tree
 
 Given the root of a binary tree, return the length of the diameter of the tree.
-
 The diameter of a binary tree is the length of the longest path between any two nodes in a tree. This path may or may not pass through the root.
-
-The length of a path between two nodes is represented by the number of edges between them.
+The length of a path between two nodes is represented by the number of EDGES between them NOT NODES.
 '''
+# NODES=EDGES+1
+
 from TreeNode import TreeNode
 from typing import Optional
 class Solution:
     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
+        res = 0
+        def traversal(root):
+            nonlocal res
+            if not root:
+                return 0
+            left = traversal(root.left)
+            right = traversal(root.right)
+            # we update if we do not pass from root
+            res = max(left + right, res)
+            # this is if we pass from root. +1 is the root
+            return max(left, right) + 1
+        traversal(root)
+        return res
+
+    def DiameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
         res=0
+        # with recursion we start from bottom to top. so we visit each node once so T:O(N)
         def dfs(root):
             if not root:
                 return -1
