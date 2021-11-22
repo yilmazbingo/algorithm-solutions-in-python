@@ -9,16 +9,17 @@ from TreeNode import TreeNode
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
         res=None
-        def dfs(node):
+        def inorder(node):
             if not node:
                 return
-            dfs(node.left)
+            # in bst this is the smallest value
+            inorder(node.left)
             nonlocal k
             k-=1
             if k==0:
                 nonlocal res
                 res=node.val
                 return
-            dfs(node.right)
-        dfs(root)
+            inorder(node.right)
+        inorder(root)
         return res
