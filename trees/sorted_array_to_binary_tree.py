@@ -3,7 +3,7 @@
 Given an integer array nums where the elements are sorted in ascending order, convert it to a height-balanced binary search tree.
 A height-balanced binary tree is a binary tree in which the depth of the two subtrees of every node never differs by more than one.
 '''
-# they want hight balanced because they did not want a skewed tree. it would be easier
+# they want height balanced because they did not want a skewed tree. it would be easier
 # [2,3,4,   5,    7, 10,12   5 is the root, left values are left subtree, right numbers are right subtree
 # then take [2,3,4] and create  a tree out of this
 

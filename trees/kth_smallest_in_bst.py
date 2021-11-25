@@ -14,6 +14,7 @@ class Solution:
                 return
             # in bst this is the smallest value
             inorder(node.left)
+            # python determines the scope at creation time of the function
             nonlocal k
             k-=1
             if k==0:

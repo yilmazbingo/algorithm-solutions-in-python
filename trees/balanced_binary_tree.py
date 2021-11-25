@@ -10,15 +10,15 @@ from typing import Optional
 # If i started from bottom, i will visit each node once, so O(n)
 class Solution:
     def isBalanced(self, root: Optional[TreeNode]) -> bool:
-        def dfs(root):
+        def post_order(root):
             # leaf node is balanced
             if not root:
                 # we carry the height of each subtree
                 return [True,0]
             # with recursion, we start from bottom, so we do not have repetitive work
-            left,right=dfs(root.left),dfs(root.right)
+            left,right=post_order(root.left),post_order(root.right)
             # if any of the subtree return false, then we know entire tree is not balanced
             balanced=left[0] and right[0] and abs(left[1]-right[1])<=1
             # 1+max(left[1],right[1]) is the height of the each subtree. 1 is the root of the subtree
             return [balanced,1+max(left[1],right[1])]
-        return dfs(root)[0]
+        return post_order(root)[0]

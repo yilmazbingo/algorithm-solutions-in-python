@@ -9,7 +9,7 @@ class Solution:
         diff = float("inf")
         ans = target
         # we have to traverse entire tree. I used preorder traversal but any can work
-        def dfs(root):
+        def preorder(root):
             if root:
                 nonlocal diff
                 diff = min(diff, abs(target - root.val))
@@ -17,7 +17,7 @@ class Solution:
                 if diff == abs(target - root.val):
                     nonlocal ans
                     ans = root.val
-                dfs(root.left)
-                dfs(root.right)
-        dfs(root)
+                preorder(root.left)
+                preorder(root.right)
+        preorder(root)
         return ans

@@ -10,21 +10,6 @@ The length of a path between two nodes is represented by the number of EDGES bet
 from TreeNode import TreeNode
 from typing import Optional
 class Solution:
-    def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
-        res = 0
-        def traversal(root):
-            nonlocal res
-            if not root:
-                return 0
-            left = traversal(root.left)
-            right = traversal(root.right)
-            # we update if we do not pass from root
-            res = max(left + right, res)
-            # this is if we pass from root. +1 is the root
-            return max(left, right) + 1
-        traversal(root)
-        return res
-
     def DiameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
         res=0
         # with recursion we start from bottom to top. so we visit each node once so T:O(N)

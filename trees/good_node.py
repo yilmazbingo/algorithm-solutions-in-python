@@ -11,6 +11,7 @@ from TreeNode import TreeNode
 class Solution:
     def goodNodes(self,root:TreeNode)->int:
         def preorder(node,max_val):
+            # empty tree has no good node
             if not node:
                 return 0
             # in bst there is no duplicate key. if there is only root, root is counted as a good node
