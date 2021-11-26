@@ -17,19 +17,19 @@ class Solution:
     def flatten(self, head: Node) -> Node:
         if not head:
             return None
-        current_node=head
-        while current_node:
-            if not current_node.child:
-                current_node=current_node.next
+        cur=head
+        while cur:
+            if not cur.child:
+                cur=cur.next
             else:
-                tail=current_node.child
+                tail=cur.child
                 while tail.next:
                     tail=tail.next
-                tail.next=current_node.next
+                tail.next=cur.next
                 # tail.next could be None
                 if tail.next:
                     tail.next.prev=tail
-                current_node.next=current_node.child
-                current_node.next.prev=current_node
-                current_node.child=None
+                cur.next=cur.child
+                cur.next.prev=cur
+                cur.child=None
         return head

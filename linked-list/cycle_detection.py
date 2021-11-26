@@ -3,16 +3,13 @@ class Solution:
     def hasCycle(self, head: ListNode) -> bool:
         if not head:
             return False
-        current_node = head
-        seen = set()
-        while (current_node not in seen):
-            if current_node.next == None:
+        seen=set()
+        while head not in seen:
+            if head.next==None:
                 return False
-            seen.add(current_node)
-            current_node = current_node.next
-        # current_node would be the start of the cycle
+            seen.add(head)
+            head=head.next
         return True
-
     def hare_and_tortoise(self, head: ListNode) -> bool:
         if not head:
             return False

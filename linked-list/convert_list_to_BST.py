@@ -9,11 +9,8 @@ For this problem, a height-balanced binary tree is defined as a binary tree in w
 
 from typing import Optional
 from List_Node import ListNode
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+from trees.TreeNode import TreeNode
+
 class Solution:
     def sortedListToBST(self, head: Optional[ListNode]) -> Optional[TreeNode]:
         if not head:
