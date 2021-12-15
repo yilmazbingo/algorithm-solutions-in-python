@@ -18,9 +18,7 @@ class Solution:
     def optimum(self,head:ListNode)->bool:
         fast_pointer=head
         slow_pointer=head
-        # I wanna reach the end of the linked list. I stop when fast_pointer.next=None
         while fast_pointer and fast_pointer.next:
-            # we are forwarding fast_pointer two steps
             fast_pointer=fast_pointer.next.next
             # while slow reach middle, fast will reach to the end
             slow_pointer=slow_pointer.next

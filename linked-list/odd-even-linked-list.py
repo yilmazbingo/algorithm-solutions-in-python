@@ -10,8 +10,10 @@ def solution(head):
         return head
     odd=head
     even=odd.next
+    # this is the beginning of the even list
     even_list=even
     # odd.next=even
+    # this makes sure we visit every node
     while odd.next and even.next:
         odd.next=even.next
         odd=odd.next

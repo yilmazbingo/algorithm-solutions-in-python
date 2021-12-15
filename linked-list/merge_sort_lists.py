@@ -1,4 +1,4 @@
-#Given the head of a linked list, return the list after sorting it in ascending order in O(N log(N))
+ #Given the head of a linked list, return the list after sorting it in ascending order in O(N log(N))
 # Merge sort is a recursive algorithm. dividing takes log(N) and comparing takes N
 
 from typing import Optional
@@ -13,6 +13,7 @@ class Solution:
         # Second half should be starting with right.next, not right
         # when we divide the list into 2, tail of each part will point to None
         temp=right.next
+        # this is important state. self.sortlist(left) will call it self and its tail will be updated
         right.next=None
         right=temp
         left=self.sortList(left)
