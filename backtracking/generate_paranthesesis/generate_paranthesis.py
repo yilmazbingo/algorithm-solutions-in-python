@@ -21,10 +21,10 @@ class Solution:
             if openN==closedN==n:
                 res.append("".join(stack))
                 return
-            # only add open parantheses if open<n
+            # only add open parentheses if open<n
             if openN<n:
                 stack.append("(")
-                backtrack(openN+1 ,closedN)
+                backtrack(openN+1, closedN)
                 # everytime we are done with backtracking we have the pop the element we added to the stack, SO WE WILL HAVE A CLEAN STACK
                 stack.pop()
  # IMPORTANT only add a closing parantheses if   closedN <openN

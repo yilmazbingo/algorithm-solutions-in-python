@@ -5,6 +5,10 @@ find all possible paths from node 0 to node n - 1 and return them in any order.
 
 The graph is given as follows: graph[i] is a list of all nodes you can visit from node i (i.e., there is a directed edge from node i to node graph[i][j]).
 """
+
+# Time:  O(p + r * n), p is the count of all the possible paths in graph,
+#                      r is the count of the result.
+# Space: O(n)
 from typing import List
 class Solution:
     def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:

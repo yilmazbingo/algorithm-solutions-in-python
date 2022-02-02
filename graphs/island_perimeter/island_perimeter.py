@@ -1,7 +1,6 @@
 '''
 463-Easy
 - You are given row x col grid representing a map where grid[i][j] = 1 represents land and grid[i][j] = 0 represents water.
-
 - Grid cells are connected horizontally/vertically (not diagonally). The grid is completely surrounded by water,
 and there is exactly one island (i.e., one or more connected land cells).
 - The island doesn't have "lakes", meaning the water inside isn't connected to the water around the island.
@@ -14,6 +13,7 @@ class Solution:
         ROWS,COLS=len(grid),len(grid[0])
         visited=set()
         def dfs(r,c):
+            # base case we are out of bound or we reached water
             if r<0 or r==ROWS or c==COLS or c<0 or grid[r][c]==0:
                 # that means we are on the border. so we return 1
                 return 1
@@ -22,6 +22,7 @@ class Solution:
             # makes sure we call dfs for only 4 directions. not visit same direction
             visited.add((r,c))
             return dfs(r+1,c)+dfs(r-1,c)+dfs(r,c+1)+dfs(r,c-1)
+        # we could start from any cell. we need to visit every land portion
         for r in range(ROWS):
             for c in range(COLS):
                 if grid[r][c]==1:

@@ -1,5 +1,5 @@
 # given a 2D array find the shortest path to the destination
-# Use bfs
+# distance is number of edges between nodes
 
 edges = [
   ["w", "x"],
@@ -8,6 +8,7 @@ edges = [
   ["z", "v"],
   ["w", "v"],
 ]
+# T:O(N)
 from collections import defaultdict, deque
 class Solution:
     def bfs(self,edges,source,target):
@@ -20,6 +21,7 @@ class Solution:
             node,distance=queue.popleft()
             if node == target:
                 return distance
+            # notice that I did not add it to the set here
             for neighbor in graph[node]:
                 if neighbor not in visited:
                     visited.add(neighbor)

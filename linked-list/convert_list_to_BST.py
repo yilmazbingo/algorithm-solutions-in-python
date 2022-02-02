@@ -30,7 +30,6 @@ class Solution:
         # if I dont cut it, when I recursively do while loop in left side, it would loop through entire linked list. to stop the while loop, fast.next->None
         pre.next=None
         root=TreeNode(slow.val)
-        # we pass the beginner of left and right side
         root.left=self.sortedListToBST(head)
         root.right=self.sortedListToBST(slow.next)
         return root

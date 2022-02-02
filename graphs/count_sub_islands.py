@@ -19,11 +19,13 @@ class Solution:
         count = 0
         for row in range(ROWS):
             for col in range(COLS):
+                # this is where each island coordinate is stored. after each island we are initalizing a new empty array
                 res = []
+                # this is where we are starting to build the island
                 if grid[row][col] == 1:
                     queue = deque()
                     queue.append([row, col])
-                    # this will make sure i do not revisit again
+                    # this will make sure i do not revisit again. in bfs of graphs we have to make sure we do not revisit the nodes
                     grid[row][col] = 0
                     while len(queue):
                         current = queue.popleft()

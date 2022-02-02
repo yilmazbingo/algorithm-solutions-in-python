@@ -33,4 +33,5 @@ class Solution:
     # call stack of that dfs is always the len(word). 4^len(word)
     # we are calling dfs every single time for every position in the board
     # S: O(m * n)
-
+board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]]
+word = "ABCCED"

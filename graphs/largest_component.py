@@ -12,7 +12,6 @@ class Solution:
     def largest(self,graph):
         visited=set()
         longest=0
-
         # it just explores. After it explores all the connected nodes returns True
         def dfs(node):
             if node in visited:

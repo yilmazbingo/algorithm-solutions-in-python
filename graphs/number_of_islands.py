@@ -1,3 +1,9 @@
+'''
+Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return the number of islands.
+
+An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically.
+You may assume all four edges of the grid are all surrounded by water.
+'''
 from typing import List
 from collections import deque
 
@@ -12,6 +18,7 @@ class Solution:
             count=0
             for row in range(ROWS):
                 for col in range(COLS):
+                    # make sure you are passing strings
                     if grid[row][col]=="1":
                         count+=1
                         queue=deque()
@@ -24,6 +31,7 @@ class Solution:
                             for direction in self._directions:
                                 new_row=current_row+direction[0]
                                 new_col=current_col+direction[1]
+                                # always always validate before processing-
                                 if new_row<0 or new_row>=ROWS or new_col<0 or new_col>=COLS:
                                     continue
                                 if grid[new_row][new_col]=="1":

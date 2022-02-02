@@ -1,7 +1,7 @@
 '''
 785. Medium Is Graph Bipartite?
 '''
-
+# a bipartite graph is a graph whose vertices can be divided into two disjoint and independent sets U and V such that every edge connects a vertex in U to one in V.
 from typing import List
 from collections import deque
 class Solution:
@@ -23,7 +23,7 @@ class Solution:
                 if colors[node] == -1:
                     colors[node] = color
                     for neighbor in graph[node]:
-                        # neighbors should be different color
+                        # neighbors should be different color. ^ is XOR
                         queue.append((neighbor, color ^ 1))
                 # incase somethingelse changed it
                 if colors[node] != color:

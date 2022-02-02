@@ -7,24 +7,27 @@ For example, "0.1.2.201" and "192.168.1.1" are valid IP addresses and "0.011.255
 '''
 
 from typing import List
-#T:O(3^5) cause max height is 5
+# T:O(3^5) cause max height is 5
 class Solution:
     def restoreIpAddresses(self,s:str)->List[int]:
         res=[]
         if len(s)>12:
             return res
-        # this is backtrack not dfs,
         def backtrack(i,dots,curIP):
+            # we could have 4 dots but we have not reached the end
             if dots==4 and i==len(s):
-                # chop the last point.
+                # chop the last dot .
                 res.append(curIP[:-1])
                 return
             if dots>4:
                 return
+            # what is (i+3) is out of bounds
             for j in range(i,min(i+3,len(s))):
                 # cannot have leading zeros except only single 0 like .0 is fine but .03 is not
-                # i==j length of digit is 1
+                # If i==j it can have leading zero because that means length of digit is 1. "123.2"
+                # if length is not 1, then first character should not be 0
                 if int(s[i:j+1])<256 and (i==j or s[i]!="0"):
+                    # each time we make a decison we already add 1 dot
                     backtrack(j+1,dots+1,curIP+s[i:j+1]+".")
         backtrack(0,0,"")
         return res

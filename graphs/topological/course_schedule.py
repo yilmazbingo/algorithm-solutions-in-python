@@ -7,7 +7,8 @@ Return true if you can finish all courses. Otherwise, return false.
 '''
 #prereq:[[1,0],[2,3],[3,4]]
 # We cannot finish courses if we have some kind of cycle. if 3->4 and 4->3
-#if oyu hear there is some type of relationship between pairs of somehing inside of a question, it is most likely they are defining the relationship between two vertices because that relationship is dictated as an edge.
+#if oyu hear there is some type of relationship between pairs of somehing inside of a question, it is most likely they are defining the relationship between two vertices
+# because that relationship is dictated as an edge.
 # When we are looking for a cycle, start from a some node and perform a traversal, while performing traversal if we ever make it back to a node that we have seen before, then we know we hav a cycle
 
 from typing import List
@@ -31,6 +32,7 @@ class Solution:
             current = stack.pop()
             count += 1
             # I need to find the adj of vertices and reduce their indegree value by 1 because I removed the node, so one less node is coming into them
+            # for example 4:[1,2]  reduce indegree of 1 and 2
             for adj in adj_list[current]:
                 indegree[adj] -= 1
                 if (indegree[adj] == 0):
@@ -73,18 +75,23 @@ class Solution:
             return False
         if len(prerequisites) == 0:
             return True
+        #   adj_list = [[]  for _ in range(len(prerequisites))]  this is same
         adj_list = [[] * len(prerequisites) for _ in range(len(prerequisites))]
         for pair in prerequisites:
             adj_list[pair[1]].append(pair[0])
         print(adj_list)
+        # we have to perform traversal on each single node. In case we have unconnected components
         for i in range(numCourses):
             queue = deque()
             seen = {}
+            # [[], [0], [0], [1], [1, 3]]
             for j in range(len(adj_list[i])):
                 queue.append(adj_list[i][j])
             while queue:
                 current = queue.popleft()
                 seen[current] = True
+                # we have cycle. while we perform traversal, if we are back to a node that we have seen before, we have cycle
+                # for example, for node 1:[1] 1 ->1
                 if current == i:
                     return False
                 adjacent = adj_list[current]

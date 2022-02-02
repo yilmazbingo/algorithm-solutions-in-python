@@ -11,7 +11,9 @@ class Solution:
             # pop the each item and get the permutaion of rest
             n=nums.pop(0)
             # chop the first element and then calculate the permutaion of rest
+            # in recursion we always want to call the same thing on the rest
             perms=self.best(nums)
+            # those are permutations
             '''
             [[3]]
             [[2]]
@@ -37,6 +39,7 @@ class Solution:
                 result.append(path)
                 return
             for i in range(len(nums)):
+                # nums[:0]=[]
                 dfs(nums[:i] + nums[i + 1:], path + [nums[i]])
 
         dfs(nums, [])

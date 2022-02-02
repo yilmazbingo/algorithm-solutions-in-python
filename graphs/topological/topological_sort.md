@@ -1,5 +1,5 @@
 - It is a sort, returns a specific order of the vertexes of given graph, as long as graph satisfies certain conditions
-- The only graphs that have valid topological ordering is called directed acyclic graphs
+- The only graphs that have valid topological ordering is called DIRECTED ACYCLIC GRAPH
 - every tree has a topological ordering. since by definition, trees do not have any cycles. 
 
 First thing we need to look at is a vertex in isolation. Every vertex in isolation has **Indegree** factor. THis only
