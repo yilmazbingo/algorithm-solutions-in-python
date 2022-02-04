@@ -21,7 +21,17 @@ class Solution:
                 l-=1
                 r+=1
         return res
-
+    def brute(self,s:str)->str:
+        max_len=0
+        output=""
+        for i in range(len(s)):
+            for j in range(i+1,len(s)+1):
+                candid=s[i:j]
+                # reversing has n time. so total will be n^3
+                if candid==candid[::-1] and len(candid)>max_len:
+                    output=candid
+                    max_len=len(candid)
+        return output
 s=Solution()
 s.longestPalindrome("dkahfjkdshfjd")
 print(s)

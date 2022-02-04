@@ -10,17 +10,13 @@ from typing import List
 class Solution:
     def maxLength(self, arr: List[str]) -> int:
         charset = set()
-        def overlap(charsett, string):
+        def overlap(chars, string):
             prev = set()
             for c in string:
-                if c in prev or c in charsett:
+                if c in prev or c in chars:
                     return True
-                prev.add(c)
-            return False
-        count = 1
+                prev.add(c)        count = 1
         def backtrack(i):
-            nonlocal count
-            count += 1
             if i == len(arr):
                 return len(charset)
             res = 0

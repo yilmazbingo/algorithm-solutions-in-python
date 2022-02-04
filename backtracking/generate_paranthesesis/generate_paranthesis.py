@@ -6,7 +6,12 @@ Input: n = 3
 Output: ["((()))","(()())","(())()","()(())","()()()"]
 
 '''
+# this is an example of Catalan Numbers
+'''
+Time Complexity: O((4^n)/(√n)), in simple terms, the time complexity will be the nth Catalan number.
 
+Space Complexity: O((4^n)/(√n)), including recursion stack space.
+'''
 from typing import List
 
 # S:O(call stack)=O(n*2)
@@ -21,7 +26,7 @@ class Solution:
             if openN==closedN==n:
                 res.append("".join(stack))
                 return
-            # only add open parentheses if open<n
+            # only add open parentheses if open<n. you are not comparing openN to closeN
             if openN<n:
                 stack.append("(")
                 backtrack(openN+1, closedN)

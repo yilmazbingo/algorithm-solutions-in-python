@@ -17,7 +17,7 @@ class Solution:
         n=len(nums)
         def dfs(cur):
             if len(cur)==n:
-                return None if cur in str_set else res
+                return None if cur in str_set else cur
             for c in ["0","1"]:
                 res=dfs(cur+c)
                 if res:return res
