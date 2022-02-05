@@ -1,4 +1,5 @@
 # Given a string s, partition s such that every substring of the partition is a palindrome
+# every word will have single characters as subset
 from typing import List
 class Solution:
     def partition(self, s: str) -> List[List[str]]:
@@ -28,7 +29,10 @@ class Solution:
         return True
 
 '''
-he time complexity given in the solutions is O(N * 2^N)
+The time complexity given in the solutions is O(N * 2^N). This is the worst-case time complexity when all the possible substrings are palindrome.
+Hence, there could be 2^N possible substrings in the worst case. For each substring, it takes \{O}(N) time to generate substring and determine if it a palindrome or not. 
+This gives us time complexity as O(N * 2^N).
+
 
 I understand that:
 

@@ -5,8 +5,10 @@ Given an integer n, return all distinct solutions to the n-queens puzzle. You ma
 
 Each solution contains a distinct board configuration of the n-queens' placement, where 'Q' and '.' both indicate a queen and an empty space, respectively.
 '''
+'''
+O ( N ) * ( N - 1 ) * ( N - 2 ) * … 1 )
+'''
 # queeen can move all 4 directions and diagonally.
-# each queen has to be in different column, row and diagonal
 # pattern for negative diagonal. we are increasing row and col values by 1. r-c stays constant
 # pattern for positive diagonal. r+c stays constant
 from typing import List
