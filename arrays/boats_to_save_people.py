@@ -8,6 +8,7 @@ Return the minimum number of boats to carry every given person.
 class Solution(object):
     def numRescueBoats(self, people, limit):
         # list.sort() modifies the list.
+        #  list sort() has been using the Timsort algorithm since version 2.3. This algorithm has a runtime complexity of O(n. logn).
         people.sort()
         i,j=0, len(people)-1
         count=0

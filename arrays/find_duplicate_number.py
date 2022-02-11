@@ -27,7 +27,8 @@ class Solution:
             fast=nums[nums[fast]]
             if slow==fast:
                 break
-        # so far we have found where slow and fast met. then initialize second pointer from beginner
+        # so far we have found where slow and fast met. we are in the cycle
+        # this algorithm assumes that distance from beginning to cycle start point is same length as start point to the meeting point of slow and fast
         slow2=0
         while True:
             slow=nums[slow]

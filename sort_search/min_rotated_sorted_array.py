@@ -6,31 +6,18 @@ Notice that rotating an array [a[0], a[1], a[2], ..., a[n-1]] 1 time results in 
 
 Given the sorted rotated array nums of unique elements, return the minimum element of this array.
 
-You must write an algorithm that runs in O(log n) time.
+You must write an algorithm that runs in O(log n) time. BINARY SEARCH but not traditional
 '''
 from typing import List
 class Solution:
     def findMin(self, nums: List[int]) -> int:
-        if nums[0]<nums[-1]:
-            return nums[0]
-        left=0
-        right=len(nums)-1
-        # res could be any of the nums element
-        res=nums[0]
-        while left<=right:
-            # if subarray is already sorted
-            if nums[left]<nums[right]:
-                res=min(res,nums[left])
-                break
-            # if not sorted we do binary search
-            medium=(left+right)//2
-            res=min(res,nums[medium])
-            #now we decide are we going to search left or right
-            if nums[medium]>=nums[left]:
-                #if we are on the left portion, we search the right portion
-                left=medium+1
+        low, high = 0, len(nums) - 1
+        while low < high:
+            # we are checking if the mid value is greater than last element. if it is greater it means pivot point on the right side
+            mid = (low + high) // 2
+            if nums[mid] > nums[high]:
+                low = mid + 1
             else:
-                right=medium-1
-
-        return res
+                high = mid
+        return nums[low]
 

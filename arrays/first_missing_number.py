@@ -35,7 +35,9 @@ class Solution:
             # we use abs incase nums[i] is negative
             index = abs(nums[i]) - 1
             # if it is negative that means we already have seen it. so if it is positive we make it negative to mark it seen
+            # now we do lookup
             if nums[index] > 0:
+                # this signs that we have seen number index
                 nums[index] *= -1
         # step3
         for i in range(n):

@@ -12,7 +12,7 @@ class Solution:
                     res_len=r-l+1
                 l-=1
                 r+=1
-            #even length palindrome mean abccba
+            #even length palindrome mean abccba. notice l,r=i ,i+1
             l,r=i,i+1
             while l>=0 and r<len(s) and s[l]==s[r]:
                 if(r-1+1)>res_len:

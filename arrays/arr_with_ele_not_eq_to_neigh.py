@@ -12,6 +12,7 @@ from typing import List
 class Solution:
     def rearrangeArray(self, nums: List[int]) -> List[int]:
         # we sort it and then we try to place each item such that its neighbors is less than itself
+        #  list sort() has been using the Timsort algorithm since version 2.3. This algorithm has a runtime complexity of O(n. logn).
         nums.sort()
         res=[]
         left,right=0,len(nums)-1

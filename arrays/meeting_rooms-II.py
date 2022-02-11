@@ -1,6 +1,9 @@
-'''
+"""
 https://www.lintcode.com/problem/919/
-'''
+Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],...] (si < ei),
+find the minimum number of conference rooms required.
+"""
+
 
 """
 class Interval(object):
@@ -8,25 +11,27 @@ class Interval(object):
         self.start = start
         self.end = end
 """
-import heapq
+# T: O(nLog(N) S:O(N)
+"""
+[(0,30),(5,10),(15,20)]
+start=[0,5,15]
+end=[10,20,30]
+when start[i]<end[j] that means 1 meeting is going on
+"""
 class Solution:
     def minMeetingRooms(self, intervals):
-        # Write your code here
-        if not intervals:
-            return 0
-        # sort by the beginning time because this is the first starting group will wait for next first finishing
-        intervals.sort(key=lambda interval:interval.start)
-        # If I could use any room, it would be the one that ends quickest. so keep track of ending time
-        used_rooms=[intervals[0].end]
-        # this operation is done in space S:O(1),T:O(N)
-        heapq.heapify(used_rooms)
-        for interval in intervals[1:]:
-            # if no overlap:
-            # we can essentially reuse the same room
-            if interval.start>=used_rooms[0]:
-                heapq.heappop(used_rooms)
-            heapq.heappush(used_rooms,interval.end)
-        return len(used_rooms)
-
+        start=sorted([i.start for i in intervals])
+        end=sorted([i.end for i in intervals])
+        i,j=0,0
+        res,count=0,0
+        while i < len(intervals):
+            if start[i]<end[j]:
+                i+=1
+                count+=1
+            else:
+                j+=1
+                count-=1
+            res=max(res,count)
+        return res
 s=Solution()
 s.minMeetingRooms([(0,30),(5,10),(15,20)])

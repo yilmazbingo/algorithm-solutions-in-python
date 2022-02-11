@@ -7,7 +7,7 @@ from TreeNode import TreeNode
 
 class Solution:
     def increasingBST(self, root: TreeNode) -> TreeNode:
-        # with this we dont need to consisder firs time if head is null.
+        # with this we dont need to consider first time if head is null.
         head =TreeNode("dummy")
         # global cursor
         cursor =head

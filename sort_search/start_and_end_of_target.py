@@ -1,5 +1,6 @@
 '''
 Given an array of integers nums sorted in ascending order, find the starting and ending position of a given target value.
+ nums = [5,7,7,8,8,10], target = 8
 If target is not found in the array, return [-1, -1].
 You must write an algorithm with O(log n) runtime complexity.
 '''

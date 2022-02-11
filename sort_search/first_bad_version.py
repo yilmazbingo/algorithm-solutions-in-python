@@ -11,6 +11,7 @@ You are given an API bool isBadVersion(version) which returns whether version is
 
 class Solution:
     def firstBadVersion(self, n):
+        # left and right are versions
         left,right=1,n
         while left<right:
             mid=(left+right)//2

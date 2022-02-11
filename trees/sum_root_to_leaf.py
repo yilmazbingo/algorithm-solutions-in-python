@@ -12,11 +12,14 @@ from TreeNode import TreeNode
 
 class Solution:
     def sumNumbers(self,root:TreeNode):
+        # preorder. processing the
         def dfs(cur_node,num):
             if not cur_node:
                 return 0
             num=num*10+cur_node.val
+            # if this is a leaf node
             if not cur_node.left and not cur_node.right:
                 return num
             return dfs(cur_node.left,num)+dfs(cur_node.right,num)
+        # we pass 0 zero because we calculate the num 10*0+root.val
         return dfs(root,0)

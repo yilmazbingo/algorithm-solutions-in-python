@@ -12,5 +12,6 @@ class Solution:
         for num in nums1:
             if num in nums2:
                 res.append(num)
+                # If I didnot remove it [1,2,2,1] and [2] would return [2,2]
                 nums2.remove(num)
         return res

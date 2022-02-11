@@ -14,6 +14,7 @@ class Solution:
         while len(queue)>0:
             current_node=queue.popleft()
             res.append(current_node.val)
+            # I add null, current_node.val would throw error
             if current_node.left:
                 queue.append(current_node.left)
             if current_node.right:

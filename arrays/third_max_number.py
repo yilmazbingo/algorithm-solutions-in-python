@@ -12,7 +12,7 @@ class Solution:
         for num in nums:
             visited.add(num)
         #sort() sorts in place, returns None
-        sorted_nums = sorted(list(visited));
+        sorted_nums = sorted(list(visited))
         if len(sorted_nums) < 3:
-            return max(sorted_nums)
+            return sorted_nums[-1]
         return sorted_nums[-3]

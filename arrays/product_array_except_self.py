@@ -11,16 +11,17 @@ You must write an algorithm that runs in O(n) time and without using the divisio
         Prefix= [1, 1, 2, 6]
        Postfix= [24, 12, 4, 1]
 '''
-
+# the logic is get the multiplication of everything befor and after element and then then multuply both
 from typing import List
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        # prefix is the multiplication of elements in order. [1,2,3,4]->[1,2,6,24]
+        # prefix is the multiplication of elements in order. [1,2,3,4]->[1,1,2,6]  We are not touching the first element
         prefix = [1] * (len(nums))
         left = 1
-        # postfix is multiplication of nums in reverse order. [1,2,3,4] -> [24,24,12,4]
+        # postfix is multiplication of nums from end. [1,2,3,4] -> [24,12,4,1] We are not touching the last element
         postfix = [1] * (len(nums))
         while left < len(nums):
+            # we dont touch the first element
             prefix[left] = prefix[left - 1] * nums[left - 1]
             left += 1
         right = len(nums) - 2

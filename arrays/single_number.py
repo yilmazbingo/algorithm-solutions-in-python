@@ -3,17 +3,16 @@ Given a non-empty array of integers nums, every element appears twice except for
 
 You must implement a solution with a linear runtime complexity and use only constant extra space.
 '''
-
+'''
+Order of XOR operation does not matter. . 0x0=1x1=0 0x1=1x0=1
+num^0 => zero does not change the operation. When we apply xor operation eventually dublicates will end up being 0. 
+num^0=num
+'''
 from typing import List
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
-        nums.sort()
-        if len(nums)==1:
-            return nums[0]
-        elif nums[0]!=nums[1]:
-            return nums[0]
-        elif nums[-1]!=nums[-2]:
-            return nums[-1]
-        for i in range(1 ,len(nums ) -1):
-            if nums[i]!=nums[ i +1] and nums[i ]!=nums[ i -1]:
-                return nums[i]
+        # initalized with zero because num^0=num
+        res=0
+        for num in nums:
+            res=num^res
+        return res
