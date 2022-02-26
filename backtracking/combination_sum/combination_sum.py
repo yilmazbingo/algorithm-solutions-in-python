@@ -1,7 +1,7 @@
 '''
 39. Combination Sum - Medium
 
-Given an array of distinct integers candidates and a target integer target, return a list of all unique combinations of
+Given an array of distinct integers candidates and a target integer target, return a list of all UNIQUE combinations of
 candidates where the chosen numbers sum to target. You may return the combinations in any order.
 
 The same number may be chosen from candidates an unlimited number of times. Two combinations are unique if the frequency
@@ -25,6 +25,7 @@ class Solution:
             cur.append(nums[pos])
             backtrack(cur,pos,total+nums[pos])
             cur.pop()
+            # when I called this, it is not total+nums[pos] becase it is already returned from from the first
             backtrack(cur,pos+1,total)
         backtrack([],0,0)
         return res

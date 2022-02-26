@@ -11,7 +11,6 @@ adj_list = {
   4: [3, 2],
 };
 
-
 class Solution:
     def count_connected(self,graph):
         visited=set()
@@ -21,7 +20,6 @@ class Solution:
             if node in visited:
                 return False
             visited.add(node)
-            # in tree we traverse with node.left or node.right but here with edges
             for neighbor in graph[node]:
                 # dfs's job is to add the node into the set
                 dfs(neighbor)

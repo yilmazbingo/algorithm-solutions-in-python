@@ -1,4 +1,4 @@
- #Given the head of a linked list, return the list after sorting it in ascending order in O(N log(N))
+ #148.Given the head of a linked list, return the list after sorting it in ascending order in O(N log(N))
 # Merge sort is a recursive algorithm. dividing takes log(N) and comparing takes N
 
 from typing import Optional

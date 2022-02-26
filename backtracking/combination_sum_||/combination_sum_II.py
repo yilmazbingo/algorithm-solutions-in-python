@@ -29,6 +29,7 @@ class Solution:
                 if candidates[i]==prev:
                     continue
                 cur.append(candidates[i])
+                # each number in the array can be used once.  that is why i+1
                 backtrack(cur,i+1,total+candidates[i])
                 cur.pop()
                 prev=candidates[i]

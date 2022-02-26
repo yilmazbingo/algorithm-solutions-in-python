@@ -15,6 +15,7 @@ class Solution:
             if num<1000:
                 quotient,remainder=num//100,num%100
                 return [under_twenty[quotient],"Hundred"] + dfs(remainder)
+            # starting to count from 0
             for power,chunk in enumerate(chunks,1):
                 if num < 1000 ** (power + 1):
                     quotient, remainder = num // 1000 ** power, num % 1000 ** power

@@ -13,16 +13,17 @@ Output: 6 "cat" and "hat"
 from typing import List
 class Solution:
     def countCharacters(self, words: List[str], chars: str) -> int:
-        words_list = [list(x) for x in words]  # making the string into an array to remove elements
-        sum_array = []  # to store the final length of all the substrings formed
+        # making the string into an array to remove elements
+        words_list=[list(x) for x in words]
+        sum_array=[]
         for word in words_list:
-            count = 0
-            # for each word, after deletion we should hava reinitiaated the chars_list
-            chars_list = [char for char in chars]
-            for char in word:
-                if char in chars_list:
-                    chars_list.remove(char)
-                    count += 1
-            if count == len(word):
+            count=0
+            chars_list=[char for char in chars]
+            for letter in word:
+                if letter in chars_list:
+                    # this removes the first char if there is same char more than once
+                    chars_list.remove(letter)
+                    count+=1
+            if len(word)==count:
                 sum_array.append(len(word))
         return sum(sum_array)

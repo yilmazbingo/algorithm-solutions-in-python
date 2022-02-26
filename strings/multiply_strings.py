@@ -11,6 +11,7 @@ class Solution:
     def multiply(self, num1: str, num2: str) -> str:
         if "0" in [num1, num2]:
             return "0"
+        # we get rid of leading zeroes after
         res = [0] * (len(num1) + len(num2))
         # reversing so we can start from first index in for loop
         num1, num2 = num1[::-1], num2[::-1]
@@ -18,6 +19,7 @@ class Solution:
             for i2 in range(len(num2)):
                 digit = int(num1[i1]) * int(num2[i2])
                 # first add the multiplication to the count value and then mod it
+                # i1 + i2 is where we add the result of multiplication
                 res[i1 + i2] += digit
                 res[i1 + i2 + 1] += (res[i1 + i2] // 10)
                 res[i1 + i2] = (res[i1 + i2] % 10)
@@ -28,3 +30,11 @@ class Solution:
         # convert array to array of strings
         res = map(str, res[beginning:])
         return "".join(res)
+
+    def multiply(self, num1, num2):
+        ans = 0
+        # The reversed() function returns an iterator that accesses the given sequence in the reverse order.
+        for i, x in enumerate(reversed(num1)):
+            for j, y in enumerate(reversed(num2)):
+                ans += (int(x) * 10 ** (i)) * (int(y) * 10 ** (j))
+        return str(ans)

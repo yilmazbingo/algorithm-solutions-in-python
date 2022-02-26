@@ -14,12 +14,12 @@ class Solution:
         while cur_B:
             cur_B =cur_B.next
             len_B+=1
-        # So far found the length of both linked lists
-        # Now decide which one is short_list or long_list
         if len_A >len_B:
             long_list =headA
             short_list =headB
             diff =len_A -len_B
+        # If I used if instead of else here I would get "local variable referenced before assignment "
+        # This will make sure that even if none of your if statements evaluate to True, you can still set a value for the variable with which you are going to work.
         else:
             long_list =headB
             short_list =headA
@@ -28,7 +28,7 @@ class Solution:
         while i<diff:
             long_list=long_list.next
             i+=1
-        # at this point we are at the same level of both l inked lists
+        # at this point we are at the same level. so if we take a step from each we will reach to the intersection
         while long_list!=short_list:
             long_list=long_list.next
             short_list=short_list.next

@@ -18,6 +18,10 @@ class Solution:
             right -= 1
         return s
 
+    def reverseString2(self, s: List[str]) -> None:
+        for i in range(len(s) // 2):
+            s[i], s[-(i + 1)] = s[-(i + 1)], s[i]
+
 '''
 Given a string reverse it wit recursion
 '''

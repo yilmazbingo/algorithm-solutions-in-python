@@ -17,6 +17,7 @@ class Solution:
     # T: O(len(prerequisites)+n^2)
     def topological(self, n: int, prerequisites: List[List[int]]) -> bool:
         indegree = [0] * n
+        # adjacency list is the way how we represent the graph
         adj_list = [[] for _ in range(n)]
         # build the indegree and adjacent list
         for pre in prerequisites:
@@ -24,7 +25,7 @@ class Solution:
             adj_list[pre[1]].append(pre[0])
         # check indegree array items if any of them are zero
         stack = []
-        for i in range(len(indegree)):
+        for i in range(n):
             if indegree[i] == 0:
                 stack.append(i)
         count = 0
@@ -33,10 +34,10 @@ class Solution:
             count += 1
             # I need to find the adj of vertices and reduce their indegree value by 1 because I removed the node, so one less node is coming into them
             # for example 4:[1,2]  reduce indegree of 1 and 2
-            for adj in adj_list[current]:
-                indegree[adj] -= 1
-                if (indegree[adj] == 0):
-                    stack.append(adj)
+            for neighbor in adj_list[current]:
+                indegree[neighbor] -= 1
+                if (indegree[neighbor] == 0):
+                    stack.append(neighbor)
         # if by the end we did not touch every vortex, processed its value and removed from graph, then we know that there must be a cycle
         return count == n
     def can_finish(self,num_courses:int,prerequisites:List[List[int]]):

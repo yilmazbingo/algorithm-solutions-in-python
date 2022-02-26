@@ -1,6 +1,6 @@
 '''
-922 · Group Shifted Strings
-
+922 · Group Shifted Strings - Medium
+https://www.lintcode.com/problem/922/
 Given a string, we can "shift" each of its letter to its successive letter, for example: "abc" -> "bcd". We can keep "shifting" which forms the sequence:
 
 "abc" -> "bcd" -> ... -> "xyz"
@@ -16,8 +16,8 @@ class Solution:
         for string in strings:
             key=""
             # I start from 1 because i need to check the prev char
-            for char in range(1,len(string)):
-                key+=str(((ord(string[char])-ord(string[char-1])) +26 ) % 26)
-
+            for i in range(1,len(string)):
+                # the pattern is "acef"-"bdfg", "0245" difference of each same grup has same
+                key+=str(((ord(string[i])-ord(string[i-1])) +26 ) % 26)
             result[key].append(string)
         return list(result.values())

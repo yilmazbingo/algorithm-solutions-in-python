@@ -21,7 +21,7 @@ order, it does not matter. Topological sort does not have a very set order as lo
 multiple variations of the order for the same graph. 
 
 - Aside building the adajcent list, we also have to build the indegree array. 
-
+ 
 - It is always applicable in DAG, THERES SHOULD BE NO CYCLE. because, eventually we wont have any node whose indegree is 0 if it cyclic.
 **Example**
 

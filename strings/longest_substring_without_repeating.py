@@ -32,6 +32,7 @@ class Solution:
         l=0
         longest=0
         for r in range(len(s)):
+            # we are shrinking our window after we remove the seen value
             while s[r] in seen:
                 seen.remove(s[l])
                 l+=1

@@ -12,7 +12,7 @@ class Solution:
     def largest(self,graph):
         visited=set()
         longest=0
-        # it just explores. After it explores all the connected nodes returns True
+        # always decide what recursive function will return
         def dfs(node):
             if node in visited:
                 return 0
@@ -22,7 +22,7 @@ class Solution:
             for neighbor in graph[node]:
                 size+=dfs(neighbor)
             return size
-        # explore all the neightbors of nodes
+        # explore all the neightbors of nodes. I need to calculate length of all possible components
         for node in graph:
             longest=max(dfs(node),longest)
         return longest

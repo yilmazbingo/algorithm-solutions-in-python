@@ -24,8 +24,6 @@ t = [[1, 2, 9],[1, 4, 2],  [2, 5, 1], [4, 2, 4], # from, to  , time
   [4, 5, 6],  [3, 2, 3], [5, 3, 7], [3, 1, 5] ];
 class Solution:
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
-        # Create adjacency list
-        # defualtdict never raises a KeyError. It provides a default value for the key that does not exists.
         edges = defaultdict(list)
         for u, v, cost in times:
             edges[u].append((v, cost))
@@ -46,6 +44,7 @@ class Solution:
             t = max(t, cost1)
             for neighbor, cost2 in edges[node1]:
                 if neighbor not in visit:
+                    # in min_heap I am keeping items based on cost
                     heapq.heappush(min_heap, (cost1 + cost2, neighbor))
         return t if len(visit) == n else -1
 

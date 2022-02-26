@@ -1,7 +1,7 @@
 
 from List_Node import ListNode
 class Solution:
-    def sway_pairs(self,head:ListNode):
+    def swap_pairs(self,head:ListNode):
         dummy=ListNode(0,head)
         prev,cur=dummy,head
 

@@ -25,6 +25,6 @@ class Solution:
                     new_string += sub_numbers
         return new_string
 s=Solution()
-print(s.sort_mixed("abcs14212sjkdsj")
-)
+print(s.sort_mixed("abcs14212sjkdsj"))
+
 

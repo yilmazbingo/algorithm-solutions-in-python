@@ -12,7 +12,7 @@ class Solution:
         dummy = ListNode()
         cur = dummy
         carry = 0
-        # l1 or l2 is each digit
+        # l1 or l2 is each digit. looks like root node is passed
         # since it is reversed, we start to sum the 1's place. that makes it easier
         while l1 or l2 or carry:
             v1 = l1.val if l1 else 0

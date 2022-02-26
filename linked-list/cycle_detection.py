@@ -34,3 +34,16 @@ class Solution:
             p2=p2.next
         return p1
 
+    def hasCycle(self, head: ListNode) -> bool:
+        if not head:
+            return False
+        visit = set()
+        visit.add(head)
+        while head:
+            if head.next in visit:
+                return True
+            head = head.next
+            visit.add(head)
+        return False
+
+
