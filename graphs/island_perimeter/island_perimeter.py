@@ -19,10 +19,9 @@ class Solution:
                 return 1
             if (r,c) in visited:
                 return 0
-            # makes sure we call dfs for only 4 directions. not visit same direction
             visited.add((r,c))
             return dfs(r+1,c)+dfs(r-1,c)+dfs(r,c+1)+dfs(r,c-1)
-        # we could start from any cell. we need to visit every land portion
+        # we start from land portion
         for r in range(ROWS):
             for c in range(COLS):
                 if grid[r][c]==1:

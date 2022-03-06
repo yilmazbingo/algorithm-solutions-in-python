@@ -1,3 +1,8 @@
+## Greedy algorithm
+Diskstra algorithm is a greedy algorithm which an approach to solve the optimization problem. greedy method only applies when we are working with optimization problems 
+which are looking for the max or min possible value.
+- Dijkstra algorithm can be applied to graphs that are directed and weighted. it solves what is the shortest distance from a given to every other node.
+
 E for edges, V total vertices
 
 - In a complete graph, every pair of vertices is connected by an edge. So the number of edges is just the number of pairs of vertices. 

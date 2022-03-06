@@ -16,6 +16,7 @@ class Solution:
         return True
 
     def optimum(self,head:ListNode)->bool:
+        # this is proper way of findign the middle node
         fast_pointer=head
         slow_pointer=head
         while fast_pointer and fast_pointer.next:

@@ -19,7 +19,7 @@ class Solution:
             queue.append((i, 0))
             while queue:
                 node, color = queue.popleft()
-                # this means untouched. always check in graph problems
+                # this means untouched. so update the colors list
                 if colors[node] == -1:
                     colors[node] = color
                     for neighbor in graph[node]:

@@ -23,7 +23,7 @@ class Solution:
                 if word.startswith(w):
                     suffix = word[len(w):]
                     if dfs(suffix, memo):
-                        memo[word] = True
+                        memo[suffix] = True
                         return True
             memo[word] = False
             return False

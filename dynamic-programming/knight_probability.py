@@ -12,26 +12,8 @@ class Solution:
     def __init__(self):
         self.res=0
         self.directions=[
-  [-2, -1],
-  [-2, 1],
-  [-1, 2],
-  [1, 2],
-  [2, 1],
-  [2, -1],
-  [1, -2],
-  [-1, -2],
-]
-    def unoptimized(self,size,moves,col,row):
-        def dfs(size,moves,col,row):
-            res=0
-            if row < 0 or row >= size or col < 0 or col >= size:
-                return 0
-            if moves==0:
-                return 1
-            for dir in self.directions:
-                res +=dfs(size,moves-1,row+dir[0],col+dir[1])/8
-            return res
-        return  dfs(size,moves,col,row)
+                          [-2, -1],[-2, 1], [-1, 2],[1, 2], [2, 1],[2, -1],[1, -2],[-1, -2],
+                        ]
     def memoized(self,size,moves,col,row):
         def dfs(size,moves,col,row,memo={}):
             key=str(moves) + "," + str(row) + "," + str(col)
@@ -43,6 +25,7 @@ class Solution:
             if moves==0:
                 return 1
             for dir in self.directions:
+                # attention: the order of row and col change
                 res += dfs(size, moves - 1, row + dir[0], col + dir[1]) / 8
             memo[key]=res
             return memo[key]

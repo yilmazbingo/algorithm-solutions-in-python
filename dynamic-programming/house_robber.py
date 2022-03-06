@@ -1,7 +1,7 @@
-# [1] [2] [3] [4]
-# if we decide to rob the first house rob=max(arr[0]+rob[2:n])
-# if we skip the first house rob=max(rob[1:n])
-
+'''
+Recurrence Relation: is a way break up dynamic programming. result depends only those two values.
+rob=max( arr[0]+rob[2:n], rob[1:n] )
+'''
 from typing import List
 class Solution:
     def memoized(self,nums:List[int]):

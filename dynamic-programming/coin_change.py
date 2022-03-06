@@ -22,6 +22,7 @@ class Solution:
                 remainder = target - num
                 result = dfs(remainder)
                 if result != None:
+                    # combination = result+[num]
                     combination = [*result, num]
                     if shortest_combination == None or len(combination) < len(shortest_combination):
                         shortest_combination = combination

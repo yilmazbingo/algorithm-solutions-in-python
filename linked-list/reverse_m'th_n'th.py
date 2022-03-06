@@ -1,3 +1,4 @@
+# https://leetcode.com/problems/reverse-linked-list-ii/
 '''
 Given the head of a singly linked list and two integers left and right where left <= right,
 reverse the nodes of the list from position left to position right, and return the reversed list.
@@ -6,6 +7,7 @@ from typing import Optional
 from List_Node import ListNode
 class Solution:
     def reverseBetween(self, head: Optional[ListNode], m: int, n: int) -> Optional[ListNode]:
+        # we need both current_node and start becasue we keep iterating between m-n too but we need a reference to m-1 th node
         current_node=head
         start=head
         position=1
@@ -16,6 +18,7 @@ class Solution:
             position+=1
         # reversing linked list m-n part
         new_list=None
+        # we keep reference of this to use after iteration
         tail=current_node
         while position>=m and position<=n:
             temp = current_node.next

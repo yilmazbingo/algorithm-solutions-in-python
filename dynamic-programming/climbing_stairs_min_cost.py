@@ -3,18 +3,24 @@ For a given staircase, the i-th step is assigned a non-negative cost indicated b
 Once you pay the cost for a step , you can either climb one or two steps.
 Find the minimum cost to reach the top of the staircase. Your first step can either be the first or second step.
 """
-# its decision tree is similar to climbing stairs in diffeernt ways. In this ways we need to trees one starts from 0 and another 1.
+# Recurrence Relation is formula that we need to derive that gives us the basis of the recursive function that we are trying to write.
+'''
+minCost(N) =cost(N) + min(min(cost(n-1), cost(n-2) )
+'''
+#    TOP-DOWN APPROACH
 from typing import List
 # T:O(N), S:O(N) for min_cost and tabulation but runnnig tabulation mthod is faster with python %timeit on jupyter
 # tabulation_optimized: T:O(N) S:O(1)
 class Solution:
     def min_cost(self,nums:List[int])->int:
+        # each step we ask what is the minimum cost to reach step "i"
         def climbing(i,memo={}):
             if i in memo:
                 return memo[i]
             if i<0:
                 return 0
             if i==0 or i==1:
+                # we have to step on each step, if i==0 or i==1
                 return nums[i]
             # i'th step is the current step.
             memo[i]=nums[i]+min(climbing(i-1,memo),climbing(i-2,memo))
@@ -45,7 +51,10 @@ class Solution:
 
 
 
-
+ # one,two=1,1
+ #        for i in range(n-1):
+ #            one,two=two,one+two
+ #        return two
 
 s=Solution()
 print(s.min_cost([1, 4, 22, 11, 22]))

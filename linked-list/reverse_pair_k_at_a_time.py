@@ -1,27 +1,40 @@
-#given k means group the linked list by k and then reverse it
+# https://leetcode.com/problems/reverse-nodes-in-k-group/
+'''
+Given the head of a linked list, reverse the nodes of the list k at a time, and return the modified list.
 
+k is a positive integer and is less than or equal to the length of the linked list.
+If the number of nodes is not a multiple of k then left-out nodes, in the end, should remain as it is.
+
+You may not alter the values in the list's nodes, only nodes themselves may be changed.
+'''
 from List_Node import ListNode
 class Solution:
     def reverse_kth(self,head:ListNode,k:int)->ListNode:
-        # create dumy node and point to the head
+        # we are potentially modifying the head of list
         dummy=ListNode(0,head)
+        # we always gonna save one node right before the group
         group_prev=dummy
         while True:
             kth=self.get_kth(group_prev,k)
             # if I cannot partition the last part, break out of the loop
             if not kth:
                 break
+            # keep track of node right after our group
             group_next=kth.next
             #reversing the group with two pointer
             # 1-2---kth  --- kth.next  we dont want to break the link
-            prev, cur=kth.next,group_prev.next
+            # usually when we use prev=None, None is used because after traversing head would be tail and would point to None.
+            prev=kth.next
+            cur=group_prev.next
             while cur!=group_next:
                 temp=cur.next
                 cur.next=prev
                 prev=cur
                 cur=temp
-            #  this temp is the first node in the group
+            #  1 -> 2 -> 3 -> 4 group_prev was dummy. now it should be 1
+            #  2 -> 1 -> 4 -> 3  group_prev.next was 1, not it should be 2.
             temp=group_prev.next
+            # one node before our group .next is now kth
             group_prev.next=kth
             group_prev=temp
         return dummy.next

@@ -10,6 +10,8 @@ class DirectedGraphNode:
 
 from collections import deque
 class Solution:
+    # since this is directed it does not have visited
+    # all  edges can be traversed in a single direction
     def hasRoute(self, graph, s, t):
         if s==t:
             return True
