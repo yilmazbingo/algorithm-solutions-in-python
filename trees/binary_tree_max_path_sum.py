@@ -24,7 +24,6 @@ class Solution:
         def post_order(root):
             if not root:
                 return 0
-            # we recureively go down to the leaf nodes. POST-ORDER traversal
             left = post_order(root.left)
             right = post_order(root.right)
             # if left or right is negative we do not want to add, we ignore it, so we hand 0 to root
@@ -34,7 +33,7 @@ class Solution:
             # compute max with splitting to update the res. basically i am saying, what would be happend if I disconnect with root.
             nonlocal res
             res = max(root.val + left_max + right_max, res)
-            # compute max without splitting. that is what we return to parent. we choose the max
+            # compute max without splitting. that is what we return to parent. we choose the max.
             # we are starting from bottom, calculating max we can get from a node and pass it to parent
             return root.val + max(left_max, right_max)
         post_order(root)

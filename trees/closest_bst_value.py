@@ -1,4 +1,5 @@
 '''
+https://www.lintcode.com/problem/900/
 Given a non-empty binary search tree and a target value, find the value in the BST that is closest to the target.
 '''
 
@@ -7,6 +8,7 @@ Given a non-empty binary search tree and a target value, find the value in the B
 class Solution:
     def closestValue(self, root, target):
         diff = float("inf")
+        # ans could be initialized with any value
         ans = target
         # we have to traverse entire tree. I used preorder traversal but any can work
         def preorder(root):

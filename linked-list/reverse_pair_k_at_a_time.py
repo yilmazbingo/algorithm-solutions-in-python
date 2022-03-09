@@ -33,6 +33,7 @@ class Solution:
                 cur=temp
             #  1 -> 2 -> 3 -> 4 group_prev was dummy. now it should be 1
             #  2 -> 1 -> 4 -> 3  group_prev.next was 1, not it should be 2.
+            # this temp is not related to the above temp
             temp=group_prev.next
             # one node before our group .next is now kth
             group_prev.next=kth
