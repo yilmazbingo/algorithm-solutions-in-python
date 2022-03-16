@@ -1,10 +1,10 @@
 '''
 Given the root of a bst, rearrange the tree in in-order so that the leftmost node in the tree is now the root
 of the tree, and every node has no left child and only one right child
+897. Increasing Order Search Tree
 '''
 
 from TreeNode import TreeNode
-
 class Solution:
     def increasingBST(self, root: TreeNode) -> TreeNode:
         # with this we dont need to consider first time if head is null.

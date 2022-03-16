@@ -20,6 +20,7 @@ class Solution:
                 return
             for node in graph[cur]:
                 dfs(node,path+[node])
+        # pay attention here. we add the starting point
         dfs(0,[0])
         return res
 

@@ -10,7 +10,7 @@ class Solution:
     def merge(self,root1:TreeNode,root2:TreeNode)->TreeNode:
         # we are going to create a brand new tree
         # we traverse the both tree at exact same time.
-        if not root1 and not t2:
+        if not root1 and not root2:
             return None
         v1=root1.val if root1 else 0
         v2=root2.val if root2 else 0

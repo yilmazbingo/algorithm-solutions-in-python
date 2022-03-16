@@ -1,14 +1,13 @@
 '''
 105. Construct Binary Tree from Preorder and Inorder Traversal
-
 Given two integer arrays preorder and inorder where preorder is the preorder traversal of a binary tree and
 inorder is the inorder traversal of the same tree, construct and return the binary tree.
-
 '''
 # EVERY VALUE IN TREE IS UNIQUE
 # Preorder=[root, preorder_of_left,preorder_of_right]
 # Inorder= [inorder_of_left, root, inorder_of_right ]
-# every value left of root will be in left_subtree, and every value right of root  will be in right_subtree
+# In the inorder traversal, the root is visited after visiting its left subtree but before visiting the right subtree.
+# In the preorder traversal, the root is visited before the left and right subtrees are visited (in that order).
 from typing import List,Optional
 from TreeNode import TreeNode
 class Solution:

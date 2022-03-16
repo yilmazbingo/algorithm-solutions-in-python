@@ -1,6 +1,9 @@
 # this will be solved with BFS-level-order-traversal
 #The collection Module in Python provides different types of containers. Counters, OrderedDict,DefaultDict,ChainMap, NamedTuple, DeQue,UserDict,UserList,UserString
-# Deque is preferred over list in the cases where we need quicker append and pop operations from both the ends of container, as deque provides an O(1) time complexity for append and pop operations as compared to list which provides O(n) time complexity.
+'''
+Deque is preferred over list in the cases where we need quicker append and pop operations from both the ends of container,
+as deque provides an O(1) time complexity for append and pop operations as compared to list which provides O(n) time complexity.
+'''
 from collections import deque
 from TreeNode import TreeNode
 from typing import Optional,List

@@ -27,3 +27,11 @@ class TwoSum:
             else:
                 left += 1
         return False
+
+    def find2(self,value):
+        res = {}
+        for i in range(len(self.store)):
+            if value - self.store[i] in res:
+                return True
+            res[self.store[i]] = i
+        return False

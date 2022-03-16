@@ -15,7 +15,6 @@ class Solution:
                 return False
             if (k-node.val) in store:
                 return True
-            else:
-                store.add(node.val)
+            store.add(node.val)
             return dfs(node.left) or dfs(node.right)
         return dfs(root)

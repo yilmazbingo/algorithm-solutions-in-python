@@ -11,10 +11,12 @@ from typing import List
 class Solution:
     def maxLength(self, arr: List[str]) -> int:
         charset = set()
-        def overlap(chars, string):
+        # check if current charset overlaps with the current string which is another set
+        def overlap(chars_set, string):
+            # here we keep the chars in string
             prev = set()
             for c in string:
-                if c in prev or c in chars:
+                if c in prev or c in chars_set:
                     return True
                 prev.add(c)
             return False

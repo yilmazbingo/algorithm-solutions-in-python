@@ -26,7 +26,7 @@ class Solution:
                     return True
             # if we get here, means we could not split the string
             return False
-        # since we have to split, we cannot take entire s. that is why: range(len(s)-1)
+        # since we have to split into at least 2, we cannot take entire s. that is why: range(len(s)-1)
         for i in range(len(s) - 1):
             # val is the starting value and it is actually preve value for next dfs()
             val = int(s[:i + 1])

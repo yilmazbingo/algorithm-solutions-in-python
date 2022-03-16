@@ -1,8 +1,8 @@
 '''
+https://leetcode.com/problems/combinations/
 Given two integers n and k, return all possible combinations of k numbers out of the range [1, n].
 You may return the answer in any order.
 '''
-
 from typing import List
 class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
@@ -13,9 +13,11 @@ class Solution:
                 # since comb is object, we need to create a separate one not to modify it later
                 res.append(comb.copy())
                 return
+            # for loop makes sure that we do not have duplicates
             for i in range(start, n + 1):
                 comb.append(i)
                 #conmbination is not same as permutation. duplicates are not allowed
+                # "ab" and "ba" are equal in combinations while in permutaions, the arrangements are different
                 # that's why we backtrack(i+1)
                 backtrack(i + 1, comb)
                 comb.pop()

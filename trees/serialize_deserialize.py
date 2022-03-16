@@ -13,16 +13,16 @@ class Codec:
         self.i=0
     def serialize(self,root:TreeNode):
         res=[]
-        def dfs(node):
+        def preorder(node):
             if not node:
                 # N is for null means node has no child
                 res.append("N")
                 return
             #PREORDER  T:O(N) S:O(N)
             res.append(str(root.val))
-            dfs(node.left)
-            dfs(node.right)
-        dfs(root)
+            preorder(node.left)
+            preorder(node.right)
+        preorder(root)
         return ",".join(res)
 
     def deserialize(self,data):
@@ -31,6 +31,7 @@ class Codec:
             if values[self.i]=="N":
                 self.i+=1
                 return None
+            # since we serialized as preorder in which first element is the node
             node=TreeNode(int(values[self.i]))
             # if it is not "N", we still have to increase the index
             self.i+=1
