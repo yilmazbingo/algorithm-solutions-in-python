@@ -1,6 +1,5 @@
 # takes an adjacency list of an undirected graph and return the number of connected components within the graph
 
-# we start from NOde 0 and then go thtough its neighbors.
 adj_list = {
   0: [8, 1, 5],
   1: [0],
@@ -10,7 +9,8 @@ adj_list = {
   3: [2, 4],
   4: [3, 2],
 };
-
+# we go through every single edge when we traverse the graph and build adj list and and iterating over the graph
+# T: O(E + V)
 class Solution:
     def count_connected(self,graph):
         visited=set()
@@ -20,6 +20,7 @@ class Solution:
             if node in visited:
                 return False
             visited.add(node)
+            # depending on api, for neighbor in node.neighbor
             for neighbor in graph[node]:
                 # dfs's job is to add the node into the set
                 dfs(neighbor)

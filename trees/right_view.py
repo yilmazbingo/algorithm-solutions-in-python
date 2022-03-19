@@ -24,5 +24,6 @@ class Solution:
                     queue.append(current.left)
                 if current.right:
                     queue.append(current.right)
+            # from right wiev we can only see the last element
             res.append(right)
         return res

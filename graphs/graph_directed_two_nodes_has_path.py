@@ -1,4 +1,5 @@
-#Given a directed graph, design an algorithm to find out whether there is a route between two nodes s and t.
+# Given a directed graph, design an algorithm to find out whether there is a route between two nodes s and t.
+# 176 · Route Between Two Nodes in Graph
 
 """
 Definition for a Directed graph node

@@ -16,6 +16,6 @@ class Solution:
         v2=root2.val if root2 else 0
         root=TreeNode(v1+v2)
         root.left=self.merge(root1.left if root1 else None,root2.left if root2 else None)
-        root.right=self.merge(root1.right if root1 else None,root2.right if root2 else None )
+        root.right=self.merge(root1.right if root1 else None,root2.right if root2 else None)
         return root
 

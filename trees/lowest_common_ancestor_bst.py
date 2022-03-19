@@ -6,9 +6,10 @@ The left subtree of a node contains only nodes with keys lesser than the node’
 from TreeNode import TreeNode
 class Solution:
     def lowestCommonAncestor(self, root: TreeNode, p: TreeNode, q: TreeNode) -> TreeNode:
-        # in bst, root is always common ancestor of every single node
+        # in tree, root is always common ancestor of every single node
         cur=root
         while cur:
+            # we are on the right subtree
             if p.val>cur.val and q.val>cur.val:
                 cur=cur.right
             elif p.val<cur.val and q.val<cur.val:

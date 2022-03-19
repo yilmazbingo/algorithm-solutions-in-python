@@ -17,6 +17,7 @@ class Solution:
                 return None
             m=(l+r)//2
             root=TreeNode(values[m])
+            # Attention that not till m, it is m-1
             root.left=dfs(l,m-1)
             root.right=dfs(m+1,r)
             return root

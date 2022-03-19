@@ -6,6 +6,7 @@ class Solution:
             #odd length palindromes
             # i is the center position
             l,r=i,i
+            # order of and is important. first check first and then s[l]==s[r]h
             while l>=0 and r<len(s) and s[l]==s[r]:
                 if(r-l+1)>res_len:
                     res=s[l:r+1]
@@ -15,7 +16,7 @@ class Solution:
             #even length palindrome mean abccba. notice l,r=i ,i+1
             l,r=i,i+1
             while l>=0 and r<len(s) and s[l]==s[r]:
-                if(r-1+1)>res_len:
+                if(r-l+1)>res_len:
                     res=s[l:r+1]
                     res_len=r-l+1
                 l-=1

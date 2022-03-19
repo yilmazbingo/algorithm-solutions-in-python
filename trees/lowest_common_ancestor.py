@@ -8,6 +8,7 @@ According to the definition of LCA on Wikipedia:
 from TreeNode import TreeNode
 
 class Solution:
+    # this is postorder traversal. Bottom up
     def lowestCommonAncestor(self, root: TreeNode, p: TreeNode, q: TreeNode) -> TreeNode:
         if not root:
             return None

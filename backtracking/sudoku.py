@@ -33,17 +33,13 @@ class Solution:
     def backtrack(self, board, rows, cols, boxes, r, c):
         if r >= len(board) or c >= len(board[0]):
             return True
-        print(board[r][c])
         if board[r][c] == ".":
-            print("erca")
             for num in range(1, 10):
                 box_id = self.get_box_id(r, c)
                 box = boxes[box_id]
                 row = rows[r]
                 col = cols[c]
                 str_num = str(num)
-                print("yilmaz")
-
                 if self.is_valid(box, row, col, str_num):
                     board[r][c] = str_num
                     boxes[box_id][str_num] = True
