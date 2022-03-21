@@ -32,12 +32,11 @@ class Solution:
         # I always follow the shortest path and min_heap always keep the shortest path on top. it takes O(logN)
         # min_heap will track the input based on the path, first index. that is why we add cost as the first element
         min_heap = [(0, k)]
-        # we dont wanna go in cycle. in loop
+        # we keep track of how many nodes we have visited
         visit = set()
         t = 0
         while min_heap:
             cost1, node1 = heapq.heappop(min_heap)
-            print(cost1)
             if node1 in visit:
                 continue
             visit.add(node1)

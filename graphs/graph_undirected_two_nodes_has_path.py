@@ -2,6 +2,7 @@
  write a function that takes in an array of edges for an undirected graph and two nodes.
  Return a boolean indicating whether or not there exists a path between nodes
 '''
+# https://leetcode.com/problems/find-if-path-exists-in-graph/submissions/
 
 # n=nodes, e=edges , O:T(e), O:S(n)
 from collections import defaultdict
@@ -9,7 +10,7 @@ class Solution:
     def hasPath(self,edges,source,target):
         graph=self.buildgraph(edges)
         def dfs(source,visited):
-            # this prevents infinite loop
+            # in dfs, we isolate each node from entire graph
             if source in visited:
                 return False
             visited.add(source)

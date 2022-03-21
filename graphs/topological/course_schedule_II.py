@@ -22,6 +22,7 @@ class Solution:
             if indegree[i]==0:
                 stack.append(i)
         count=0
+        # it could be implemented in list too
         res=deque()
         while stack:
             current=stack.popleft()

@@ -19,6 +19,7 @@ class Solution:
             visited.add(node)
             # this is the size of the current node
             size=1
+            # when we hit the last node this for loop wont be executed
             for neighbor in graph[node]:
                 size+=dfs(neighbor)
             return size
