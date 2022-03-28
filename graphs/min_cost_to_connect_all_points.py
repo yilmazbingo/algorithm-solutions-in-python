@@ -8,7 +8,6 @@ Return the minimum cost to make all points connected. All points are connected i
 '''
 # Leetcode 1584
 import heapq
-
 '''
 - We want to connect all nodes without creating cycle. This is called Minimum Spanning Algorithm. we need (n-1) edges
 - Prim's algorithm solves this with the minimum cost of the edges
@@ -20,6 +19,8 @@ class Solution:
     # points on x-y coordinate system
     def minCostConnectPoints(self, points: List[List[int]]) -> int:
         n=len(points)
+        # adj_list=defaultdict(list)
+        # {0: [[4, 1], [13, 2], [7, 3], [7, 4]]} from 0 to 1,2,3,4 and their cost
         adj_list={i:[] for i in range(n)}
         # Creating the adjacenc list. edges are the cost of the each distance
         for i in range(n):
@@ -37,6 +38,7 @@ class Solution:
         # to connect to first frontier, we are going to choose the min_cost frontier. then from that node we are going to look for its min_cost frontier
         min_heap=[[0,0]]
         # if we want to connect everything without creating cycle, it will take n-1 edges.
+        # while min_heap
         while len(visited)<n:
             cost,node=heapq.heappop(min_heap)
             if node in visited:

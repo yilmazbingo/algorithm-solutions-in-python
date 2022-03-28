@@ -24,6 +24,7 @@ class Solution:
             if visited[current_node] >= current_k:
                 continue
             visited[current_node] = current_k
+            # The items() method returns a view object that displays a list of dictionary's (key, value) tuple pairs.
             for y, dw in graph[current_node].items():
                 heapq.heappush(min_heap, (w+dw, y, current_k-1))
         return -1

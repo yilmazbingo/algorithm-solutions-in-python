@@ -25,7 +25,7 @@ class Solution:
             cur.append(nums[pos])
             backtrack(cur,pos,total+nums[pos])
             cur.pop()
-            # when I called this, it is not total+nums[pos] becase it is already returned from from the first
+            # when I called this, it is not total+nums[pos] becase it is already returned from the first
             backtrack(cur,pos+1,total)
         backtrack([],0,0)
         return res
