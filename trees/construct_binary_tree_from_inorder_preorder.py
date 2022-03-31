@@ -18,6 +18,7 @@ class Solution:
         root=TreeNode(preorder[0])
         # mid value in inorder gives us root. left values of root will be the left subtree, right values will be the right subtree
         # mid tells us how many elements we want from left subtree and howmany for right subtree
+        # find the mid in inorder
         mid = inorder.index(preorder[0])
         # we took 1 out of each array. preorder will not include the first, inorder will not include the mid value
         root.left=self.buildTree(preorder[1:mid+1],inorder[:mid])
