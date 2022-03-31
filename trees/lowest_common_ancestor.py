@@ -12,15 +12,21 @@ class Solution:
     def lowestCommonAncestor(self, root: TreeNode, p: TreeNode, q: TreeNode) -> TreeNode:
         if not root:
             return None
-        # tell that on this side I found p or q
+        # if current node one of the two target nodes. we return it to up the tree
         if root.val==p.val or root.val==q.val:
             return root
+        # we need to search the left/right subtrees for every node in search for our 2 target nodes
+        # If we find one at each subtree, the current node is the LCa
+        # each call asks what is the LCA from this node
         left=self.lowestCommonAncestor(root.left,p,q)
         right=self.lowestCommonAncestor(root.right,p,q)
+        # we did not find answer
         if left is None and right is None:
             return None
+        # we found both nodes
         if left and right:
             return root
+        # if one of them was valid, return the valid one
         if left is None:
             return right
         return left
