@@ -4,6 +4,7 @@ from List_Node import ListNode
 class Solution:
     def remove(self,head:ListNode,n:int)->ListNode:
         dummy=ListNode(0,head)
+        # pay attention that left starts at dummy
         left=dummy
         right=head
         # this makes sure, right is n step ahead of left
@@ -16,6 +17,7 @@ class Solution:
             right=right.next
         # now delete it
         left.next=left.next.next
+        # return head is not working. WHY?
         return dummy.next
 
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:

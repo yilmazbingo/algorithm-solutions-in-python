@@ -16,9 +16,10 @@ class Solution:
         # this is important state. self.sortlist(left) will call it self and its tail will be updated
         right.next=None
         right=temp
-        left=self.sortList(left)
-        right=self.sortList(right)
-        return self.merge(left,right)
+
+        left_list=self.sortList(left)
+        right_list=self.sortList(right)
+        return self.merge(left_list,right_list)
 
     def get_middle(self,head):
         slow,fast=head,head.next

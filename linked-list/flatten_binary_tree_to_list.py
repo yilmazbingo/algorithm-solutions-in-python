@@ -14,7 +14,7 @@ def flatten(self, root: Optional[TreeNode]) -> None:
     stack.append(root)
     while len(stack):
         current_node = stack.pop()
-        #             we are going to add the right node to the stack first. Becase we need to pop left first
+        # we are going to add the right node to the stack first. Becase we need to pop left first
         if current_node.right:
             stack.append(current_node.right)
         if current_node.left:

@@ -19,13 +19,12 @@ class Solution:
         return new_head
 
     def iterative(head):
-        current = head
         prev = None
         # shift prev to current, shift current to current.next. since this breaks the link, we need to save current.next
-        while current:
-            next = current.next
-            current.next = prev
-            prev = current
-            current = next
+        while head:
+            temp = head.next
+            head.next = prev
+            prev = head
+            head = temp
         # at the end of the loop, prev will be the tail
         return prev
