@@ -12,6 +12,7 @@ from typing import List
 '''
 - Dijkstra algorithm is BFS, the difference is it uses minimum heap, aka priority-Queue. in bfs we go layer by layer
 - MinHeap is a complete binary tree in which the value in each internal node is smaller than or equal to the  values in the children of that node. 
+- minheap returns min value in logN
 - we use minHeap because we want to follow the shortest path
 - in each layer, neighbor nodes will be added to minHeap. minHeap gets us the min value in Log(N)
 - In meanHeap we keep (Path,Node). initially (0,1). it costs 0 to reach node 1
