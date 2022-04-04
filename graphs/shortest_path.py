@@ -9,6 +9,8 @@ edges = [
   ["w", "v"],
 ]
 # T:O(N)
+# dfs forces me look in one direction as fas as possible, until I have to switch directions
+# dfs might search in totally wrong direction
 from collections import defaultdict, deque
 class Solution:
     def bfs(self,edges,source,target):
