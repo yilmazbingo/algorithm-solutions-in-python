@@ -11,9 +11,8 @@ class Node(object):
         self.neighbors = neighbors if neighbors is not None else []
 class Solution:
     def clone(self,node):
-        # we are mapping the old_node to the new node
         old_to_new={}
-        # from start, we do till last item one way, when we react the last, we pop out and do the reverse
+        # from start, we do till last item one way, when we reach the last, we pop out and do the reverse
         def dfs(node):
             if node in old_to_new:
                 # we return this and add it to the neighbors of the node. this is where we create it arrow into the node.  <--

@@ -13,6 +13,7 @@ import heapq
 - Prim's algorithm solves this with the minimum cost of the edges
 - use manhattan distance as cost=[x1-x2]+[y1-y2]
 '''
+# If you execute your script using Python you will not see any difference though. You need to run your scripts with Mypy, which is a static type checker that supports protocol classes.
 from typing import List
 # T(n^2 log(N)) n^2 is the number of edges that we are gonna have, Log(N) will come from Prim's algorithm. Because we are using min_heap
 class Solution:

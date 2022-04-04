@@ -1,4 +1,5 @@
 # Given n nodes labeled from 0 to n - 1 and a list of undirected edges (each edge is a pair of nodes), write a function to check whether these edges make up a valid tree.
+# https://www.lintcode.com/problem/178/description
 '''
 A tree is a special undirected graph. It satisfies two properties
 - It is connected
@@ -18,7 +19,9 @@ class Solution:
             visited.add(root)
             for node in graph[root]:
                 if node in visited:
+                    # continue should be in a loop
                     continue
                 dfs(node)
         dfs(0)
+        # this shows we have no cycle and connected
         return len(visited) == n and len(edges) == n - 1

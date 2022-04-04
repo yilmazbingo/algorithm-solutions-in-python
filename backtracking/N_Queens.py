@@ -11,6 +11,8 @@ O ( N ) * ( N - 1 ) * ( N - 2 ) * … 1 )
 # queeen can move all 4 directions and diagonally.
 # pattern for negative diagonal. we are increasing row and col values by 1. r-c stays constant
 # pattern for positive diagonal. r+c stays constant
+
+# If you execute your script using Python you will not see any difference though. You need to run your scripts with Mypy, which is a static type checker that supports protocol classes.
 from typing import List
 class Solution:
     def solve(self,n:int)->List[List[int]]:
