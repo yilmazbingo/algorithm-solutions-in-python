@@ -10,6 +10,7 @@ Return the minimum cost to make all points connected. All points are connected i
 import heapq
 '''
 - We want to connect all nodes without creating cycle. This is called Minimum Spanning Algorithm. we need (n-1) edges
+- minimum spanning tree for the graph, which is a tree that connects all nodes in the graph and has the least total cost among all trees that connect all the nodes.
 - Prim's algorithm solves this with the minimum cost of the edges
 - use manhattan distance as cost=[x1-x2]+[y1-y2]
 '''
@@ -22,10 +23,12 @@ class Solution:
         n=len(points)
         # adj_list=defaultdict(list)
         # {0: [[4, 1], [13, 2], [7, 3], [7, 4]]} from 0 to 1,2,3,4 and their cost
+        # graph has to be connected otherwise there is no spanning tree
         adj_list={i:[] for i in range(n)}
         # Creating the adjacenc list. edges are the cost of the each distance
         for i in range(n):
             x1,y1=points[i]
+            # calculating distance to all other nodes
             for j in range(i+1,n):
                 x2,y2=points[j]
                 distance=abs(x1-x2)+abs(y1-y2)
@@ -38,7 +41,7 @@ class Solution:
         # we add (cost,frontier) to the min_heap. because min_heap organize data based on the first_item. So when we pop out an item, we want to pop it out based on cost
         # to connect to first frontier, we are going to choose the min_cost frontier. then from that node we are going to look for its min_cost frontier
         min_heap=[[0,0]]
-        # if we want to connect everything without creating cycle, it will take n-1 edges.
+        # if we want to connect everything without creating cycle, it will take n-1 edges. IMPORTANT
         # while min_heap
         while len(visited)<n:
             cost,node=heapq.heappop(min_heap)
