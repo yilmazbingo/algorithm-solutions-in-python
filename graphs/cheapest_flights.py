@@ -22,9 +22,9 @@ class Solution:
         # we might prefer to get to a node with the longer distance but fewer stop
         visited = [0] * n
         while min_heap:
-            w, current_node, current_k = heapq.heappop(min_heap)
+            current_cost, current_node, current_k = heapq.heappop(min_heap)
             if current_node == dst:
-                return w
+                return current_cost
             # visited[x] record the remaining steps to reach x with the lowest cost.
             # If visited[x] >= current_k, then no need to visit that case
             #  If it consumes more step, then we can discard it (because it already has a high cost).
@@ -33,5 +33,5 @@ class Solution:
             visited[current_node] = current_k
             # The items() method returns a view object that displays a list of dictionary's (key, value) tuple pairs.
             for neighbor, neighbor_cost in graph[current_node].items():
-                heapq.heappush(min_heap, (w+neighbor_cost, neighbor, current_k-1))
+                heapq.heappush(min_heap, (current_cost+neighbor_cost, neighbor, current_k-1))
         return -1
