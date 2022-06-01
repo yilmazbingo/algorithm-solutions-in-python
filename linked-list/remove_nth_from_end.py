@@ -12,6 +12,7 @@ class Solution:
             right=right.next
             n-=1
         # when right reaches the end, left would be the previous of the node that we delete
+        # that is why left started at dummy node
         while right:
             left=left.next
             right=right.next

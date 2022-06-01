@@ -13,12 +13,13 @@ class Solution:
         position=1
         # reaching m-1'th node and keep the reference with start=m-1'th-node
         while position<m:
+            # start will be the m-1'th node and current_node will be the m'th node
             start=current_node
             current_node=current_node.next
             position+=1
         # reversing linked list m-n part
         new_list=None
-        # we keep reference of this to use after iteration
+        # at the end of the iteration current.node will be the last node in m-n range
         tail=current_node
         while position>=m and position<=n:
             temp = current_node.next

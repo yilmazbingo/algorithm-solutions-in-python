@@ -1,4 +1,4 @@
-'''
+ '''
 236.Medium Lowest Common Ancestor of a Binary Tree
 Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
 According to the definition of LCA on Wikipedia:
@@ -8,6 +8,7 @@ According to the definition of LCA on Wikipedia:
 from TreeNode import TreeNode
 
 class Solution:
+    # each call asks what is the LCA from this node
     # this is postorder traversal. Bottom up
     def lowestCommonAncestor(self, root: TreeNode, p: TreeNode, q: TreeNode) -> TreeNode:
         if not root:
@@ -17,7 +18,7 @@ class Solution:
             return root
         # we need to search the left/right subtrees for every node in search for our 2 target nodes
         # If we find one at each subtree, the current node is the LCa
-        # each call asks what is the LCA from this node
+
         left=self.lowestCommonAncestor(root.left,p,q)
         right=self.lowestCommonAncestor(root.right,p,q)
         # we did not find answer
