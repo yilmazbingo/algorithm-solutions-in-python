@@ -3,8 +3,9 @@
 - every tree has a topological ordering. since by definition, trees do not have any cycles. 
 
 First thing we need to look at is a vertex in isolation. Every vertex in isolation has **Indegree** factor. THis only
-applies as long as the vertex is within a Directed Acyclic Graph. Because if a graph is cyclic, there would be 
-no vertex with the indegee of 0.
+applies as long as the vertex is within a Directed Acyclic Graph. Because if a graph is cyclic, there would be no vertex with the indegee of 0. because topological sort 
+starts with the vertices whose indegree is 0. 
+
 
 **Indegree Value:** It is essentially represented as how many connections are coming into this vertex. 
 

@@ -1,6 +1,6 @@
 '''
 207. Medium Course Schedule
-There are a total of numCourses courses you have to take, labeled from 0 to numCourses - 1. You are given an array prerequisites where
+There are a total of numCourses courses you have to take, LABELLED from 0 to numCourses - 1. You are given an array prerequisites where
  prerequisites[i] = [ai, bi] indicates that you must take course bi first if you want to take course ai.
 For example, the pair [0, 1], indicates that to take course 0 you have to first take course 1.
 Return true if you can finish all courses. Otherwise, return false.
@@ -19,7 +19,7 @@ class Solution:
         indegree = [0] * n
         # adjacency list is the way how we represent the graph
         adj_list = [[] for _ in range(n)]
-        # build the indegree and adjacent list
+        # [1,2] 2 =>1 pre[0] has one indegree
         for pre in prerequisites:
             indegree[pre[0]] += 1
             adj_list[pre[1]].append(pre[0])
@@ -35,6 +35,7 @@ class Solution:
             # I need to find the adj of vertices and reduce their indegree value by 1 because I removed the node, so one less node is coming into them
             # for example 4:[1,2]  reduce indegree of 1 and 2
             for neighbor in adj_list[current]:
+                # since we are removing the current node from stack, its neighbors will be losing 1 incoming node
                 indegree[neighbor] -= 1
                 if (indegree[neighbor] == 0):
                     stack.append(neighbor)

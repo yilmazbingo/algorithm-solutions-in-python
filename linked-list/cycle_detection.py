@@ -1,15 +1,13 @@
 from List_Node import ListNode
 class Solution:
     def hasCycle(self, head: ListNode) -> bool:
-        if not head:
-            return False
-        seen=set()
-        while head not in seen:
-            if head.next==None:
-                return False
-            seen.add(head)
-            head=head.next
-        return True
+        store = set()
+        while head and head.next:
+            if head in store:
+                return True
+            store.add(head)
+            head = head.next
+        return False
     def hare_and_tortoise(self, head: ListNode) -> bool:
         if not head:
             return False
@@ -22,8 +20,7 @@ class Solution:
             # hare.next means that we have a tail value. So we do not have a cycle
             if (not hare) or (not hare.next):
                 return False
-            else:
-                hare = hare.next
+            hare = hare.next
             if tortoise == hare:
                 return True
         # so far we have found the detect the cycle

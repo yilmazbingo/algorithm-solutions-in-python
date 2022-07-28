@@ -33,3 +33,31 @@ class Solution:
             long_list=long_list.next
             short_list=short_list.next
         return long_list
+
+    class Solutionn:
+        def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+            curA = headA
+            curB = headB
+            lenA = 0
+            while curA:
+                curA = curA.next
+                lenA += 1
+            lenB = 0
+            while curB:
+                curB = curB.next
+                lenB += 1
+            if lenA < lenB:
+                # notice shortest and longest are equal to the head values not curA or curB
+                shortest = headA
+                longest = headB
+            else:
+                shortest = headB
+                longest = headA
+            diff = abs(lenA - lenB)
+            while diff:
+                longest = longest.next
+                diff -= 1
+            while longest != shortest:
+                longest = longest.next
+                shortest = shortest.next
+            return shortest

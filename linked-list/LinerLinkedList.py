@@ -1,4 +1,4 @@
-# elements are not stored in contiguous order in memory
+ # elements are not stored in contiguous order in memory
 # searching takes O(n) in linked list
 # insertions and deletions are cheaper in linked list.
 class _Node:
@@ -69,16 +69,6 @@ class LinkedList:
         return p
     def deletelast(self):
         p=self._head
-#         i=1
-#         while i<len(self)-1:
-#             p=p._next
-#             i+=1
-#         self._tail=p
-#         p=p._next
-#         e=p._element
-#         self._tail._next=None
-#         self._size-=1
-#         return e
         while p._next:
             p=p._next
         e=self._tail._element

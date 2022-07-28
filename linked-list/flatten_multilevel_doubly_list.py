@@ -23,6 +23,7 @@ class Solution:
                 cur=cur.next
             else:
                 tail=cur.child
+                # our goal is to reach the last node
                 while tail.next:
                     tail=tail.next
                 tail.next=cur.next
