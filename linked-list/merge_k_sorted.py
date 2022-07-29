@@ -1,13 +1,20 @@
-# if we did brute force solution T:O(K * N)
-# if I do merge of 2 and merge each pair T:O(LogK * N)
+'''
+we have k lists, total number of Nodes we have is N
+- if we did brute force solution T:O(K * N). everytime we are merging a list, we are gonna potentially have to iterate through every single node we have so far whcih could be O(n).
+we are repeating alot of work.
+- if I do merge of 2 and merge each pair T:O(LogK * N)
+'''
 
 from typing import List
 from List_Node import ListNode
 
 class Solution:
     def merge_k_list(self,lists:List[ListNode])->ListNode:
-        if not lists or len(lists)==0:
+        if not lists:
             return None
+        # ******** SIMILAR ***********
+        # if not lists or len(lists)==0:
+        #     return None
         while len(lists)>1:
             merged_lists=[]
             for i in range(0,len(lists),2):

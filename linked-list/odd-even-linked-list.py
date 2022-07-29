@@ -14,6 +14,7 @@ def solution(head):
     even_list=even
     # odd.next=even
     # this makes sure we visit every node
+    # while even.next and odd.next would give error
     while odd.next and even.next:
         odd.next=even.next
         odd=odd.next

@@ -20,22 +20,13 @@ class Solution:
         left.next=left.next.next
         # return head is not working. WHY?
         return dummy.next
-
-    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
-        if not head:
-            return None
-        dummy=ListNode(0,head)
-        cur=head
-        size=0
-        while cur:
-            size+=1
-            cur=cur.next
-        target=size-n
-        cur=dummy
-        count=0
-        while count<target:
-            count+=1
-            cur=cur.next
-        cur.next=cur.next.next
+     # https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/
+    def deleteMiddle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        dummy = ListNode(0, head)
+        slow, fast = dummy, head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        slow.next = slow.next.next
         return dummy.next
 
