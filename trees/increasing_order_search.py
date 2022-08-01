@@ -8,20 +8,21 @@ from TreeNode import TreeNode
 class Solution:
     def increasingBST(self, root: TreeNode) -> TreeNode:
         # with this we dont need to consider first time if head is null.
-        head =TreeNode("dummy")
+        dummy=TreeNode("dummy")
         # global cursor
-        cursor =head
+        cursor =dummy
         def inorder(node):
             if not node:
                 return None
             inorder(node.left)
             # Python determines the scope of objects at compile-time, not at run-time.
             nonlocal cursor
+            # because we are creating a different data structure, we use the value
             cursor.right =TreeNode(node.val)
             cursor =cursor.right
             inorder(node.right)
         inorder(root)
-        return head.right
+        return dummy.right
 
 
 

@@ -10,6 +10,7 @@ from typing import List,Optional
 # T: O(2 ^ n)
 class Solution:
     def allPossibleFBT(self, n: int) -> List[Optional[TreeNode]]:
+        # how many full trees we can create with given n and we cache it
         dp={}
         # returns the full bst with n nodes
         def backtrack(n):
@@ -20,14 +21,17 @@ class Solution:
             if n in dp:
                 return dp[n]
             res=[]
-            # one is used for root, n-1 for left,right
+            # 1 node is used for root. range does not include n since we use 1 for root, it is ok for us.
             for l in range(n):
+                # it is n-1 because in range max number is n-1 not n
                 r=n-l-1
                 # left_tree and right_tree are list of the fullbst
                 left_tree,right_tree=backtrack(l),backtrack(r)
-                # if left_tree=[] this will not run
+                # if left_tree=[] or right tree=[] this will not run
+                # we are going all combinations
                 for t1 in left_tree:
                     for t2 in right_tree:
+                        # left t1 and right t2
                         res.append(TreeNode(0,t1,t2))
             dp[n]=res
             return res

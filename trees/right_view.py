@@ -20,6 +20,7 @@ class Solution:
             for i in range(len(queue)):
                 current = queue.popleft()
                 right = current.val
+                # making sure current.left and right exists otherwise right would be assigned to None
                 if current.left:
                     queue.append(current.left)
                 if current.right:

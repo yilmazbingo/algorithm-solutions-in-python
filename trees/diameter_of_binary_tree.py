@@ -13,12 +13,12 @@ class Solution:
     def DiameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
         res=0
         # with recursion we start from bottom to top. so we visit each node once so T:O(N)
-        def dfs(root):
+        def post_order(root):
             if not root:
                 return -1
             # start from bottom
-            left=dfs(root.left)
-            right=dfs(root.right)
+            left=post_order(root.left)
+            right=post_order(root.right)
             nonlocal res
             # in reality height of a null tree, by convention is -1. because height of tree with single node is 0
             # that is why we add 1+1=2
@@ -26,5 +26,5 @@ class Solution:
             res=max(res,1+left+1+right)
             # max(left,right)+1 is the height of each node
             return 1+max(left,right)
-        dfs(root)
+        post_order(root)
         return res

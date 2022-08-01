@@ -20,14 +20,14 @@ class Solution:
         if not root:
             return True
         # left and right are boundaries
-        def dfs(node,left,right):
+        def pre_order(node,left,right):
             if not node:
                 return True
             if not (node.val>left and node.val<right):
                 return False
             # for left subtree, lower-boundary is still -inf, but right boundary is node.val
-            return dfs(node.left,left,node.val) and dfs(node.right,node.val,right)
-        return dfs(root, float("-inf"), float("+inf"))
+            return pre_order(node.left,left,node.val) and pre_order(node.right,node.val,right)
+        return pre_order(root, float("-inf"), float("+inf"))
 '''
     -inf < root.val < +inf
 when we move to the left, this must holds

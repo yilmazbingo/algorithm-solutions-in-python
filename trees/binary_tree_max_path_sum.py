@@ -6,6 +6,7 @@ A path in a binary tree is a sequence of nodes where each pair of adjacent nodes
 The path sum of a path is the sum of the node's values in the path.
 Given the root of a binary tree, return the maximum path sum of any path.
 '''
+# if we split twice it is not a path because we cannot go in two directions at once. that does not count as a path
 # O(n) becasue we are looking each node once. S:O(h) which is log(N) because it is balanced tree
 from TreeNode import TreeNode
 from typing import Optional
@@ -16,7 +17,7 @@ from each node, we are computing 2 values.
 compute this, so I could update the result
 2- we are going to 
 '''
-
+# we are starting from bottom up.
 class Solution:
     def maxPathSum(self, root: Optional[TreeNode]) -> int:
         # instead of nonlocal i could use res=[root.val]
@@ -24,9 +25,10 @@ class Solution:
         def post_order(root):
             if not root:
                 return 0
+            # what is the maximum path we can get from left side, if we never end up splitting
             left = post_order(root.left)
             right = post_order(root.right)
-            # if left or right is negative we do not want to add, we ignore it, so we hand 0 to root
+            # if left or right is negative we do not want to add, we ignore it, so we hand 0 to root. i m not talking about parent
             left_max = max(left, 0)
             right_max = max(right, 0)
             # if we split from root we cannot split again

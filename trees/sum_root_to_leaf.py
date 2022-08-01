@@ -11,7 +11,7 @@ A leaf node is a node with no children.
 from TreeNode import TreeNode
 class Solution:
     def sumNumbers(self,root:TreeNode):
-        # preorder. processing the
+        # preorder. processing the root first
         def dfs(cur_node,num):
             if not cur_node:
                 return 0

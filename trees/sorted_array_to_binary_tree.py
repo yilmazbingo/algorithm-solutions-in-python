@@ -11,14 +11,15 @@ A height-balanced binary tree is a binary tree in which the depth of the two sub
 from TreeNode import TreeNode
 class Solution:
     def toBST(self,values):
-        def dfs(l,r):
+        # I named this helper because dfs is for traversing tree or graph
+        def helper(l,r):
             # this happends when l=r=m and we still want to find root.left
             if r<l:
                 return None
             m=(l+r)//2
             root=TreeNode(values[m])
             # Attention that not till m, it is m-1
-            root.left=dfs(l,m-1)
-            root.right=dfs(m+1,r)
+            root.left=helper(l,m-1)
+            root.right=helper(m+1,r)
             return root
-        return dfs(0,len(values)-1)
+        return helper(0,len(values)-1)

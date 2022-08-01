@@ -1,11 +1,11 @@
 '''
+https://leetcode.com/problems/serialize-and-deserialize-binary-tree/
 Design an algorithm to serialize and deserialize a binary tree. There is no restriction on how your
 serialization/deserialization algorithm should work. You just need to ensure that a binary tree can be serialized to a
 string and this string can be deserialized to the original tree structure.
 
 Clarification: The input/output format is the same as how LeetCode serializes a binary tree. You do not necessarily
 need to follow this format, so please be creative and come up with different approaches yourself.
-
 '''
 from TreeNode import TreeNode
 class Codec:
@@ -27,7 +27,8 @@ class Codec:
 
     def deserialize(self,data):
         values=data.split(",")
-        def dfs():
+        # not dfs, helper. becuase dfs for traversing trees and graphs
+        def helper():
             if values[self.i]=="N":
                 self.i+=1
                 return None
@@ -35,7 +36,7 @@ class Codec:
             node=TreeNode(int(values[self.i]))
             # if it is not "N", we still have to increase the index
             self.i+=1
-            node.left=dfs()
-            node.right=dfs()
+            node.left=helper()
+            node.right=helper()
             return node
-        return dfs()
+        return helper()
