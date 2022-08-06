@@ -11,3 +11,7 @@ class Solution:
             temp.extend(c)
         temp.sort()
         return temp[ k -1]
+s=Solution()
+s.kthSmallest([[1,5,9],
+               [10,11,13],
+               [12,13,15]], k = 8)

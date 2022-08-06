@@ -14,7 +14,7 @@ Note that the same word in the dictionary may be reused multiple times in the se
 from typing import List
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
-        def dfs(word, memo={}):
+        def helper(word, memo={}):
             if word in memo:
                 return memo[word]
             if word == "":
@@ -22,12 +22,12 @@ class Solution:
             for w in wordDict:
                 if word.startswith(w):
                     suffix = word[len(w):]
-                    if dfs(suffix, memo):
+                    if helper(suffix, memo):
                         memo[suffix] = True
                         return True
             memo[word] = False
             return False
-        return dfs(s)
+        return helper(s)
 
 
 s=Solution()

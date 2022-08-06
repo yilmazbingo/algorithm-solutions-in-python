@@ -53,5 +53,22 @@ class Solution:
             #  with O(log n) push and O(log n) pop
             heappush(heap,e)
             if len(heap)>k:
+                # this is the critical part.
                 heappop(heap)
         return heappop(heap)
+
+import heapq
+class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        target=[]
+        for i in nums:
+            heapq.heappush(target,(i))
+            print(i)
+            if len(target)>k:
+                heapq.heappop(target)
+        print(target)
+        return target[0]
+
+s=Solution()
+s.findKthLargest([3,2,1,5,6,4], k = 2)
+

@@ -17,7 +17,7 @@ from typing import List
 - in each layer, neighbor nodes will be added to minHeap. minHeap gets us the min value in Log(N)
 - In meanHeap we keep (Path,Node). initially (0,1). it costs 0 to reach node 1
 '''
-
+# E is edges, V is vertices. NUmber of edges is about to be V ^ 2. So max size of heap could be V^2 because some of the nodes could be added multiple timesv
 # Every heap operation is Log(V^2). how many times are we going to do this operation. it is E=V^2 times
 #  so T: 2 * E * Log(V)
 
@@ -46,6 +46,7 @@ class Solution:
             for neighbor, cost2 in edges[node1]:
                 if neighbor not in visit:
                     # in min_heap I am keeping items based on cost
+                    # since it is min_heap, neighbors will be sorted based on path
                     heapq.heappush(min_heap, (cost1 + cost2, neighbor))
         return t if len(visit) == n else -1
 

@@ -19,6 +19,7 @@ class Solution:
         while len(res)!=len(nums):
             res.append(nums[left])
             left+=1
+            # if I did not add this check, when I am append the last element as left, I would add the same element as right
             if left<right:
                 res.append(nums[right])
                 right-=1

@@ -17,7 +17,9 @@ class Solution:
             mid=(left+right)//2
             # isBadVersion is part of the leetcode api
             if not isBadVersion(mid):
+                # if it is not bad, we do not include mid
                 left=mid+1
             else:
+                # if it is bad we include mid
                 right=mid
         return left # or right

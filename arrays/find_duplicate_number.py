@@ -6,14 +6,17 @@ You must solve the problem without modifying the array nums and uses only consta
 '''
 
 '''
-Convert the array to a linked list. There are n+1 position but only n values
+Convert the array to a linked list. There are n+1 position but only n values, think values as `pointers` 
      [1,3,4,2,2]     
       0,1,2,3,4
 Each index in the array points to array[value]. For example first index is 0 and its value is 1. 0 points to array[1] which is 3, second index=1 points to array[3]=2
      0 -> 3 -> 2 ->4      
                \
                 4
-Notice none of the elements after first index ever points to value at index 0. because our range is 1-n, it is guaranteed that 0 will not be the part of the cycle
+                
+ Notice 2 is the start of the cycle, 3 and 4 points to 2. 
+Notice none of the elements after first index ever points to value at index 0. because our range is 1-n, none of the values will be 0 so
+ it is guaranteed that 0 will not be the part of the cycle. so result will never be 0 is guaranteed. 
 '''
 # We have to apply Floyd's algorithm to find the cycle
 

@@ -5,10 +5,10 @@ with itself. For example, 1, 4, 9, and 16 are perfect squares while 3 and 11 are
 # similar to coin change
 # 12=4+4+4
 
-
+# if you draw the decision ther will be alot of repeated work. that is why it is dynamic programming
 class Solution:
     # botom up aproach, big problem n depends on the smaller subproblems. base case is n=0
-    # T =O(n * log(N)) not o(n^2) becase we stop when n^2 is greater than n
+    # T =O(n * square root of N7) not o(n^2) becase we stop when n^2 is greater than n
     def numSquares(self,n:int)->int:
         # first check if sqrt of n is equal to n
         if n==0:
@@ -27,6 +27,7 @@ class Solution:
                     break
                 # 1+dp[target-square] is number of squares that needed for the rest. +1 is for the number that is already calculated
                 # 5=1*1 + 2*2
+                # initially dp=[0,n,n,n,n ..............,n]. in the first time
                 dp[target]=min(dp[target],1+dp[target-square])
         return dp[n]
 

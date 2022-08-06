@@ -11,13 +11,14 @@ class Solution(object):
         #  list sort() has been using the Timsort algorithm since version 2.3. This algorithm has a runtime complexity of O(n. logn).
         people.sort()
         i,j=0, len(people)-1
-        count=0
+        boats=0
         while i<=j:
             if people[j]+people[i]<=limit:
-                count+=1
+                boats+=1
                 j-=1
                 i+=1
             else:
+                # if not just send one person with heavier
                 j-=1
-                count+=1
-        return count
+                boats+=1
+        return boats

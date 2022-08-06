@@ -15,6 +15,7 @@ Each time you can either climb 1 or 2 steps. In how many distinct ways can you c
 class Solution:
     def climbStairs(self, n: int) -> int:
         # THIS IS FIBONACCI SEQUENCE
+        # this is top to bottom approach. in the last and previous we can reach top at one 1 step.
         one,two=1,1
         # since we initialized one,two, we have to comupute only n-1 values.
         for i in range(n-1):

@@ -1,4 +1,4 @@
-'''
++'''
 322. Coin Change- Medium
 You are given an integer array coins representing coins of different denominations and an integer amount representing a total amount of money.
 
@@ -21,6 +21,7 @@ class Solution:
             for num in nums:
                 remainder = target - num
                 result = dfs(remainder)
+                # make sure not if result because result might be [] which yields to False
                 if result != None:
                     # combination = result+[num]
                     combination = [*result, num]

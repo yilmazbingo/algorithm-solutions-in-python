@@ -11,6 +11,7 @@ minCost(N) =cost(N) + min(min(cost(n-1), cost(n-2) )
 from typing import List
 # T:O(N), S:O(N) for min_cost and tabulation but runnnig tabulation mthod is faster with python %timeit on jupyter
 # tabulation_optimized: T:O(N) S:O(1)
+# Instead of recursive solution, with bottom-up aproach we solve with iteration so we remove the need for the call stack that comes with recursion. we will save space
 class Solution:
     def min_cost(self,nums:List[int])->int:
         # each step we ask what is the minimum cost to reach step "i"

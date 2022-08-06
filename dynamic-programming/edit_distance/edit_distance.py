@@ -13,17 +13,19 @@ Replace a character. Change one char into another
 class Solution:
     def minDistance(self, word1: str, word2: str) -> int:
         # store = [[float('inf')] * (len(word2) + 1) for _ in range(len(word1) + 1)]
+        # word2 determines the rows
         store = [[float("inf")] * (len(word2) + 1) for _ in range(len(word1) + 1)]
         # storing the base case. store[m+1][m+1] will be 0 when both are ""
         for i in range(len(word2) + 1):
             store[len(word1)][i] = len(word2) - i
         for j in range(len(word1) + 1):
             store[j][len(word2)] = len(word1) - j
-        # bottom up approach, because starting from base case
+        # bottom up approach, because if we start from beggininig, result would be depend on the sub problem so we start from sub problem
         # if chars are equal we dont do any operation.
         for i in range(len(word1) - 1, -1, -1):
             for j in range(len(word2) - 1, -1, -1):
                 if word1[i] == word2[j]:
+                    # if letters are equal, we forward the indices
                     store[i][j] = store[i + 1][j + 1]
                 else:
                     # min operation is replace

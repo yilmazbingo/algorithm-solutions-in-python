@@ -19,6 +19,7 @@ class Solution:
                 if s.startswith(word):
                     suffix = s[len(word):]
                     bubble_up_ways = dfs(suffix)
+                    # I include the parent node
                     combinations = [[*way, word] for way in bubble_up_ways]
                     if combinations:
                         # result.extend([" ".join(combination) for combination in combinations])

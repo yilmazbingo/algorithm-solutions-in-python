@@ -35,6 +35,7 @@ class Solution:
                 if target==s+num:
                     return True
                 dp.add(s+num)
+                # we dont want to lose all the original values in dp because next+current_in_set might equal to the total
                 dp.add(s)
             store=dp
         return False

@@ -1,3 +1,4 @@
+# https://leetcode.com/problems/word-search/
 # Given an m*n grid of characters board and string "Word" return true if word exists in the grid
 
 from typing import List
@@ -13,6 +14,7 @@ class Solution:
                 return True
             if r<0 or c<0 or r>=ROWS or c>=COLS or word[i]!=board[r][c] or (r,c) in path:
                 return False
+            # we cannot add [] to set. Un-hashable type
             path.add((r,c))
             # res is boolean
             res=(dfs(r+1,c,i+1) or

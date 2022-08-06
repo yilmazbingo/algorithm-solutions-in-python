@@ -30,6 +30,7 @@ class Solution:
         while len(queue) > 0:
             if current_queue_size == 0:
                 current_queue_size = len(queue)
+                # in every minute, each rotten turns the fresh to rotten.
                 minutes += 1
             current_orange = queue.popleft()
             current_queue_size -= 1

@@ -3,7 +3,13 @@ Given n non-negative integers a1, a2, ..., an , where each represents a point at
 n vertical lines are drawn such that the two endpoints of the line i is at (i, ai) and (i, 0).
 Find two lines, which, together with the x-axis forms a container, such that the container contains the most water.
 '''
-
+'''
+What happens if we move larger value b?
+- If "b=9" gets larger. it has no direct impact in our calculation. [4,8,1,2,3,9] becasue min would be same and width would get smaller
+    area= min(a,b) * (b-a)
+   If b was 12 calculation would be same. If larger number gets smaller, min changes so our are would be smaller if b=3
+   So we will be moving the smaller value
+'''
 from typing import List
 class Solution:
     def maxArea(self, height: List[int]) -> int:
@@ -14,6 +20,8 @@ class Solution:
             # min height is limiting factor. we dont want small height
             area = (r - l) * min(height[l], height[r])
             res = max(res, area)
+            # we are trying to maximize the area
+            # we are moving the smaller value in each case
             if height[l] < height[r]:
                 l += 1
             elif height[l] > height[r]:
