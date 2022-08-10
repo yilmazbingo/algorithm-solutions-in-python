@@ -12,7 +12,7 @@ class Solution:
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
         nums.sort()
         res = []
-        def dfs(nums, path):
+        def backtrack(nums, path):
             if len(nums) == 0:
                 res.append(path)
                 return
@@ -20,6 +20,6 @@ class Solution:
                 if i > 0 and nums[i]==nums[i-1]:
                     continue
                 # do not take ith element. path+[nums[i]] this creates a list so we dont need append the path.append()
-                dfs(nums[:i]+nums[i+1:], path+[nums[i]])
-        dfs(nums, [])
+                backtrack(nums[:i]+nums[i+1:], path+[nums[i]])
+        backtrack(nums, [])
         return res

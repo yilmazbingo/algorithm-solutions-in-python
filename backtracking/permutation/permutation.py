@@ -38,6 +38,7 @@ class Solution:
             if len(nums) == 0:
                 result.append(path)
                 return
+            # put the nums[i] aside and then ask what is the permutation of rest
             for i in range(len(nums)):
                 # nums[:0]=[]
                 dfs(nums[:i] + nums[i + 1:], path + [nums[i]])

@@ -10,6 +10,7 @@ of at least one of the chosen numbers is different. we do not want permutation
 It is guaranteed that the number of unique combinations that sum up to target is less than 150 combinations for the given input.
 '''
 # since they want unique combinations, normal decision wont work.
+# to guarantee the uniquness, if we add the first item, then we try to find the combinations without that item.
 
 # T:O(2^Target) one side we choose 2, other side we skip 2
 from typing import List
