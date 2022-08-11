@@ -18,6 +18,7 @@ There are 3 conditions:
 '''
 
 # T:O(2^n * m) because we either chose an element or not to choose. then we need to build the string. m is the length of the string
+# Look at the decision tree
 from typing import List
 from collections import Counter
 class Solution:
@@ -48,7 +49,7 @@ class Solution:
                 for c in arr[i]:
                     charset.remove(c)
             # res is if we process the current arr item and backrack(i+1) is if we skip it
-            # before we start to calculate the without it, we have to clean up the array
+            # before we start to calculate the without including the current item, we have to clean up the set
             return max(res, backtrack(i + 1))
         return backtrack(0)
 
