@@ -29,7 +29,7 @@ class Solution:
                 # if length is not 1, then first character should not be 0
                 if int(s[pos:i+1])<256 and (pos==i or s[pos]!="0"):
                     # each time we make a decison we already add 1 dot
-                    # attention updating index. always i+1 not pos+1
+                    # ATTENTION updating index. always i+1 not pos+1
                     backtrack(i+1,dots+1,curIP+s[pos:i+1]+".")
         backtrack(0,0,"")
         return res
