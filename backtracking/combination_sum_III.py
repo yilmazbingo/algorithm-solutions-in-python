@@ -16,8 +16,9 @@ class Solution:
             if target==0 and len(cur)==k:
                 res.append(cur.copy())
             # notice target<=0. instead of <, otherwise i would have another return statement above
-            if target<=0:
+            if len(cur) > k or target <= 0:
                 return
+            # watch out the range.
             for i in range(pos,len(nums)):
                 cur.append(nums[i])
                 backtrack(cur,i+1,target-nums[i])

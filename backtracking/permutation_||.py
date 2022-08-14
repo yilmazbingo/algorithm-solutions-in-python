@@ -2,9 +2,7 @@
 47. Permutations II
 Medium
 
-Share
 Given a collection of numbers, nums, that might contain duplicates, return all possible unique permutations in any order.
-
 '''
 
 from typing import List

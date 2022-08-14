@@ -16,7 +16,7 @@ class Solution:
                 return False
             # we cannot add [] to set. Un-hashable type
             path.add((r,c))
-            # res is boolean
+            # eventually one of those calls hit the base case and gets True
             res=(dfs(r+1,c,i+1) or
                  dfs(r-1,c,i+1) or
                  dfs(r,c+1,i+1) or
