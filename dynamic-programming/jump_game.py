@@ -8,9 +8,9 @@ from typing import List
 class Solution:
     def jump(self,nums:List):
         goal=len(nums)-1
-        # staring=len(nums)-1 and end at -1 since end is not inclusive, it will stop at the beginning
-        for i in range(len(nums)-1,-1,-1):
-            # nums[i] is the max jump length. haw mony indices we can jump
+        # staring=len(nums)-2 because we check from previous step if we can reach to the goal
+        for i in range(len(nums)-2,-1,-1):
+            # nums[i] is the max jump length. haw many indices we can jump
             if i+nums[i]>=goal:
                 goal=i
         return True if goal==0 else False

@@ -10,7 +10,6 @@ A knight can move in shape of L.
 # knight has a cetain probability based on where on the chessboard
 class Solution:
     def __init__(self):
-        self.res=0
         self.directions=[
                           [-2, -1],[-2, 1], [-1, 2],[1, 2], [2, 1],[2, -1],[1, -2],[-1, -2],
                         ]
@@ -26,7 +25,7 @@ class Solution:
                 return 1
             for dir in self.directions:
                 # attention: the order of row and col change
-                res += dfs(size, moves - 1, row + dir[0], col + dir[1]) / 8
+                res += dfs(size, moves - 1, col + dir[1], row + dir[0]) / 8
             memo[key]=res
             return memo[key]
         return dfs(size,moves,col,row)

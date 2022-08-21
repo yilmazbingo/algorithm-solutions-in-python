@@ -12,10 +12,9 @@ Replace a character. Change one char into another
 # we need to create patter for each operation
 class Solution:
     def minDistance(self, word1: str, word2: str) -> int:
-        # store = [[float('inf')] * (len(word2) + 1) for _ in range(len(word1) + 1)]
-        # word2 determines the rows
         store = [[float("inf")] * (len(word2) + 1) for _ in range(len(word1) + 1)]
         # storing the base case. store[m+1][m+1] will be 0 when both are ""
+        # converting "abc" to "" delete all. converting "" to "abc" insert all, "" to "" is 0.
         for i in range(len(word2) + 1):
             store[len(word1)][i] = len(word2) - i
         for j in range(len(word1) + 1):

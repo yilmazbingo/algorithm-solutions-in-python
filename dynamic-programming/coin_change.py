@@ -20,7 +20,7 @@ class Solution:
             shortest_combination = None
             for num in nums:
                 remainder = target - num
-                result = dfs(remainder)
+                result = dfs(remainder,memo)
                 # make sure not if result because result might be [] which yields to False
                 if result != None:
                     # combination = result+[num]

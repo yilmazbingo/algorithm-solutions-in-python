@@ -18,8 +18,6 @@ class Solution:
                 return nums[i]
             if i == 1:
                 return max(nums[0], nums[1])
-            # this is recurrence relation of minimum cost of climbing stairs. a little difference
-            #memo[i]=nums[i]+min(climbing(i-1,memo),climbing(i-2,memo))
             memo[i]=max(rob(i-1),rob(i-2)+nums[i])
             return memo[i]
         return max(rob(len(nums) - 1), rob(len(nums) - 2))

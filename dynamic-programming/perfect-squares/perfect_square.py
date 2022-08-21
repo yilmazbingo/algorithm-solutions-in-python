@@ -18,7 +18,7 @@ class Solution:
         # as we go, we calculate what is the minimum number of perfect squares does it take for us to get target
         # for n=12, dp=[0, 1, 2, 3, 1, 2, 3, 4, 2, 1, 2, 3, 3]
         dp=[n]*(n+1)
-        dp[0]=0
+        dp[0]=0 # this is base case
         # first for loop to decide how many perfect squares are there for dp[target]
         for target in range(1,n+1):
             for s in range(1,target+1):
