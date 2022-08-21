@@ -24,7 +24,6 @@ class Solution:
             if moves==0:
                 return 1
             for dir in self.directions:
-                # attention: the order of row and col change
                 res += dfs(size, moves - 1, col + dir[1], row + dir[0]) / 8
             memo[key]=res
             return memo[key]
