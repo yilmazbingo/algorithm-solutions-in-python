@@ -6,28 +6,34 @@ Return the porbability that the knight is on the chessboard after it finishes it
 
 A knight can move in shape of L.
 """
-
+"""
+usually dp questions are minimizing or maximizing. this is still dp because dp optimizes the process of generating all of the possible solution.
+Otherwise we could calculate all the possibilities. 
+"""
 # knight has a cetain probability based on where on the chessboard
 class Solution:
     def __init__(self):
         self.directions=[
                           [-2, -1],[-2, 1], [-1, 2],[1, 2], [2, 1],[2, -1],[1, -2],[-1, -2],
                         ]
-    def memoized(self,size,moves,col,row):
-        def dfs(size,moves,col,row,memo={}):
+    def knightProbability(self,size,moves,col,row):
+        def dfs(moves,col,row,memo={}):
             key=str(moves) + "," + str(row) + "," + str(col)
             res=0
             if key in memo:
                 return memo[key]
+            # it has to be row>=size becuase it moves 2 steps sometimes
             if row<0 or row>=size or col<0 or col>=size:
                 return 0
+            # if we are on chessboard, probablity is 1. if we have no more steps to take then we know we are on the chessboard.
+            # there is no other impack on probability anymore because there is no chance that we walk off the chessboard.
             if moves==0:
                 return 1
             for dir in self.directions:
-                res += dfs(size, moves - 1, col + dir[1], row + dir[0]) / 8
+                res += dfs(moves - 1, col + dir[1], row + dir[0]) / 8
             memo[key]=res
             return memo[key]
-        return dfs(size,moves,col,row)
+        return dfs(moves,col,row)
 
 
     ## I HAVE TO WORK ON THIS

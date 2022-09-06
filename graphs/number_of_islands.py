@@ -18,7 +18,7 @@ class Solution:
             count=0
             for row in range(ROWS):
                 for col in range(COLS):
-                    # make sure you are passing strings
+                    # make sure you are passing STRINGS
                     if grid[row][col]=="1":
                         count+=1
                         queue=deque()

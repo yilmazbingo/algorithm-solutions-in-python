@@ -11,27 +11,11 @@ class Node(object):
         self.val = val
         self.neighbors = neighbors if neighbors is not None else []
 class Solution:
-    def clone(self,node):
-        # we are using mapping to handle the relationship of node and its neighbors
-        old_to_new={}
-        # from start, we do till last item one way, when we reach the last, we pop out and do the reverse
-        def dfs(node):
-            if node in old_to_new:
-                # we return this and add it to the neighbors of the node. this is where we create it arrow into the node.  <--
-                return old_to_new[node]
-            copy=Node(node.val)
-            old_to_new[node]=copy
-            # we are copyigh the neighbors array
-            for nei in node.neighbors:
-                # dfs(nei) will create the copy of the neighbor and we append it to the node's neighbors
-                copy.neighbors.append(dfs(nei))
-            return copy
-        return dfs(node) if node else None
-
     def cloneGraph(self, node):
         if not node:
             return None
         queue = deque()
+        # this will be holding the graph copy
         clones = {}
         clones[node] = Node(node.val, [])
         queue.append(node)
@@ -41,5 +25,25 @@ class Solution:
                 if neighbor not in clones:
                     clones[neighbor] = Node(neighbor.val, [])
                     queue.append(neighbor)
+                # we are appending the reference of clones[neighbor] not creating a new value
                 clones[current].neighbors.append(clones[neighbor])
         return clones[node]
+
+    def clone(self, node):
+        # we are using mapping to handle the relationship of node and its neighbors
+        old_to_new = {}
+
+        # from start, we do till last item one way, when we reach the last, we pop out and do the reverse
+        def dfs(node):
+            if node in old_to_new:
+                # we return this and add it to the neighbors of the node. this is where we create it arrow into the node.  <--
+                return old_to_new[node]
+            copy = Node(node.val)
+            old_to_new[node] = copy
+            # we are copyigh the neighbors array
+            for nei in node.neighbors:
+                # dfs(nei) will create the copy of the neighbor and we append it to the node's neighbors
+                copy.neighbors.append(dfs(nei))
+            return copy
+
+        return dfs(node) if node else None

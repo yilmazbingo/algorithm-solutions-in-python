@@ -5,7 +5,26 @@
 # https://leetcode.com/problems/find-if-path-exists-in-graph/submissions/
 
 # n=nodes, e=edges , O:T(e), O:S(n)
-from collections import defaultdict
+from collections import defaultdict,deque
+
+class Solution:
+    def validPath(self,n,edges,source,target):
+        graph=self.build_graph(edges)
+        queue=deque()
+        queue.append(source)
+        visited=set()
+        while queue:
+            current=queue.popleft()
+            print("current",current)
+            if current==target:
+                return True
+            if current in visited:
+                continue
+            visited.add(current)
+            for neighbor in graph[current]:
+                if neighbor not in visited:
+                    queue.append(neighbor)
+        return False
 class Solution:
     def hasPath(self,edges,source,target):
         graph=self.buildgraph(edges)

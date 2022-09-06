@@ -9,13 +9,15 @@ from typing import List
 from collections import defaultdict
 import heapq
 # If I go from 0 -> 1 -> 3 that means I make only one stop at 1
+# we cannot use the Djikastra because we are given condition "with at most k stops"
+# IN bellman-ford I make n-1 bfs searches. i relex them n-1 times
 class Solution:
     def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, k: int) -> int:
         # defaultdict(<class 'dict'>, {0: {1: 100}, 1: {2: 100, 3: 600}, 2: {0: 100, 3: 200}})
         graph = defaultdict(dict)
         for source, dest, w in flights:
             graph[source][dest] = w
-        # 0 is cost
+        # we have to run k+1 times
         min_heap = [(0, src, k+1)]
         # visited[x] record the remaining steps to reach x with the lowest cost.
         # in djikastra, when visit a node we dont visit again, because when you popped out of heap, we already found the best distance

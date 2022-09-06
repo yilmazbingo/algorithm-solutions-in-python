@@ -10,7 +10,7 @@ Return the minimum cost to make all points connected. All points are connected i
 import heapq
 '''
 - We want to connect all nodes without creating cycle. This is called Minimum Spanning Algorithm. we need (n-1) edges
-- minimum spanning tree for the graph, which is a tree that connects all nodes in the graph and has the least total cost among all trees that connect all the nodes.
+- MST for the graph, which is a tree that connects all nodes in the graph and has the least total cost among all trees that connect all the nodes.
 - Prim's algorithm solves this with the minimum cost of the edges
 - use manhattan distance as cost=[x1-x2]+[y1-y2]
 '''

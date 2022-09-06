@@ -1,4 +1,5 @@
 '''
+There is an undirected graph with n nodes, where each node is numbered between 0 and n - 1.
 785. Medium Is Graph Bipartite?
 '''
 # a bipartite graph is a graph whose vertices can be divided into two disjoint and independent sets U and V such that every edge connects a vertex in U to one in V.
@@ -7,7 +8,7 @@ from collections import deque
 class Solution:
     def isBipartite(self, graph: List[List[int]]) -> bool:
         N = len(graph)
-        # i need to group each noe
+        # ALWAYS WHEN WORKING UNDIRECTED GRAPH, MAKE SURE YOU DO NOT REVISIT
         colors = [-1] * N
         # in case it is unconnected, make sure i touch each vertex
         for i in range(N):
@@ -25,7 +26,7 @@ class Solution:
                     for neighbor in graph[node]:
                         # neighbors should be different color. ^ is XOR
                         queue.append((neighbor, color ^ 1))
-                # incase somethingelse changed it
+                # incase somethingelse changed it. this might be cuase by other unccnnected part
                 if colors[node] != color:
                     return False
         return True

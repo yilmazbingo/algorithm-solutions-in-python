@@ -15,6 +15,7 @@ class Solution:
         # always decide what recursive function will return
         def dfs(node):
             if node in visited:
+                # that means we alredy run dfs and we got result
                 return 0
             visited.add(node)
             # this is the size of the current node

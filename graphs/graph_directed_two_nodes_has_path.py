@@ -1,4 +1,4 @@
-# Given a directed graph, design an algorithm to find out whether there is a route between two nodes s and t.
+# Given a DIRECTED graph, design an algorithm to find out whether there is a route between two nodes s and t.
 # https://www.lintcode.com/problem/176/
 
 """
