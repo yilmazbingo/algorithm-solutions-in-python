@@ -45,9 +45,7 @@ class Solution:
         first=nums[0]
         second=nums[1]
         for i in range(2,len(nums)):
-            temp=second
-            second=nums[i]+min(first,second)
-            first=temp
+            first, two = two, nums[i] + min(first, two)
         return min(first,second)
 
 

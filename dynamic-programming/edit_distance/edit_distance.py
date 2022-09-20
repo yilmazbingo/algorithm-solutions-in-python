@@ -24,14 +24,14 @@ class Solution:
         for i in range(len(word1) - 1, -1, -1):
             for j in range(len(word2) - 1, -1, -1):
                 if word1[i] == word2[j]:
-                    # if letters are equal, we forward the indices
+                    # if letters are equal, we forward the indices and number of operation is 0
                     store[i][j] = store[i + 1][j + 1]
                 else:
                     # min operation is replace
                     # word1=abd, word2=acd     replace             inserting         deleting
-                    # if we insert "c" to "abd" when i is at "b". pointer will still at b. but we handled "C, so we move j by 1
-                    # if I delete "b" from word1, i will shift the "i", but j will remain because we are looking for its mathc
-                    # if we replace, means we handle the chars in both words so we move forward
+                    # if we insert "c" to "abd" when i is at "b". pointer will still at b(acbd). but we handled "C, so we move j by 1 store[i][j + 1]
+                    # if I delete "b" from word1, I will shift the "i", but j will remain because we are looking for its mathc store[i + 1][j])
+                    # if we replace, means we handle the chars in both words so we move forward.
                     store[i][j] = 1 + min(store[i + 1][j + 1], store[i][j + 1], store[i + 1][j])
         return store[0][0]
 

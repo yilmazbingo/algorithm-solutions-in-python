@@ -1,7 +1,8 @@
 '''
 Medium- Given a triangle array, return the minimum path sum from top to bottom.
  triangle = [[2],[3,4],[6,5,7],[4,1,8,3]]
-For each step, you may move to an adjacent number of the row below. More formally, if you are on index i on the current row, you may move to either index i or index i + 1 on the next row.
+For each step, you may move to an adjacent number of the row below. More formally, if you are on index i on the current row
+you may move to either index i or index i + 1 on the next row.
 '''
 # for each step, you may move to an adjacent number on the row below.
 # Memory complexity is O(n). n is the length of array. Because to calculate the min value, we need to keep reference to the lower level

@@ -10,14 +10,13 @@ Given the root of a binary tree, return the maximum path sum of any path.
 # O(n) becasue we are looking each node once. S:O(h) which is log(N) because it is balanced tree
 from TreeNode import TreeNode
 from typing import Optional
-# path means we cannot tsplit twice if we split from root we cannot split again
+# path means we cannot split twice if we split from root we cannot split again
 '''
 from each node, we are computing 2 values. 
 1- what is the max sum, if we are allowed to split. then we ask its children, what is the max we can get without splitting. this is not the value that i return parent. the reaoson I
 compute this, so I could update the result
 2- we are going to 
 '''
-# we are starting from bottom up.
 class Solution:
     def maxPathSum(self, root: Optional[TreeNode]) -> int:
         # instead of nonlocal i could use res=[root.val]
@@ -31,7 +30,7 @@ class Solution:
             # if left or right is negative we do not want to add, we ignore it, so we hand 0 to root. i m not talking about parent
             left_max = max(left, 0)
             right_max = max(right, 0)
-            # if we split from root we cannot split again
+            # if we split from root (means any parent node) we cannot split again
             # compute max with splitting to update the res. basically i am saying, what would be happend if I disconnect with root.
             nonlocal res
             res = max(root.val + left_max + right_max, res)

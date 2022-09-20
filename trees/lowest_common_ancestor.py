@@ -36,7 +36,6 @@ class Solution:
             # If any two of the three flags left, right or mid become True.
             if mid + left + right >= 2:
                 self.ans = current_node
-
             # Return True if either of the three bool values is True.
             return mid or left or right
 

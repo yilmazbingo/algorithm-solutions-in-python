@@ -9,7 +9,6 @@ Return true if you can finish all courses. Otherwise, return false.
 # We cannot finish courses if we have some kind of cycle. if 3->4 and 4->3
 #if oyu hear there is some type of relationship between pairs of somehing inside of a question, it is most likely they are defining the relationship between two vertices
 # because that relationship is dictated as an edge.
-# When we are looking for a cycle, start from a some node and perform a traversal, while performing traversal if we ever make it back to a node that we have seen before, then we know we hav a cycle
 
 from typing import List
 from collections import deque

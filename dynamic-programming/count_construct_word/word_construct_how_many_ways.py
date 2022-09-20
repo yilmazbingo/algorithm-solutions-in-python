@@ -5,7 +5,6 @@ class Solution:
         count=0
         if target=='':
             return 1
-
         for word in words:
             if target.startswith(word):
                 suffix=target[len(word):]

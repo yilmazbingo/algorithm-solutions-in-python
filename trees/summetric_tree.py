@@ -8,6 +8,7 @@ from typing import Optional
 from TreeNode import TreeNode
 class Solution:
     def isSymmetric(self, root: Optional[TreeNode]) -> bool:
+        # since I need different args I set a different recursion function
         def is_mirror(t1,t2):
             # this is when I hit the leaf nodes
             if t1 is None and t2 is None:

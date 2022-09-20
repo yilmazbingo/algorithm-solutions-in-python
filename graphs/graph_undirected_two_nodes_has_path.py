@@ -15,7 +15,6 @@ class Solution:
         visited=set()
         while queue:
             current=queue.popleft()
-            print("current",current)
             if current==target:
                 return True
             if current in visited:
@@ -29,7 +28,6 @@ class Solution:
     def hasPath(self,edges,source,target):
         graph=self.buildgraph(edges)
         def dfs(source,visited):
-            # in dfs, we isolate each node from entire graph
             if source in visited:
                 return False
             visited.add(source)

@@ -6,7 +6,7 @@ class Solution:
     def has_path_sum(self,root:TreeNode,target:int)->bool:
         def preorder(node,cur):
             if node is None:
-                return False
+                return
             cur+=node.val
             # when it hits leaf node, traverse stops
             if cur==target and node.left is None and node.right is None:

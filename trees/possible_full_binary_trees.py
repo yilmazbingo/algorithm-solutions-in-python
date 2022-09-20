@@ -24,7 +24,7 @@ class Solution:
             # 1 node is used for root. range does not include n since we use 1 for root, it is ok for us.
             for l in range(n):
                 # it is n-1 because in range max number is n-1 not n
-                r=n-l-1
+                r=n-1-l
                 # left_tree and right_tree are list of the fullbst
                 left_tree,right_tree=backtrack(l),backtrack(r)
                 # if left_tree=[] or right tree=[] this will not run

@@ -6,15 +6,12 @@ First thing we need to look at is a vertex in isolation. Every vertex in isolati
 applies as long as the vertex is within a Directed Acyclic Graph. Because if a graph is cyclic, there would be no vertex with the indegee of 0. because topological sort 
 starts with the vertices whose indegree is 0. 
 
-
-**Indegree Value:** It is essentially represented as how many connections are coming into this vertex. 
-
-**Topological Sort:**
+## Topological Sort
 - It is a liner ordering of vertices such that for every directed edge UV(U->V), vertex U comes before vertex V in the ordering
 - In the topological sort, you have to write first whichever comes first. Topological sort starts with the vertices 
-whose indegree is 0. Vertices has outdefree value 0 comes last. 
+whose in-degree is 0. Vertices has out-degree value 0 comes last. 
 - when you get a directed graph, you want to figure out what every vertex's indegree value. 
-- the way that the topological sort works is that you can only take a vertex and its value as long as its indegree value is zero.
+- the way that the topological sort works is that you can only take a vertex and its value as long as its in-degree value is zero.
 But once you take it, then you want to remove it from the graph. 
    This will reduce the indegree value of any nodes that it is directing into and then those nodes become open for us
 to take as a next value. Because there may be multiple values where the indegree value is zer0, you can take them in whichever

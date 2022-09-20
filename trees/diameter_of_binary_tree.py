@@ -15,6 +15,7 @@ class Solution:
         # with recursion we start from bottom to top. so we visit each node once so T:O(N)
         def post_order(root):
             if not root:
+                # height of null tree is -1
                 return -1
             # start from bottom
             left=post_order(root.left)

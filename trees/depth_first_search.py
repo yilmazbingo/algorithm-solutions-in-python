@@ -7,6 +7,7 @@ from typing import List
      /  \      \
     d    e      f
 '''
+# INORDER, PREORDER, POSTORDER
 class Solution:
     # we go left as far as we can, iw we cannot go left, we go right, if we cannot go right we are gonna backtrack
     def dfs(self,root:TreeNode)->List[int]:

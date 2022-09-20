@@ -24,7 +24,7 @@ class Solution:
             for neighbor in graph[node]:
                 # dfs's job is to add the node into the set
                 dfs(neighbor)
-            # let's say i have 3 nodes 1 => 2 => 3. in call stack dfs(1), dfs(2), dfs(3).
+            # When there is no more node left return True
             return True
         # explore all the neightbors of nodes. we use for loop if graph might have disconnected parts
         for node in graph:

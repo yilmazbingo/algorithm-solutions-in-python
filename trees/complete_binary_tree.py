@@ -21,7 +21,7 @@ def countNodes(self, root: Optional[TreeNode]) -> int:
             return 0
         return dfs(node.left) + dfs(node.right) + 1
     return dfs(root)
-#O(log(N)*log(N))
+#O(log(N)*log(N)) we have log(N) subpromlems ans each sub problem we calculate the height which is log(N)
 class Solution:
     def countNodes(self, root: Optional[TreeNode]) -> int:
         # this will count left extreme depth
@@ -33,10 +33,12 @@ class Solution:
             if not node: return 0
             return 1+right_height(node.right)
         left,right=left_height(root),right_height(root)
-        # But if the two depth is not the same, then recursively solve the problem, which is divide, countNodes for the left subtree and the right subtree, sum up and plus 1.
+        # But if the two depth is not the same, then recursively solve the problem,
+        # countNodes for the left subtree and the right subtree, sum up and plus 1.
         # we are actually dividing and counting the divisions. because some parts will be perfect binary tree and we will be using the formula
         if left>right:
             return 1+self.countNodes(root.left)+self.countNodes(root.right)
         else:
             # this is complete balanced tree or perfect binary tree where all positions are filled. left is height here
+            # becaus in complete tree, left is deeper
             return (2**left)-1

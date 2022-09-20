@@ -14,14 +14,15 @@ import heapq
 class Solution:
     def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, k: int) -> int:
         # defaultdict(<class 'dict'>, {0: {1: 100}, 1: {2: 100, 3: 600}, 2: {0: 100, 3: 200}})
-        graph = defaultdict(dict)
+        graph = defaultdict(dict) # PAY ATTENTION TO DICT
         for source, dest, w in flights:
             graph[source][dest] = w
-        # we have to run k+1 times
+        # we have to run k+1 times. because flight from 0 to 1 has 0 stops
+        # heap items should be in tuple
         min_heap = [(0, src, k+1)]
         # visited[x] record the remaining steps to reach x with the lowest cost.
-        # in djikastra, when visit a node we dont visit again, because when you popped out of heap, we already found the best distance
-        # we might prefer to get to a node with the longer distance but fewer stop
+        # in djikastra, when visit a node we dont visit again, because when you popped out of heap, it is guaranteed that we already found the best distance
+        # but here we might prefer to get to a node with the longer distance but fewer stops
         visited = [0] * n
         while min_heap:
             current_cost, current_node, current_k = heapq.heappop(min_heap)

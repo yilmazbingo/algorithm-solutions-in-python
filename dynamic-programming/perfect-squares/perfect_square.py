@@ -28,6 +28,7 @@ class Solution:
                 # 1+dp[target-square] is number of squares that needed for the rest. +1 is for the number that is already calculated
                 # 5=1*1 + 2*2
                 # initially dp=[0,n,n,n,n ..............,n]. in the first time
+                # target-square is previous
                 dp[target]=min(dp[target],1+dp[target-square])
         return dp[n]
 

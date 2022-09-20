@@ -16,8 +16,8 @@ class Solution:
                 return None
             inorder(node.left)
             # Python determines the scope of objects at compile-time, not at run-time.
+            # this is the smallest value of bst
             nonlocal cursor
-            # because we are creating a different data structure, we use the value
             cursor.right =TreeNode(node.val)
             cursor =cursor.right
             inorder(node.right)
