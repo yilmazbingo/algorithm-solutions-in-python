@@ -16,3 +16,5 @@ class Solution:
                 if nums[j] < nums[i]:
                     counts[i] = max(counts[i], counts[j] + 1)
         return max(counts)
+# [10,9,2,5,3,7,101,18]
+# [2,3,7,101]

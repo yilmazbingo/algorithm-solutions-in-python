@@ -1,6 +1,5 @@
 '''
 45.Medium Jump Game II
-
 Given an array of non-negative integers nums, you are initially positioned at the first index of the array.
 Each element in the array represents your maximum jump length at that position.
 

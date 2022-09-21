@@ -13,6 +13,7 @@ class Solution:
         # we have to pass an iterable to set
         P = set([nums[0]])
         for x in nums[1:]:
+            # Set changed size during iteration if I did not use list(P)
             for y in list(P):
                 P.add(x+y)
         return t in P
