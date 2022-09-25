@@ -1,3 +1,9 @@
+'''
+Given an m x n integers matrix, return the length of the longest increasing path in matrix.
+
+From each cell, you can either move in four directions: left, right, up, or down.
+You may not move diagonally or move outside the boundary (i.e., wrap-around is not allowed).
+'''
 from typing import List
 
 class Solution:
@@ -14,15 +20,17 @@ class Solution:
 
             return i < 0 or j < 0 or i == rows or j == cols
         def dfs(i, j):
-
+            # checks whether that index has already been calculated or not with the dp
             if dp[i][j] != -1:
                 return dp[i][j]
+            # if it is not calculated, run for loop
             dp[i][j] = 1
-            for dx, dy in dirs:
-                r, c = i + dx, j + dy
+            for dir in dirs:
+                r, c = i + dir[0], j + dir[1]
                 if not invalid(r, c) and matrix[r][c] > matrix[i][j]:
+                    # if next coord is greater add 1 and then call dfs
+                    # all 4 neighbors will get a result. store the max one
                     dp[i][j] = max(dp[i][j], 1 + dfs(r, c))
-
             return dp[i][j]
 
         c = 0
